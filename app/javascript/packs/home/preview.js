@@ -48,5 +48,4 @@
     hookImg: 'js-sub-image',
     hookNoImg: 'js-sub-no-img'
   })
-
 })();
