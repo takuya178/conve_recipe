@@ -1,5 +1,14 @@
 class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
+
+  before_action :require_login
+
+  private
+
+  def not_authenticated
+    flash[:info] = 'ログインしてください'
+    redirect_to login_path
+  end
     # protect_from_forgery with: :exception
     # rescue_from Exception, with: :error_500
     # rescue_from ActionController::RoutingError, with: :error_404

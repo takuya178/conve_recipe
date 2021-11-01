@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2021_10_11_031841) do
   create_table "food_combinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "main_id", null: false
     t.bigint "sub_id", null: false
-    t.integer "stores", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["main_id"], name: "index_food_combinations_on_main_id"
@@ -55,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_10_11_031841) do
     t.string "name", null: false
     t.string "image"
     t.integer "genre", default: 0, null: false
+    t.integer "stores", default: 0, null: false
     t.integer "calorie", null: false
     t.float "sugar", null: false
     t.float "lipid", null: false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_10_11_031841) do
   create_table "subs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "image"
+    t.integer "stores", default: 0, null: false
     t.integer "calorie", null: false
     t.float "sugar", null: false
     t.float "lipid", null: false
