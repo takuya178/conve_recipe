@@ -1,0 +1,59 @@
+<% if current_page?(mains_path) %>
+  <div class="food_top">
+    <div class="container">
+      <%= render 'shared/component_btn', url: mains_path %>
+      <%= paginate @mains %> 
+      <div class="row">
+        <% @mains.each do |main| %>
+          <div class="col-md-6">
+            <div class="card mx-auto mb-5 food-card">
+              <% if main.image.attached? %>
+                <%= image_tag main.image %>
+              <% else %>
+                <%= image_pack_tag("media/images/noimage.jpg") %>
+              <% end %>
+              <div class="card-body">
+                <p><%= main.name %></p>
+                <p>炭水化物：<%= main.sugar %>g</p>
+                <p>脂質：<%= main.lipid %>g</p>
+                <p>塩分：<%= main.salt %>g</p>
+                <p>カロリー：<%= main.calorie %>cal</p>
+                <%= link_to '詳細ぺーじ', main_path(main) %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <%= paginate @mains %> 
+    </div>
+  </div>  
+<% elsif current_page?(subs_path) %>               
+  <div class="food_top">
+    <div class="container">
+      <%= render 'shared/component_btn', url: subs_path %>
+      <%= paginate @subs %> 
+      <div class="row">
+        <% @subs.each do |sub| %>
+          <div class="col-md-6">
+            <div class="card mx-auto mb-5 food-card">
+              <% if sub.image.attached? %>
+                <%= image_tag sub.image %>
+              <% else %>
+                <%= image_pack_tag("media/images/noimage.jpg") %>
+              <% end %>
+              <div class="card-body">
+                <p><%= sub.name %></p>
+                <p>糖質：<%= sub.sugar %>g</p>
+                <p>脂質：<%= sub.lipid %>g</p>
+                <p>塩分：<%= sub.salt %>g</p>
+                <p>カロリー：<%= sub.calorie %>cal</p>
+                <%= link_to '詳細ぺーじ', sub_path(sub) %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <%= paginate @subs %> 
+    </div>
+  </div>
+<% end %>

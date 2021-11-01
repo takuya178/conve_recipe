@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   resources :food_combinations, only: %i[index] do
     collection do
       get 'select', to: 'food_combinations/select'
-      resources :mains
-      resources :subs, only: %i[index]
+      resources :mains, only: %i[index new create show] 
+      resources :subs, only: %i[index show]
     end
   end
 

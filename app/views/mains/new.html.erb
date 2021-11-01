@@ -4,46 +4,52 @@
       <div class="food_create_main">
           <h2 class="food_create_title">メイン</h2>
           <div class="food_create_form_box p-4">
-            <div class="input-form">
-            <label class="d-block">
-              <span class="btn p-2 w-100 food_create_img_btn">
-                <i class="fas fa-camera-retro"></i> 画像を選択する
-                <%= f.file_field :image, class: "form-control", style: "display:none" %>
-              </span>
-            </label>
-              <div id="js-main-image" class="text-center"></div>
-              <div class="food_create_no_img_box text-center" style="display: block;" id= "js-main-no-img"><%= image_pack_tag("media/images/noimage.jpg", class: 'food_create_no_img') %></div>
-              <%= render 'shared/error_messages', object: f.object, text: :image %>
+            <div class="food_create_row row">
+              <div class="food_create_image_explanation col-lg-4">
+                <p>画像形式: JPEG/PNG</p>
+                <p>容量: 5MB以内</p>
+              </div>
+              <div class="input-form col-lg-8">
+                <label class="d-block">
+                  <span class="btn p-2 w-100 food_create_img_btn">
+                    <i class="fas fa-camera-retro"></i> 画像を選択する
+                    <%= f.file_field :image, class: "form-control", style: "display:none" %>
+                  </span>
+                </label>
+                  <div id="js-main-image" class="text-center"></div>
+                  <div class="food_create_no_img_box text-center" style="display: block;" id= "js-main-no-img"><%= image_pack_tag("media/images/noimage.jpg", class: 'food_create_no_img') %></div>
+                  <%= render 'shared/error_messages', object: f.object, text: :image %>
+              </div>
             </div>
             <div class="food_create_form">
-              <label class="food_create_label">
+              <label class="food_create_label food_create_label">
               <%= f.text_field :name, placeholder: "メイン食品名" %>
               </label>
               <%= render 'shared/error_messages', object: f.object, text: :name %>
             </div>
             <div class="food_create_form">
-              <label class="food_create_label">
+              <label class="food_create_label food_create_label">
                 <%= f.text_field :calorie, placeholder: "カロリー" %>
               </label>
               <span>cal</span>
               <%= render 'shared/error_messages', object: f.object, text: :calorie %>
             </div>
             <div class="food_create_form">
-              <label class="food_create_label">
+              <label class="food_create_label food_create_label">
                 <%= f.text_field :sugar, placeholder: "炭水化物" %>
               </label>
               <span>g</span>
               <%= render 'shared/error_messages', object: f.object, text: :sugar %>
             </div>
             <div class="food_create_form">
-              <label class="food_create_label">
+              <label class="food_create_label food_create_label">
                 <%= f.text_field :lipid, placeholder: "脂質" %>
               </label>
               <span>g</span>
               <%= render 'shared/error_messages', object: f.object, text: :lipid %>
             </div>
             <div class="food_create_form">
-              <label class="food_create_label">
+              <label class="food_create_label food_create_label">
                 <%= f.text_field :salt, placeholder: "塩分" %>
               </label>
               <span>g</span>
@@ -61,45 +67,53 @@
         <h2 class="food_create_title">プラス一品</h2>
         <div class="food_create_form_box p-4">
           <div class="input-form">
-            <label class="d-block">
-              <span class="btn p-2 w-100 food_create_img_btn">
-                <i class="fas fa-camera-retro"></i> 画像を選択する
-                <%= sub.file_field :image, class: "form-control", style: "display:none" %>
-              </span>
-            </label>
-            <div id="js-sub-image" class="text-center"></div>
-            <div class="food_create_no_img_box text-center" style="display: block;" id= "js-sub-no-img"><%= image_pack_tag("media/images/noimage.jpg", class: 'food_create_no_img') %></div>
-            <%= render 'shared/error_messages', object: sub.object, text: :image %>
+            <div class="food_create_row row">
+              <div class="food_create_image_explanation col-lg-4">
+                <p>画像形式: JPEG/PNG</p>
+                <p>容量: 5MB以内</p>
+              </div>
+              <div class="input-form col-lg-8">
+                <label class="d-block">
+                  <span class="btn p-2 w-100 food_create_img_btn">
+                    <i class="fas fa-camera-retro"></i> 画像を選択する
+                    <%= sub.file_field :image, class: "form-control", style: "display:none" %>
+                  </span>
+                </label>
+                <div id="js-sub-image" class="text-center"></div>
+                <div class="food_create_no_img_box text-center" style="display: block;" id= "js-sub-no-img"><%= image_pack_tag("media/images/noimage.jpg", class: 'food_create_no_img') %></div>
+                <%= render 'shared/error_messages', object: sub.object, text: :image %>
+              </div>
+            </div>
           </div>
           <div class="food_create_form">
-            <label class="food_create_label">
+            <label class="food_create_label food_create_label">
             <%= sub.text_field :name, placeholder: "プラス一品" %>
             </label>
             <%= render 'shared/error_messages', object: sub.object, text: :name %>
           </div>
           <div class="food_create_form">
-            <label class="food_create_label">
+            <label class="food_create_label food_create_label">
             <%= sub.text_field :calorie, placeholder: "カロリー" %>
             </label>
             <span>cal</span>
             <%= render 'shared/error_messages', object: sub.object, text: :calorie %>
           </div>
           <div class="food_create_form">
-            <label class="food_create_label">
+            <label class="food_create_label food_create_label">
             <%= sub.text_field :sugar, placeholder: "炭水化物" %>
             </label>
             <span>g</span>
             <%= render 'shared/error_messages', object: sub.object, text: :sugar %>
           </div>
           <div class="food_create_form">
-            <label class="food_create_label">
+            <label class="food_create_label food_create_label">
             <%= sub.text_field :lipid, placeholder: "脂質" %>
             </label>
             <span>g</span>
             <%= render 'shared/error_messages', object: sub.object, text: :lipid %>
           </div>
           <div class="food_create_form">
-            <label class="food_create_label">
+            <label class="food_create_label food_create_label">
             <%= sub.text_field :salt, placeholder: "塩分" %>
             </label>
             <span>g</span>
