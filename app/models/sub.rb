@@ -3,6 +3,8 @@ class Sub < ApplicationRecord
   has_many :mains, through: :food_combinations
   has_one_attached :image
 
+  enum stores: { seven: 0, lawson: 1, family: 2 }
+
   include FoodValidate
 
   validate :image_content_type, :image_size, if: :was_attached?

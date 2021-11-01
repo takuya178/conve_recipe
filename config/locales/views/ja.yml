@@ -27,9 +27,19 @@ ja:
     select:
       title: '成分&ジャンルを選択'
   enums:
-    food_combination:
+    main:
       stores:
         seven: 'セブン-イレブン'
         lawson: 'LAWSON'
+        family: 'FamilyMart'
+      genre:
+        noodle: '麺類'
+        rice: 'ご飯類'
+    sub:
+      stores:
+        seven: 'セブン-イレブン'
+        lawson: 'LAWSON'
+        family: 'FamilyMart'
+    
 
   

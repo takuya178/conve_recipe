@@ -3,6 +3,7 @@ class CreateSubs < ActiveRecord::Migration[6.0]
     create_table :subs do |t|
       t.string :name, null: false
       t.string :image
+      t.integer :stores, null:false,  default: 0
       t.integer :calorie, null: false
       t.float :sugar, null: false
       t.float :lipid, null: false

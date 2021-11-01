@@ -3,6 +3,14 @@ ja:
     models:
       user: 'ユーザー'
     attributes:
+      user:
+        name: '名前'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+      user_session:
+        email: 'メールアドレス'
+        password: 'パスワード'
       inquiry:
         message: 'お問合せ内容'
       main:

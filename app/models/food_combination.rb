@@ -3,8 +3,6 @@ class FoodCombination < ApplicationRecord
   belongs_to :main
   belongs_to :sub
 
-  enum stores: { seven: 0, lawson: 1 }
-
   def get_sugar
     { '組み合わせ成分値': sprintf("%.1f", main.sugar + sub.sugar) }
   end

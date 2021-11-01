@@ -4,6 +4,9 @@ class Main < ApplicationRecord
   has_one_attached :image
   accepts_nested_attributes_for :subs, allow_destroy: true
 
+  enum genre: { noodle: 0, rice: 1 }
+  enum stores: { seven: 0, lawson: 1, family: 2 }
+
   include FoodValidate
 
   validate :image_content_type, :image_size, if: :was_attached?
@@ -24,5 +27,4 @@ class Main < ApplicationRecord
       end
   end
 
-  enum genre: { noodle: 0, rice: 1 }
 end
