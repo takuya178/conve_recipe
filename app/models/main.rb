@@ -5,7 +5,7 @@ class Main < ApplicationRecord
   accepts_nested_attributes_for :subs, allow_destroy: true
 
   enum genre: { noodle: 0, rice: 1 }
-  enum stores: { seven: 0, lawson: 1, family: 2 }
+  enum stores: { seven: 0, lawson: 1, family: 2 }, _prefix: true
 
   include FoodValidate
 

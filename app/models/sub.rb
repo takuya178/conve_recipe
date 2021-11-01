@@ -3,7 +3,7 @@ class Sub < ApplicationRecord
   has_many :mains, through: :food_combinations
   has_one_attached :image
 
-  enum stores: { seven: 0, lawson: 1, family: 2 }
+  enum stores: { seven: 0, lawson: 1, family: 2 }, _prefix: true
 
   include FoodValidate
 
