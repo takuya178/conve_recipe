@@ -1,21 +1,21 @@
 <div class="food_top">
   <div class="container"> 
-    <% unless @main.subs.empty? %>
+    <% unless @sub.mains.empty? %>
     <div class="row">
-      <% @main.subs.each do |sub| %>
+      <% @sub.mains.each do |main| %>
         <div class="col-md-6">
           <div class="card mx-auto mb-5 food-card">
-            <% if sub.image.attached? %>
-              <%= image_tag sub.image %>
+            <% if main.image.attached? %>
+              <%= image_tag main.image %>
             <% else %>
               <%= image_pack_tag("media/images/noimage.jpg") %>
             <% end %>
             <div class="card-body">
-              <p><%= sub.name %></p>
-              <p>糖質：<%= sub.sugar %>g</p>
-              <p>脂質：<%= sub.lipid %>g</p>
-              <p>塩分：<%= sub.salt %>g</p>
-              <p>カロリー：<%= sub.calorie %>cal</p>
+              <p><%= main.name %></p>
+              <p>糖質：<%= main.sugar %>g</p>
+              <p>脂質：<%= main.lipid %>g</p>
+              <p>塩分：<%= main.salt %>g</p>
+              <p>カロリー：<%= main.calorie %>cal</p>
             </div>
           </div>
         </div>
