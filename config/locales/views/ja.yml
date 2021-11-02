@@ -26,6 +26,18 @@ ja:
       title: '成分の多い組み合わせ一覧'
     select:
       title: '成分&ジャンルを選択'
+  mains:
+    index:
+      title: 'メイン食品一覧'
+    new:
+      title: '組み合わせ作成'
+    show:
+      title: '組み合わせ詳細'
+  subs:
+    index:
+      title: 'サブ食品一覧'
+    show:
+      title: '組み合わせ詳細'
   enums:
     main:
       stores:
@@ -33,6 +45,7 @@ ja:
         lawson: 'LAWSON'
         family: 'FamilyMart'
       genre:
+        nil: 'ジャンルを選択'
         noodle: '麺類'
         rice: 'ご飯類'
     sub:
