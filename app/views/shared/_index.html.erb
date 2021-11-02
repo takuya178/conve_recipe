@@ -5,7 +5,7 @@
       <%= paginate @mains %> 
       <div class="row">
         <% @mains.each do |main| %>
-          <div class="col-lg-6">
+          <div class="col-lg-6" id="js-modal">
             <div class="card mx-auto mb-5 food-card">
               <% if main.image.attached? %>
                 <%= image_tag main.image %>
@@ -15,10 +15,6 @@
               <div class="card-body">
                 <p><%= main.name %></p>
                 <p>店舗名：<%= main.stores_i18n %></p>
-                <p>炭水化物：<%= main.sugar %>g</p>
-                <p>脂質：<%= main.lipid %>g</p>
-                <p>塩分：<%= main.salt %>g</p>
-                <p>カロリー：<%= main.calorie %>cal</p>
               <div class="top-bottom-login-btn">
                 <%= link_to '組み合わせ食品', main_path(main), class: 'btn-login-shadow' %>
               </div>
@@ -37,7 +33,7 @@
       <%= paginate @subs %> 
       <div class="row">
         <% @subs.each do |sub| %>
-          <div class="col-lg-6">
+          <div class="col-lg-6" data-toggle="modal" data-target="#exampleModalLong">
             <div class="card mx-auto mb-5 food-card">
               <% if sub.image.attached? %>
                 <%= image_tag sub.image %>
@@ -47,10 +43,6 @@
               <div class="card-body">
                 <p><%= sub.name %></p>
                 <p>店舗名：<%= sub.stores_i18n %></p>
-                <p>糖質：<%= sub.sugar %>g</p>
-                <p>脂質：<%= sub.lipid %>g</p>
-                <p>塩分：<%= sub.salt %>g</p>
-                <p>カロリー：<%= sub.calorie %>cal</p>
               <div class="top-bottom-login-btn">
                 <%= link_to '組み合わせ食品', sub_path(sub), class: 'btn-login-shadow' %>
               </div>

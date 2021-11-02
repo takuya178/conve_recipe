@@ -26,7 +26,7 @@ class MainsController < ApplicationController
   private
 
   def main_params
-    params.require(:main).permit(:name, :image, :calorie, :sugar, :lipid, :salt, :genre, subs_attributes:[:name, :image, :calorie, :sugar, :lipid, :salt])
+    params.require(:main).permit(:name, :image, :calorie, :sugar, :lipid, :salt, :genre, :stores, subs_attributes:[:name, :image, :calorie, :sugar, :lipid, :salt, :stores])
   end
 
 end

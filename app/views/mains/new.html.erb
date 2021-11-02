@@ -1,3 +1,4 @@
+<% content_for(:title, t('.title')) %>
 <div class="food_create" style="background-color: #F0E5CF;">
   <%= form_with model: @main, url: mains_path, method: :post, local: true do |f| %>
     <div class="food_create_inner d-md-flex justify-content-center container">
@@ -55,9 +56,15 @@
               <span>g</span>
               <%= render 'shared/error_messages', object: f.object, text: :salt %>
             </div>
-            <div class="input-form">
-              <%= f.label :genre, class: "text-info" %><br>
-              <%= f.select :genre, Main.genres.keys.to_a, {} %>
+            <div class="food_create_form">
+              <label class="food_create_label">
+                <%= f.select :genre, Main.genres_i18n.invert.to_a, {include_blank: '店舗名を選択'}, class: "food_create_select" %>
+              </label>
+            </div>
+            <div class="food_create_form">
+              <label class="food_create_label">
+                <%= f.select :stores, Main.stores_i18n.invert.to_a, {include_blank: '店舗名を選択'}, class: "food_create_select" %>
+              </label>
             </div>
           </div>
       </div>
@@ -118,6 +125,11 @@
             </label>
             <span>g</span>
             <%= render 'shared/error_messages', object: sub.object, text: :salt %>
+          </div>
+          <div class="food_create_form">
+            <label class="food_create_label">
+              <%= sub.select :stores, Sub.stores_i18n.invert.to_a, {include_blank: '店舗名を選択'}, class: "food_create_select" %>
+            </label>
           </div>
         </div>
         <% end %>
