@@ -7,7 +7,7 @@
           <div class="food_create_form_box p-4">
             <div class="food_create_row row">
               <div class="food_create_image_explanation col-lg-4">
-                <p>画像形式: JPEG/JPG/PNG</p>
+                <p>画像形式: JPEG/PNG</p>
                 <p>容量: 5MB以内</p>
               </div>
               <div class="input-form col-lg-8">
@@ -22,48 +22,10 @@
                   <%= render 'shared/error_messages', object: f.object, text: :image %>
               </div>
             </div>
-            <div class="food_create_form">
-              <label class="food_create_label food_create_label">
-              <%= f.text_field :name, placeholder: "メイン食品名" %>
-              </label>
-              <%= render 'shared/error_messages', object: f.object, text: :name %>
-            </div>
-            <div class="food_create_form">
-              <label class="food_create_label food_create_label">
-                <%= f.text_field :calorie, placeholder: "カロリー" %>
-              </label>
-              <span>cal</span>
-              <%= render 'shared/error_messages', object: f.object, text: :calorie %>
-            </div>
-            <div class="food_create_form">
-              <label class="food_create_label food_create_label">
-                <%= f.text_field :sugar, placeholder: "炭水化物" %>
-              </label>
-              <span>g</span>
-              <%= render 'shared/error_messages', object: f.object, text: :sugar %>
-            </div>
-            <div class="food_create_form">
-              <label class="food_create_label food_create_label">
-                <%= f.text_field :lipid, placeholder: "脂質" %>
-              </label>
-              <span>g</span>
-              <%= render 'shared/error_messages', object: f.object, text: :lipid %>
-            </div>
-            <div class="food_create_form">
-              <label class="food_create_label food_create_label">
-                <%= f.text_field :salt, placeholder: "塩分" %>
-              </label>
-              <span>g</span>
-              <%= render 'shared/error_messages', object: f.object, text: :salt %>
-            </div>
+            <%= render 'form', f: f, place: 'メイン食品名' %>
             <div class="food_create_form">
               <label class="food_create_label">
                 <%= f.select :genre, Main.genres_i18n.invert.to_a, {include_blank: 'ジャンルを選択'}, class: "food_create_select" %>
-              </label>
-            </div>
-            <div class="food_create_form">
-              <label class="food_create_label">
-                <%= f.select :stores, Main.stores_i18n.invert.to_a, {include_blank: '店舗名を選択'}, class: "food_create_select" %>
               </label>
             </div>
           </div>
@@ -76,7 +38,7 @@
           <div class="input-form">
             <div class="food_create_row row">
               <div class="food_create_image_explanation col-lg-4">
-                <p>画像形式: JPEG/JPG/PNG</p>
+                <p>画像形式: JPEG/PNG</p>
                 <p>容量: 5MB以内</p>
               </div>
               <div class="input-form col-lg-8">
@@ -92,45 +54,7 @@
               </div>
             </div>
           </div>
-          <div class="food_create_form">
-            <label class="food_create_label food_create_label">
-            <%= sub.text_field :name, placeholder: "プラス一品" %>
-            </label>
-            <%= render 'shared/error_messages', object: sub.object, text: :name %>
-          </div>
-          <div class="food_create_form">
-            <label class="food_create_label food_create_label">
-            <%= sub.text_field :calorie, placeholder: "カロリー" %>
-            </label>
-            <span>cal</span>
-            <%= render 'shared/error_messages', object: sub.object, text: :calorie %>
-          </div>
-          <div class="food_create_form">
-            <label class="food_create_label food_create_label">
-            <%= sub.text_field :sugar, placeholder: "炭水化物" %>
-            </label>
-            <span>g</span>
-            <%= render 'shared/error_messages', object: sub.object, text: :sugar %>
-          </div>
-          <div class="food_create_form">
-            <label class="food_create_label food_create_label">
-            <%= sub.text_field :lipid, placeholder: "脂質" %>
-            </label>
-            <span>g</span>
-            <%= render 'shared/error_messages', object: sub.object, text: :lipid %>
-          </div>
-          <div class="food_create_form">
-            <label class="food_create_label food_create_label">
-            <%= sub.text_field :salt, placeholder: "塩分" %>
-            </label>
-            <span>g</span>
-            <%= render 'shared/error_messages', object: sub.object, text: :salt %>
-          </div>
-          <div class="food_create_form">
-            <label class="food_create_label">
-              <%= sub.select :stores, Sub.stores_i18n.invert.to_a, {include_blank: '店舗名を選択'}, class: "food_create_select" %>
-            </label>
-          </div>
+          <%= render 'form', f: sub, place: 'サブ食品名' %>
         </div>
         <% end %>
       </div>
