@@ -7,7 +7,7 @@
           <div class="food_create_form_box p-4">
             <div class="food_create_row row">
               <div class="food_create_image_explanation col-lg-4">
-                <p>画像形式: JPEG/PNG</p>
+                <p>画像形式: JPEG/JPG/PNG</p>
                 <p>容量: 5MB以内</p>
               </div>
               <div class="input-form col-lg-8">
@@ -58,7 +58,7 @@
             </div>
             <div class="food_create_form">
               <label class="food_create_label">
-                <%= f.select :genre, Main.genres_i18n.invert.to_a, {include_blank: '店舗名を選択'}, class: "food_create_select" %>
+                <%= f.select :genre, Main.genres_i18n.invert.to_a, {include_blank: 'ジャンルを選択'}, class: "food_create_select" %>
               </label>
             </div>
             <div class="food_create_form">
@@ -76,7 +76,7 @@
           <div class="input-form">
             <div class="food_create_row row">
               <div class="food_create_image_explanation col-lg-4">
-                <p>画像形式: JPEG/PNG</p>
+                <p>画像形式: JPEG/JPG/PNG</p>
                 <p>容量: 5MB以内</p>
               </div>
               <div class="input-form col-lg-8">
