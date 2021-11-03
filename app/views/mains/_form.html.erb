@@ -1,0 +1,39 @@
+<div class="food_create_form">
+  <label class="food_create_label food_create_label">
+    <%= f.text_field :name, placeholder: place %>
+  </label>
+  <%= render 'shared/error_messages', object: f.object, text: :name %>
+</div>
+<div class="food_create_form">
+  <label class="food_create_label food_create_label">
+    <%= f.text_field :calorie, placeholder: "カロリー" %>
+  </label>
+    <span>cal</span>
+    <%= render 'shared/error_messages', object: f.object, text: :calorie %>
+</div>
+<div class="food_create_form">
+  <label class="food_create_label food_create_label">
+    <%= f.text_field :sugar, placeholder: "炭水化物" %>
+  </label>
+    <span>g</span>
+    <%= render 'shared/error_messages', object: f.object, text: :sugar %>
+</div>
+<div class="food_create_form">
+  <label class="food_create_label food_create_label">
+    <%= f.text_field :lipid, placeholder: "脂質" %>
+  </label>
+    <span>g</span>
+    <%= render 'shared/error_messages', object: f.object, text: :lipid %>
+</div>
+<div class="food_create_form">
+  <label class="food_create_label food_create_label">
+    <%= f.text_field :salt, placeholder: "塩分" %>
+  </label>
+    <span>g</span>
+    <%= render 'shared/error_messages', object: f.object, text: :salt %>
+</div>
+<div class="food_create_form">
+  <label class="food_create_label">
+    <%= f.select :stores, Main.stores_i18n.invert.to_a, {include_blank: '店舗名を選択'}, class: "food_create_select" %>
+  </label>
+</div>

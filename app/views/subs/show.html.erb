@@ -4,22 +4,7 @@
     <% unless @sub.mains.empty? %>
     <div class="row">
       <% @sub.mains.each do |main| %>
-        <div class="col-md-6">
-          <div class="card mx-auto mb-5 food-card">
-            <% if main.image.attached? %>
-              <%= image_tag main.image %>
-            <% else %>
-              <%= image_pack_tag("media/images/noimage.jpg") %>
-            <% end %>
-            <div class="card-body">
-              <p><%= main.name %></p>
-              <p>糖質：<%= main.sugar %>g</p>
-              <p>脂質：<%= main.lipid %>g</p>
-              <p>塩分：<%= main.salt %>g</p>
-              <p>カロリー：<%= main.calorie %>cal</p>
-            </div>
-          </div>
-        </div>
+        <%= render 'shared/show', sub: main %> 
       <% end %>
     </div>
     <% else %>

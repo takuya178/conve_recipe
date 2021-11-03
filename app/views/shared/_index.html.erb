@@ -1,57 +1,20 @@
-<% if current_page?(mains_path) %>
-  <div class="food_top">
-    <div class="container">
-      <%= render 'shared/component_btn', url: mains_path %>
-      <%= paginate @mains %> 
-      <div class="row">
-        <% @mains.each do |main| %>
-          <div class="col-lg-6" id="js-modal">
-            <div class="card mx-auto mb-5 food-card">
-              <% if main.image.attached? %>
-                <%= image_tag main.image %>
-              <% else %>
-                <%= image_pack_tag("media/images/noimage.jpg") %>
-              <% end %>
-              <div class="card-body">
-                <p><%= main.name %></p>
-                <p>店舗名：<%= main.stores_i18n %></p>
-              <div class="top-bottom-login-btn">
-                <%= link_to '組み合わせ食品', main_path(main), class: 'btn-login-shadow' %>
-              </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
+<div class="col-lg-6">
+  <div class="card mx-auto mb-5 food-card">
+    <% if main.image.attached? %>
+      <%= image_tag main.image %>
+    <% else %>
+      <%= image_pack_tag("media/images/noimage.jpg") %>
+    <% end %>
+    <div class="card-body">
+      <p><%= main.name %></p>
+      <p>店舗名：<%= main.stores_i18n %></p>
+      <p>炭水化物：<%= main.sugar %></p>
+      <p>脂質：<%= main.lipid %></p>
+      <p>塩分：<%= main.salt %></p>
+      <p>カロリー：<%= main.calorie %></p>
+      <div class="top-bottom-login-btn">
+        <%= link_to '組み合わせ食品', combi_path, class: 'btn-login-shadow' %>
       </div>
-      <%= paginate @mains %> 
-    </div>
-  </div>  
-<% elsif current_page?(subs_path) %>               
-  <div class="food_top">
-    <div class="container">
-      <%= render 'shared/component_btn', url: subs_path %>
-      <%= paginate @subs %> 
-      <div class="row">
-        <% @subs.each do |sub| %>
-          <div class="col-lg-6" data-toggle="modal" data-target="#exampleModalLong">
-            <div class="card mx-auto mb-5 food-card">
-              <% if sub.image.attached? %>
-                <%= image_tag sub.image %>
-              <% else %>
-                <%= image_pack_tag("media/images/noimage.jpg") %>
-              <% end %>
-              <div class="card-body">
-                <p><%= sub.name %></p>
-                <p>店舗名：<%= sub.stores_i18n %></p>
-              <div class="top-bottom-login-btn">
-                <%= link_to '組み合わせ食品', sub_path(sub), class: 'btn-login-shadow' %>
-              </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <%= paginate @subs %> 
     </div>
   </div>
-<% end %>
+</div>
