@@ -10,7 +10,7 @@
   margin: 40px 0;
 }
 .page-item.active .page-link {     
-  background: orange;
+  background: #3EA1D1;
   border-radius: 15px;
 }
 .page-item .page-link {
@@ -66,7 +66,7 @@
 }
 .food_create_btn_inner {
   text-align: center;
-  margin: 30px 0;
+  padding: 30px 0;
 }
 .food_create_btn {
   padding: 20px;
@@ -74,12 +74,12 @@
   width: 60%;
 }
 .food_create_preview_img {
-  width: 270px;
+  width: 330px;
   height: 270px;
   object-fit: cover;
 }
 .food_create_no_img {
-  width: 270px;
+  width: 330px;
   height: 270px;
   object-fit: cover;
 }
@@ -98,6 +98,22 @@
   border: none;
   border-bottom: 2px solid #1b2538;
 }
+
+
+// 
+// 検索フォーム
+// 
+.search_btn {
+  padding: 20px;
+  color: #fff;
+  background-color: #3EA1D1;
+}
+.search_group {
+  width: 86%;
+  margin: 0 auto;
+}
+
+
 
 
 @media (max-width: 480px) {
@@ -130,8 +146,8 @@
     height: 100%;
   }
   img {
-    max-width: 680px;
-    max-height: 680px;
+    max-width: 730px;
+    max-height: 730px;
   }
 
 }
