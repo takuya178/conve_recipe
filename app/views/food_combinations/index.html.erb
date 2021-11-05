@@ -8,7 +8,7 @@
       </div>
       <% @foods.each do |food| %>
         <% if food.main.genre == 'noodle' && food.main.sugar + food.sub.sugar <= 80 %>
-          <div class="food_combi_contain" id="js-contents">
+          <div class="food_combi_contain">
             <%= render 'details', food: food %>
             <div class="food_graph">
               <% chart = [

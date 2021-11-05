@@ -1,0 +1,21 @@
+  <div class="food_combination" id='tab'>
+    <div class="food_select container">
+      <%= render 'button' %>
+      <div class="food_combi_component_text_inner">
+        <p class="food_combi_ngtext">炭水化物81g以上の組み合わせ</p>    
+      </div>
+      <% @foods.each do |food| %>
+        <% if food.main.genre == genre && component + food.sub.sugar >= 81 %>
+          <div class="food_combi_contain">
+            <%= render 'details', food: food %>
+            <div class="food_graph">
+              <% chart = [
+                { name: '炭水化物(g)', data: food.get_sugar }
+              ] %>
+              <%= bar_chart chart, colors: ["#185ADB", "#666"], min: 0, max: 100 %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>

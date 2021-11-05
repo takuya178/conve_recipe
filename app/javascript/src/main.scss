@@ -113,6 +113,43 @@
   margin: 0 auto;
 }
 
+// 
+// モーダル表示
+// 
+#mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+#modal {
+  position: fixed;
+  top: 15vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;
+  z-index: 4;
+  width: 735px;
+  overflow: auto;
+  padding: 20px;
+  height: 50vh;
+}
+#mask.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0) scale(0.8);
+}
+
 
 
 

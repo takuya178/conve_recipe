@@ -1,13 +1,18 @@
- <% content_for(:title, t('.title')) %> 
   <div class="food_top">
     <div class="container">
+      <div id="mask" class="hidden"></div>
       <%= render 'shared/component_btn', url: mains_path %>
       <%= paginate @mains %> 
       <div class="row">
         <% @mains.each do |main| %>
-          <%= render 'shared/index', main: main, combi_path: main_path(main) %>
+          <%= render 'shared/index', main: main, combi_path: main_path(main), locals: { main: main }%>
         <% end %>
+      </div>
+      <div id="modal" class="hidden">
+      <h1>モーダルウィンド</h1>
       </div>
       <%= paginate @mains %> 
     </div>
-  </div>  
+  </div>
+
+
