@@ -5,7 +5,11 @@ class MainsController < ApplicationController
   end
 
   def show
-    @main = Main.find(params[:id])
+    respond_to do |format|
+      @main = Main.find(params[:id])
+      format.html
+      format.js
+    end
   end
 
   def new

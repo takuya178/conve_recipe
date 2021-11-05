@@ -1,0 +1,13 @@
+        <% if food.main.genre == 'noodle' && food.sugar + food.sub.sugar <= 80 %>
+          <div class="food_combi_contain">
+            <%= render 'details', food: food %>
+            <div class="food_graph">
+              <% chart = [
+                { name: '炭水化物(g)', data: food.get_sugar }
+              ] %>
+              <%= bar_chart chart, colors: ["#185ADB", "#666"], min: 0, max: 100 %>
+            </div>
+          </div>
+        <% end %>
+
+<%= render partial: 'food', collection: @foods %>
