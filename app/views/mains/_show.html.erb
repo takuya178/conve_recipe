@@ -1,14 +1,21 @@
 <% content_for(:title, t('.title')) %>
 <div class="food_top">
-  <div class="container"> 
-  <%= @main.name %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+      <%= @main.image %>
+      <p>食品名：<%= @main.name %></p>
+      <p>店舗名：<%= @main.sotres %></p>
+      </div>
+      <div class="col-lg-6">
+      </div>
+    </div>
     <% unless @main.subs.empty? %>
     <div class="row">
       <%# @main.subs.each do |sub| %>
         <%#= render 'shared/show', sub: sub %>
       <%# end %>
     </div>
-    <%# else %>
       <p>関連付けはありません</p>
     <% end %>
   </div>
