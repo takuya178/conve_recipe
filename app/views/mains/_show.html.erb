@@ -1,13 +1,21 @@
 <% content_for(:title, t('.title')) %>
 <div class="food_top">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-      <%= @main.image %>
-      <p>食品名：<%= @main.name %></p>
-      <p>店舗名：<%= @main.sotres %></p>
+    <div class="row align-items-center">
+      <div class="col-5 show_box">
+        <% if @main.image.attached? %>
+          <%= image_tag @main.image %>
+        <% else %>
+          <%= image_pack_tag("media/images/noimage.jpg") %>
+        <% end %>
       </div>
-      <div class="col-lg-6">
+      <div class="col-7 show_item_box">
+        <p>食品名：<%= @main.name %></p>
+        <p>店舗名：<%= @main.stores %></p>
+        <p>炭水化物：<%= @main.sugar %>g</p>
+        <p>脂質：<%= @main.lipid %>g</p>
+        <p>塩分：<%= @main.salt %>g</p>
+        <p>カロリー：<%= @main.calorie %>cal</p>
       </div>
     </div>
     <% unless @main.subs.empty? %>
