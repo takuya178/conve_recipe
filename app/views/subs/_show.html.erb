@@ -1,12 +1,12 @@
 <% content_for(:title, t('.title')) %>
 <div class="food_top">
-  <div class="container">
-    <%= render 'shared/show_text', component: @main %>
+  <div class="container"> 
+    <%= render 'shared/show_text', component: @sub %>
     <p class="show_margin_text">組み合わせされている食品</p>
-    <% unless @main.subs.empty? %>
+    <% unless @sub.mains.empty? %>
       <div class="row">
-        <% @main.subs.each do |sub| %>
-          <%= render 'shared/show_combination', sub: sub %>
+        <% @sub.mains.each do |main| %>
+          <%= render 'shared/show_combination', sub: main %>
         <% end %>
       </div>
     <% else %>

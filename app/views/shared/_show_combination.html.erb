@@ -1,5 +1,4 @@
-<div class="col-md-6 modal-dialog modal-lg" id="showModal">
-  <div class="modal-content">
+<div class="col-lg-6">
     <div class="card mx-auto mb-5 food-card modal-body">
       <% if sub.image.attached? %>
         <%= image_tag sub.image %>
@@ -12,7 +11,7 @@
         <p>脂質：<%= sub.lipid %>g</p>
         <p>塩分：<%= sub.salt %>g</p>
         <p>カロリー：<%= sub.calorie %>cal</p>
+        <p>店舗名：<%= sub.stores %></p>
       </div>
     </div>
-  </div>
 </div>
