@@ -1,6 +1,7 @@
 <% content_for(:title, t('.title')) %>
   <div class="food_top">
     <div class="container">
+      <div id="mask" class="hidden"></div>
       <%= render 'shared/component_btn', url: subs_path %>
       <%= paginate @subs %> 
       <div class="row">
@@ -8,6 +9,7 @@
           <%= render 'shared/index', main: sub, combi_path: sub_path(sub) %>
         <% end %>
       </div>
+      <div id="modal" class="hidden"></div>
       <%= paginate @subs %> 
     </div>
   </div>

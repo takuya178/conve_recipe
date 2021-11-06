@@ -1,0 +1,17 @@
+    <div class="row align-items-center">
+      <div class="col-lg-6 show_box">
+        <% if component.image.attached? %>
+          <%= image_tag component.image %>
+        <% else %>
+          <%= image_pack_tag("media/images/noimage.jpg") %>
+        <% end %>
+      </div>
+      <div class="col-lg-6 show_item_box">
+        <p>食品名：<%= component.name %></p>
+        <p>店舗名：<%= component.stores_i18n %></p>
+        <p>炭水化物：<%= component.sugar %>g</p>
+        <p>脂質：<%= component.lipid %>g</p>
+        <p>塩分：<%= component.salt %>g</p>
+        <p>カロリー：<%= component.calorie %>cal</p>
+      </div>
+    </div>

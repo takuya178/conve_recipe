@@ -1,3 +1,4 @@
+<% content_for(:title, t('.title')) %>  
   <div class="food_top">
     <div class="container">
       <div id="mask" class="hidden"></div>
@@ -5,14 +6,10 @@
       <%= paginate @mains %> 
       <div class="row">
         <% @mains.each do |main| %>
-          <%= render 'shared/index', main: main, combi_path: main_path(main), locals: { main: main }%>
+          <%= render 'shared/index', main: main, combi_path: main_path(main) %>
         <% end %>
       </div>
-      <div id="modal" class="hidden">
-      <h1>モーダルウィンド</h1>
-      </div>
+      <div id="modal" class="hidden"></div>
       <%= paginate @mains %> 
     </div>
   </div>
-
-

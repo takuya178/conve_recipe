@@ -5,6 +5,10 @@ class SubsController < ApplicationController
   end
 
   def show
-    @sub = Sub.find(params[:id])
+    respond_to do |format|
+      @sub = Sub.find(params[:id])
+      format.html
+      format.js
+    end
   end
 end
