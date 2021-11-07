@@ -17,4 +17,5 @@ class StaticPagesController < ApplicationController
 
     redirect_to select_food_combinations_path
   end
+
 end

@@ -12,8 +12,4 @@ FactoryBot.define do
     role { :admin }
   end
 
-  trait :guest do
-    sequence(:nickname) { |n| "guest-#{n}"}
-    role { :guest }
-  end
 end

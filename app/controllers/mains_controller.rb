@@ -5,16 +5,15 @@ class MainsController < ApplicationController
   end
 
   def show
-    respond_to do |format|
-      @main = Main.find(params[:id])
-      format.html
-      format.js
-    end
+    @main = Main.find(params[:id])
   end
 
   def new
     @main = Main.new
     @main.subs.build
+    # params = params[name: params[:name], sugar: params[:sugar], lipid: params[:lipie], salt: params[:salt], calorie: params[:calorie]]
+    @mains = Main.find_by(name: params[:name])
+    @subs = Sub.find_by(name: params[:name])
   end
 
   def create
