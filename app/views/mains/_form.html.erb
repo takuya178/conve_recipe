@@ -1,6 +1,10 @@
 <div class="food_create_form">
   <label class="food_create_label food_create_label">
+  <% if @mains.nil? %>
     <%= f.text_field :name, placeholder: place %>
+  <% else %>
+    <%= f.text_field :name, :value => @mains.name, placeholder: place %>
+  <% end %>
   </label>
   <%= render 'shared/error_messages', object: f.object, text: :name %>
 </div>

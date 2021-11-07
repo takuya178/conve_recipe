@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'login',  to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
+  post 'guest_login', to: 'user_sessions#guest_login'
   get 'privacy', to: 'static_pages#privacy'
   get 'terms', to: 'static_pages#terms'
   get 'explanation', to: 'static_pages#explanation'
@@ -28,5 +29,4 @@ Rails.application.routes.draw do
     resources :food_combinations
   end
 
-  # get '*path', to: 'application#error_404'
 end

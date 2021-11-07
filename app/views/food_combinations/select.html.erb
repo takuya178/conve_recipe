@@ -8,7 +8,7 @@
         <h4 class='select_message_sub'>※複数選択できます。</h4>
       </div>
       <div class="card select-card">
-        <div class="row">
+        <div class="row food_select_row">
           <%= link_to "#", class: "button", data: {id: Tag.find_by(component: "sugar").id}, "data-turbolinks": false do %>
             <div class="example">
               <%= image_pack_tag("media/images/sugar-pasta.jpg", class: "w-100 select-img") %>
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="card select-card">
-        <div class="row">
+        <div class="row food_select_row">
           <%= link_to "#", class: "button fs-1", data: {id: Tag.find_by(component: "lipid").id}, "data-turbolinks": false do %>
             <div class="example">
               <%= image_pack_tag("media/images/lipid.jpg", class: "w-100 select-img") %>
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="card select-card">
-        <div class="row">
+        <div class="row food_select_row">
           <%= link_to "#", class: "button", data: {id: Tag.find_by(component: "salt").id}, "data-turbolinks": false do %>
             <div class="example">
               <%= image_pack_tag("media/images/salt.jpg", class: "w-100 select-img") %>
@@ -51,7 +51,7 @@
         <h4 class='select_message_sub mb-xl-30 .mb-sm-10'>※一つだけ選択してください。</h4>
       </div>
       <div class="card select-card">
-        <div class="row">
+        <div class="row food_select_row">
           <%= link_to '#', class: "button", id: 'js-noodle',  data: {id: Tag.find_by(genre: "noodle").id}, "data-turbolinks": false do %>
             <div class="example">
               <%= image_pack_tag("media/images/noodle.jpg", class: "w-100 select-img") %>
@@ -62,7 +62,7 @@
         </div>
       </div>
       <div class="card select-card">
-        <div class="row">
+        <div class="row food_select_row">
           <%= link_to '#', class: "button", data: {id: Tag.find_by(genre: "rice").id}, "data-turbolinks": false do %>
             <div class="example">
               <%= image_pack_tag("media/images/rice.jpg", class: "w-100 select-img") %>
