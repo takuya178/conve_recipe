@@ -11,10 +11,10 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resource :inquiry, only: %i[new create]
-  resources :food_combinations, only: %i[index] do
+  resources :food_combinations, only: %i[index create] do
     collection do
       get 'select', to: 'food_combinations/select'
-      resources :mains, only: %i[index new create show] 
+      resources :mains, only: %i[index new create show edit update] 
       resources :subs, only: %i[index show]
     end
   end
