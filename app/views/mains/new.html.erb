@@ -1,44 +1,44 @@
 <% content_for(:title, t('.title')) %>
 <div class="food_create" style="background-color: #F0E5CF;">
-  <%= form_with model: @main, url: mains_path, method: :post, local: true do |f| %>
+  <%= form_with model: @main, url: mains_path, method: :post, local: true do |main| %>
     <div class="food_create_inner d-md-flex justify-content-center container">
       <div class="food_create_main">
           <h2 class="food_create_title">メイン</h2>
           <div class="food_create_form_box p-4">
             <div class="food_create_row row">
               <div class="food_create_image_explanation col-lg-4">
-                <p>画像形式: JPEG/PNG</p>
+                <p>画像形式: JPEG/JPG/PNG</p>
                 <p>容量: 5MB以内</p>
               </div>
               <div class="input-form col-lg-8">
                 <label class="d-block">
                   <span class="btn p-2 w-100 food_create_img_btn">
                     <i class="fas fa-camera-retro"></i> 画像を選択する
-                    <%= f.file_field :image, class: "form-control", style: "display:none" %>
+                    <%= main.file_field :image, class: "form-control", style: "display:none" %>
                   </span>
                 </label>
                   <div id="js-main-image" class="text-center"></div>
                   <div class="food_create_no_img_box text-center" style="display: block;" id= "js-main-no-img"><%= image_pack_tag("media/images/noimage.jpg", class: 'food_create_no_img') %></div>
-                  <%= render 'shared/error_messages', object: f.object, text: :image %>
+                  <%= render 'shared/error_messages', object: main.object, text: :image %>
               </div>
             </div>
-            <%= render 'form', f: f, place: 'メイン食品名' %>
+            <%= render 'form', f: main, target: Main, place: 'メイン食品名', component: @mains %>
             <div class="food_create_form">
               <label class="food_create_label">
-                <%= f.select :genre, Main.genres_i18n.invert.to_a, {include_blank: 'ジャンルを選択'}, class: "food_create_select" %>
+                <%= main.select :genre, options_for_select(Main.genres_i18n.invert), {prompt: "#{@mains.nil? ? 'ジャンルを選択してください' : @mains.genre_i18n}"}, class: "food_create_select" %>
               </label>
             </div>
           </div>
       </div>
       <div class="food_combi_compo">×</div>
       <div class="food_create_sub">
-        <%= f.fields_for :subs do |sub| %>
+        <%= main.fields_for :subs do |sub| %>
         <h2 class="food_create_title">プラス一品</h2>
         <div class="food_create_form_box p-4">
           <div class="input-form">
             <div class="food_create_row row">
               <div class="food_create_image_explanation col-lg-4">
-                <p>画像形式: JPEG/PNG</p>
+                <p>画像形式: JPEG/JPG/PNG</p>
                 <p>容量: 5MB以内</p>
               </div>
               <div class="input-form col-lg-8">
@@ -54,13 +54,13 @@
               </div>
             </div>
           </div>
-          <%= render 'form', f: sub, place: 'サブ食品名' %>
+          <%= render 'form', f: sub, target: Sub, place: 'サブ食品名', component: @subs %>
         </div>
         <% end %>
       </div>
     </div>
     <div class="food_create_btn_inner">
-      <%= f.submit '組み合わせを登録', class: "food_create_btn btn-primary shadow w-40" %>
+      <%= main.submit '組み合わせを登録', class: "food_create_btn btn-primary shadow w-40" %>
     </div>
   <% end %>
 </div>

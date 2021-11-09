@@ -27,4 +27,7 @@ class Main < ApplicationRecord
       end
   end
 
+
+
+
 end
