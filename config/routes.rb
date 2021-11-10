@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   resources :food_combinations, only: %i[index create] do
     collection do
       get 'select', to: 'food_combinations/select'
-      resources :mains, only: %i[index new create show edit update] 
-      resources :subs, only: %i[index show]
+      resources :mains, only: %i[index new create show] 
+      resources :subs, only: %i[index new create show]
     end
   end
 

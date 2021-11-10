@@ -6,7 +6,15 @@
       <%= paginate @mains %> 
       <div class="row">
         <% @mains.each do |main| %>
-          <%= render 'shared/index', main: main, combi_path: main_path(main) %>
+        <div class="col-lg-6" data-toggle="modal" data-target="#exampleModal">
+          <%= link_to main_path(main), class: "card mx-auto mb-5 food-card", remote: true do %>
+            <%= render 'shared/active_storage', target: main %>
+            <div class="card-body">
+              <p><%= main.name %></p>
+              <p>店舗名：<%= main.stores_i18n %></p>
+            </div>
+          <% end %>
+        </div>
         <% end %>
       </div>
       <div id="modal" class="hidden"></div>

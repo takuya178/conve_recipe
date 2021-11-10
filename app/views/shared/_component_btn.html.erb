@@ -1,8 +1,18 @@
 <%= search_form_for @q, class: "form-group" do |f| %>
-  <div class="input-group mb-3 search_group">
-    <%= f.search_field :name_cont, class: 'form-control', placeholder: '食品名検索' %>
-    <div class="input-group-append">
-      <%= f.submit class: 'search_btn' %>
+  <div class="input-group">
+    <%= f.search_field :name_cont, class: 'food_create_select', placeholder: '食品名検索' %>
+  </div>
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <label class="food_create_label">
+        <%= f.select :stores_eq, Main.stores_i18n.invert.map { |key, value| [key, Main.stores[value]]}, {include_blank:'コンビニ名を選択'}, {class: "food_create_select"} %>
+      </label>
+    </div>
+    <div class="col-md-6 text-center">
+      <label class="food_create_label">
+        <%= f.select :genre_eq, Main.genres_i18n.invert.map { |key, value| [key, Main.genres[value]]}, {include_blank:'ジャンルを選択'}, {class: "food_create_select"} %>
+      </label>
     </div>
   </div>
+    <%= render 'shared/btn', f: f, text: '検索' %>
 <% end %>

@@ -2,8 +2,9 @@ class Sub < ApplicationRecord
   has_many :food_combinations, dependent: :destroy
   has_many :mains, through: :food_combinations
   has_one_attached :image
+  accepts_nested_attributes_for :mains, allow_destroy: true
 
-  enum stores: { seven: 1, lawson: 2, family: 3 }, _prefix: true
+  enum stores: { seven: 0, lawson: 1, family: 2 }, _prefix: true
 
   include FoodValidate
 

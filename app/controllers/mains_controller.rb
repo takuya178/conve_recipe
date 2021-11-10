@@ -18,26 +18,20 @@ class MainsController < ApplicationController
 
   def create
     @main = Main.new(main_params)
-    m = Main.find_or_initialize_by(name: main_params[:name])
+    main_data = Main.find_or_initialize_by(name: main_params[:name])
 
-    if m.new_record?
-      @main.save
-      redirect_to new_main_path, success: '組み合わせを追加しました'
+    if main_data.new_record?
+      if @main.save
+        redirect_to new_main_path, success: '組み合わせを追加しました'
+      else
+        flash.now[:danger] = '組み合わせの追加に失敗しました'
+        render :new
+      end
     else
-      m.subs << Sub.create(name: main_params[:subs_attributes]['0'][:name], calorie: main_params[:subs_attributes]['0'][:calorie], sugar: main_params[:subs_attributes]['0'][:sugar], lipid: main_params[:subs_attributes]['0'][:lipid], salt: main_params[:subs_attributes]['0'][:salt], stores: main_params[:subs_attributes]['0'][:stores])
-    end
-    #  Main.find_or_create_by(name: main_params[:name])
-    #  redirect_to new_main_path, success: '組み合わせを追加しま'
-    # if @main.save
-    #   redirect_to new_main_path, success: '組み合わせを追加しました'
-    # else
-    #   flash.now[:danger] = '組み合わせの追加に失敗しました'
-    #   render :new
-    # end
-  end
+      main_data.subs << Sub.create(name: main_params[:subs_attributes]['0'][:name], calorie: main_params[:subs_attributes]['0'][:calorie], sugar: main_params[:subs_attributes]['0'][:sugar], lipid: main_params[:subs_attributes]['0'][:lipid], salt: main_params[:subs_attributes]['0'][:salt], stores: main_params[:subs_attributes]['0'][:stores])
 
-  def edit
-    @sub = Sub.find(params[:id])
+      redirect_to new_main_path, success: "#{main_data.name}に新しい組み合わせを追加しました"
+    end
   end
 
   private
