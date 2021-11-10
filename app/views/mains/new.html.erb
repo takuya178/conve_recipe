@@ -1,7 +1,8 @@
 <% content_for(:title, t('.title')) %>
 <div class="food_create" style="background-color: #F0E5CF;">
   <%= form_with model: @main, url: mains_path, method: :post, local: true do |main| %>
-    <div class="food_create_inner d-md-flex justify-content-center container">
+  <div class="container">
+    <div class="food_create_inner d-md-flex justify-content-center">
       <div class="food_create_main">
           <h2 class="food_create_title">メイン</h2>
           <div class="food_create_form_box p-4">
@@ -25,7 +26,7 @@
             <%= render 'form', f: main, target: Main, place: 'メイン食品名', component: @mains %>
             <div class="food_create_form">
               <label class="food_create_label">
-                <%= main.select :genre, options_for_select(Main.genres_i18n.invert), {prompt: "#{@mains.nil? ? 'ジャンルを選択してください' : @mains.genre_i18n}"}, class: "food_create_select" %>
+                <%= main.select :genre, Main.genres_i18n.invert.map { |key, value| [key, Main.genres[value]]}, {include_blank: 'ジャンルを選択'}, {class: "food_create_select"} %>
               </label>
             </div>
           </div>
@@ -59,9 +60,8 @@
         <% end %>
       </div>
     </div>
-    <div class="food_create_btn_inner">
-      <%= main.submit '組み合わせを登録', class: "food_create_btn btn-primary shadow w-40" %>
-    </div>
+    <%= render 'shared/btn', f: main, text: '組み合わせを登録' %>
+  </div>
   <% end %>
 </div>
 

@@ -4,8 +4,8 @@ class Main < ApplicationRecord
   has_one_attached :image
   accepts_nested_attributes_for :subs, allow_destroy: true
 
-  enum genre: { noodle: 1, rice: 2 }
-  enum stores: { seven: 1, lawson: 2, family: 3 }, _prefix: true
+  enum genre: { noodle: 0, rice: 1 }
+  enum stores: { seven: 0, lawson: 1, family: 2 }, _prefix: true
 
   include FoodValidate
 

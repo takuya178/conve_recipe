@@ -6,44 +6,20 @@
       <h1>ユーザー登録</h1>
     </div>
       <%= form_with model: @user, local: true do |f| %>
-        <div class="form-group">
-          <div class="contact-item-title">
-            <%= f.label :name %>
-          </div>
-          <div class="contact-item-input">
-            <%= f.text_field :name, class: 'form-control' %>
-            <%= render 'shared/error_messages', object: f.object, text: :name %>
-          </div>
+        <div class="food_create_form">
+          <label class="food_create_label">
+              <%= f.text_field :name, placeholder: "お名前" %>
+          </label>
         </div>
-        <div class="form-group">
-        <div class="contact-item-title">
-          <%= f.label :email %>
-        </div>
-        <div class="contact-item-input">
-          <%= f.email_field :email, class: 'form-control' %>
-          <%= render 'shared/error_messages', object: f.object, text: :email %>
-        </div>
-        </div>
-        <div class="form-group">
-        <div class="contact-item-title">
-          <%= f.label :password %>
-        </div>
-        <div class="contact-item-input">
-          <%= f.password_field :password, class: 'form-control' %>
-          <%= render 'shared/error_messages', object: f.object, text: :password %>
-        </div>
-        </div>
-        <div class="form-group">
-        <div class="contact-item-title">
-          <%= f.label :password_confirmation %>
-        </div>
-        <div class="contact-item-input">
-          <%= f.password_field :password_confirmation, class: 'form-control' %>
+          <%= render 'shared/error_messages', object: f.object, text: :name %>
+        <%= render 'shared/form_input', f: f %>
+        <div class="food_create_form">
+          <label class="food_create_label">
+              <%= f.text_field :password_confirmation, placeholder: "パスワード確認" %>
+          </label>
           <%= render 'shared/error_messages', object: f.object, text: :password_confirmation %>
         </div>
-        <div class="contact-button">
-          <%= f.submit t('defaults.register'), class: 'btn-square-shadow login' %>
-        </div>
+          <%= render 'shared/btn', f: f, text: '新規登録' %>
       <% end %>
       <div class='contact-text-bottom'>
         <%= link_to 'ログインページへ', login_path, class: 'contact-text-user' %>

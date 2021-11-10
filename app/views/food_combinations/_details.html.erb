@@ -9,11 +9,7 @@
       <div class="food_combi_menu_inner">
         <div class="food_combi_main">
           <p>メイン</p>
-          <% if food.main.image.attached? %>
-            <%= image_tag food.main.image %>
-          <% else %>
-            <%= image_pack_tag("media/images/noimage.jpg") %>
-          <% end %>
+            <%= render 'shared/active_storage', target: food.main %>
           <div class="food_combi_main_name">
             <%= food.main.name %>
           </div>
@@ -24,11 +20,7 @@
         <div class="food_combi_compo">×</div>
         <div class="food_combi_sub">
           <p>プラス一品</p>
-          <% if food.sub.image.attached? %>
-            <%= image_tag food.sub.image %>
-          <% else %>
-            <%= image_pack_tag("media/images/noimage.jpg") %>
-          <% end %>
+            <%= render 'shared/active_storage', target: food.sub %>
           <div class="food_combi_sub_name">
             <%= food.sub.name %>
           </div>
