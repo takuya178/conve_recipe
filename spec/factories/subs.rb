@@ -1,10 +1,19 @@
 FactoryBot.define do
   factory :sub do
-    name { "MyString" }
-    image { "MyString" }
-    calorie { 1 }
-    sugar { 1.5 }
-    lipid { 1.5 }
-    salt { 1.5 }
+    name { "サブ食品" }
+    calorie { 100 }
+    sugar { 100 }
+    lipid { 100 }
+    salt { 100 }
+
+    trait :stores do
+      stores { seven }
+    end
+    trait :stores do
+      stores { lawson }
+    end
+    trait :family do
+      stores { family }
+    end
   end
 end

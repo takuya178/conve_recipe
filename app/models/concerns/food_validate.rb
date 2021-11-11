@@ -7,5 +7,6 @@ module FoodValidate
     validates :sugar, presence: true
     validates :lipid, presence: true
     validates :salt, presence: true
+    validates :name, length: { maximum: 30 }
   end
 end

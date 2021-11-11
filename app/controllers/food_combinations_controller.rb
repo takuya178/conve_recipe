@@ -37,9 +37,4 @@ class FoodCombinationsController < ApplicationController
     @foods = @q.result(distinct: true).eager_load(:main, :sub).all
   end
 
-  def create
-    @subs = Sub.find(params[:sub_id])
-    @main = Main.find_by(name: params[:name])
-    @sub.fix(@subs)
-  end
 end

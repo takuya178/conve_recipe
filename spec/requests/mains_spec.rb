@@ -1,7 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "Mains", type: :request do
-  describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
+RSpec.describe Main, type: :model do
+  let(:main) { create(:main) }
+
+  context '各項目が未入力の場合' do
+    it "メイン食品名が空白ならエラー" do
+      
+
+    end
   end
 end

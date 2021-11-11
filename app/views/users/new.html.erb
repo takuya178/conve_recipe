@@ -10,9 +10,20 @@
           <label class="food_create_label">
               <%= f.text_field :name, placeholder: "お名前" %>
           </label>
-        </div>
           <%= render 'shared/error_messages', object: f.object, text: :name %>
-        <%= render 'shared/form_input', f: f %>
+        </div>
+        <div class="food_create_form">
+          <label class="food_create_label">
+            <%= f.text_field :email, placeholder: "メールアドレス" %>
+          </label>
+          <%= render 'shared/error_messages', object: f.object, text: :email %>
+        </div>
+        <div class="food_create_form">
+          <label class="food_create_label text-center">
+            <%= f.text_field :password, placeholder: "パスワード" %>
+          </label>
+          <%= render 'shared/error_messages', object: f.object, text: :password %>
+        </div>
         <div class="food_create_form">
           <label class="food_create_label">
               <%= f.text_field :password_confirmation, placeholder: "パスワード確認" %>
