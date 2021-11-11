@@ -13,7 +13,6 @@ class MainsController < ApplicationController
     @main.subs.build
 
     @mains = Main.find_by(name: params[:name])
-    @subs = Sub.find_by(name: params[:name])
   end
 
   def create

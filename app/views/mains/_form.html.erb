@@ -34,6 +34,6 @@
 </div>
 <div class="food_create_form">
   <label class="food_create_label">
-  <%= f.select :stores, Main.stores_i18n.invert.map { |key, value| [key, Main.stores[value]]}, {include_blank: 'コンビニ名を選択'}, {class: "food_create_select"} %>
+    <%= f.select :stores, options_for_select(target.stores_i18n.invert), {prompt: "#{component.nil? ? 'コンビニ名を選択' : component.stores_i18n}"}, class: "food_create_select" %>
   </label>
 </div>

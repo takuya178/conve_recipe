@@ -1,5 +1,4 @@
 class FoodCombination < ApplicationRecord
-
   belongs_to :main
   belongs_to :sub
 
