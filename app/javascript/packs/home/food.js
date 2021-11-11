@@ -43,4 +43,11 @@
   scroll.addEventListener('click', () => {
     scrollTop();
   })
+
+  // ローディング
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.getElementById("loading").classList.remove("active")
+    }, 500)
+  })
 })();
