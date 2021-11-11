@@ -34,6 +34,11 @@
           <div class="food_combi_price">
             組み合わせ総カロリー： <%= food.main.calorie + food.sub.calorie %> cal
           </div>
+          <div class="food_combi_price">
+            <%= link_to "https://twitter.com/share?&url=https://healthy-combi2.app/&text=#{food.main.name}と#{food.sub.name}の組み合わせを試します！組み合わせ成分値=>炭水化物：#{food.main.sugar + food.sub.sugar}、脂質：#{food.main.lipid + food.sub.lipid}、塩分：#{food.main.salt + food.sub.salt}&hashtags=healty_combi&lang=ja", title: 'Twitter', target: :_blank, rel: 'noopener noreferrer', class: 'fl_tw1' do %>
+              <i class="fab fa-twitter share-button"></i>
+            <% end %>
+          </div>
       </div>
     </div>
   </div>

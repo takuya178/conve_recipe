@@ -1,4 +1,14 @@
 <% content_for(:title, t('.title')) %>
+<div id="loading" class="loading active">
+      <span>L</span>
+      <span>O</span>
+      <span>A</span>
+      <span>D</span>
+      <span>I</span>
+      <span>N</span>
+      <span>G</span>
+</div>
+
 <% if @sugar && @component_params.size == 1 && @noodle %>
   <div class="food_combination" id='tab'>
     <div class="food_select container" id='js-normalselect' style="display: block">
