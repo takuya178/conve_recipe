@@ -9,11 +9,10 @@
   <%= stylesheet_pack_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
 </head>
-<body class="hold-transition sidebar-mini">
+<body>
   <div class="wrapper">
     <%= render 'admin/shared/header' %>
-    <%= render 'admin/shared/sidebar' %>
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="margin: 0">
     <%= render 'shared/flash_message' %>
       <%= yield %>
     </div>

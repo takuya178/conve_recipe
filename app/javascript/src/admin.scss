@@ -1,1 +1,14 @@
 @import 'admin-lte/dist/css/adminlte.css';
+@import '~bootstrap/scss/bootstrap';
+@import 'src/select.scss';
+@import 'src/home.scss';
+@import 'src/shared.scss';
+@import 'src/food.scss';
+@import 'src/main.scss';
+
+td {
+  line-height: 100px;
+  img {
+    height: 100px;
+  }
+}

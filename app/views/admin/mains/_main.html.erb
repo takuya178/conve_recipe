@@ -1,12 +1,18 @@
 <tr>
-  <td><%= main.id %></td>
+  <td>
+    <% if main.image.attached? %>
+      <%= image_tag main.image %>
+    <% else %>
+      <%= image_pack_tag("media/images/noimage.jpg") %>
+    <% end %>
+  </td>
   <td><%= link_to main.name, admin_main_path(main), method: :get %></td>
-  <td><%= main.image %></td>
-  <td><%= main.genre %></td>
   <td><%= main.calorie %></td>
   <td><%= main.sugar %></td>
   <td><%= main.lipid %></td>
   <td><%= main.salt %></td>
-  <td> <%= button_to t("defaults.show"),  admin_main_path(main), method: :get, class: "btn btn-success" %></td>
-  <td> <%= button_to t("defaults.delete"), admin_main_path(main), method: :delete, class: "btn btn-danger" %></td>
+  <td><%= main.genre_i18n %></td>
+  <td><%= main.stores_i18n %></td>
+  <td> <%= button_to t("defaults.show"),  admin_main_path(main), method: :get, class: "btn btn-success", style: "padding: 20px; width: 100%"  %></td>
+  <td> <%= button_to t("defaults.delete"), admin_main_path(main), method: :delete, class: "btn btn-danger", style: "padding: 20px; width: 100%" %></td>
 </tr>

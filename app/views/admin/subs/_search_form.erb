@@ -1,8 +1,11 @@
-  <%= search_form_for @q, url: admin_subs_path do |f| %>
-    <div class="input-group mb-3">
-      <%= f.search_field :name_or_sugar_cont, class: 'form-control', placeholder: '検索ワード' %>
-      <div class="input-group-append">
-        <%= f.submit '検索', class: 'btn btn-primary' %>
-      </div>
-    </div>
-  <% end %>
+<%= search_form_for @q, url: admin_subs_path, class: "form-group" do |f| %>
+  <div class="input-group">
+    <%= f.search_field :name_cont, class: 'food_create_select', placeholder: '食品名検索' %>
+  </div>
+  <div>
+      <label class="food_create_label">
+        <%= f.select :stores_eq, Sub.stores_i18n.invert.map { |key, value| [key, Sub.stores[value]]}, {include_blank:'コンビニ名を選択'}, {class: "food_create_select"} %>
+      </label>
+  </div>
+    <%= render 'shared/btn', f: f, text: '検索' %>
+<% end %>

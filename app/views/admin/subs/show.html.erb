@@ -13,29 +13,11 @@
     </div>
     <ul>
       <li class='list-inline-item'>
-        <%= button_to "編集", edit_admin_sub_path(@sub), method: :get, class: "btn btn-success" %>
+        <%= button_to "編集", edit_admin_sub_path(@sub), method: :get, class: "btn btn-success", style: "padding: 20px; width: 100%"  %>
       </li>
       <li class='list-inline-item'>
-        <%= button_to "削除", admin_subs_path(@sub), method: :delete, data: { confirm: '本当に削除してもよろしいですか？'}, class: "btn btn-danger" %>
+        <%= button_to "削除", admin_subs_path(@sub), method: :delete, data: { confirm: '本当に削除してもよろしいですか？'}, class: "btn btn-danger", style: "padding: 20px; width: 100%"  %>
       </li>
     </ul>
   </div>
 </div>
-  <h5 class="text-info text-center">Review</h5>
-<table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col" class="text-center">id</th>
-        <th scope="col" class="text-center">name</th>
-        <th scope="col" class="text-center">image</th>
-        <th scope="col" class="text-center">calorie</th>
-        <th scope="col" class="text-center">sugar</th>
-        <th scope="col" class="text-center">lipid</th>
-        <th scope="col" class="text-center">salt</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @sub %>
-    </tbody>
-  </table>
-</table>

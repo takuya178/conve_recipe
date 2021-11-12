@@ -1,4 +1,4 @@
-<%= search_form_for @q, class: "form-group" do |f| %>
+<%= search_form_for @q, url: url, class: "form-group" do |f| %>
   <div class="input-group">
     <%= f.search_field :name_cont, class: 'food_create_select', placeholder: '食品名検索' %>
   </div>

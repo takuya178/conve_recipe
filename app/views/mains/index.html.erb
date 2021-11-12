@@ -2,7 +2,7 @@
   <div class="food_top">
     <div class="container">
       <div id="mask" class="hidden"></div>
-      <%= render 'shared/component_btn', url: mains_path %>
+      <%= render 'shared/search_form', url: mains_path %>
       <%= paginate @mains %> 
       <div class="row">
         <% @mains.each do |main| %>
