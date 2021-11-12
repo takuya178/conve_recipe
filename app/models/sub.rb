@@ -26,5 +26,4 @@ class Sub < ApplicationRecord
     end
   end 
 
-
 end
