@@ -27,8 +27,4 @@ class Main < ApplicationRecord
         errors.add(:image, "は5MB以内にしてください")
       end
   end
-
-
-
-
 end

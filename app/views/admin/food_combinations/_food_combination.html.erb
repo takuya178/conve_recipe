@@ -1,9 +1,20 @@
 <tr>
-  <td><%= food_combination.id %></td>
-  <td><%= food_combination.main_id %></td>
-  <td><%= food_combination.sub_id %></td>
-  <td><%= food_combination.prices %></td>
-  <td><%= food_combination.stores %></td>
-  <td> <%= button_to t("defaults.show"),  admin_food_combination_path(food_combination), method: :get, class: "btn btn-success" %></td>
-  <td> <%= button_to t("defaults.delete"), admin_food_combination_path(food_combination), method: :delete, class: "btn btn-danger" %></td>
+  <td>
+    <% if food_combination.main.image.attached? %>
+      <%= image_tag food_combination.main.image %>
+    <% else %>
+      <%= image_pack_tag("media/images/noimage.jpg") %>
+    <% end %>
+  </td>
+  <td><%= food_combination.main.name %></td>
+  <td>
+    <% if food_combination.sub.image.attached? %>
+      <%= image_tag food_combination.sub.image %>
+    <% else %>
+      <%= image_pack_tag("media/images/noimage.jpg") %>
+    <% end %>
+  </td>
+  <td><%= food_combination.sub.name %></td>
+  <td> <%= button_to t("defaults.show"),  admin_food_combination_path(food_combination), method: :get, class: "btn btn-success", style: "padding: 20px; width: 100%"  %></td>
+  <td> <%= button_to t("defaults.delete"), admin_food_combination_path(food_combination), method: :delete, class: "btn btn-danger", style: "padding: 20px; width: 100%"  %></td>
 </tr>

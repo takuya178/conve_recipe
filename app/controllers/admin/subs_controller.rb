@@ -36,7 +36,7 @@ class Admin::SubsController < Admin::BaseController
 
   def destroy
     @sub.destroy!
-    redirect_to admin_subs_path
+    redirect_to admin_subs_path, success: '削除しました'
   end
 
   private

@@ -36,7 +36,7 @@ class Admin::MainsController < Admin::BaseController
 
   def destroy
     @main.destroy!
-    redirect_to admin_mains_path
+    redirect_to admin_mains_path, success: '削除しました'
   end
 
   private

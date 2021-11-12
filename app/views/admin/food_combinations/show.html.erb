@@ -33,10 +33,10 @@
     </div>
     <ul>
       <li class='list-inline-item'>
-        <%= button_to "編集", edit_admin_food_combination_path(@food), method: :get, class: "btn btn-success" %>
+        <%= button_to "編集", edit_admin_food_combination_path(@food), method: :get, class: "btn btn-success", style: "padding: 20px; width: 100%"  %>
       </li>
       <li class='list-inline-item'>
-        <%= button_to "削除", admin_food_combination_path(@food), method: :delete, data: { confirm: '本当に削除してもよろしいですか？'}, class: "btn btn-danger" %>
+        <%= button_to "削除", admin_food_combination_path(@food), method: :delete, data: { confirm: '本当に削除してもよろしいですか？'}, class: "btn btn-danger", style: "padding: 20px; width: 100%"  %>
       </li>
     </ul>
   </div>
