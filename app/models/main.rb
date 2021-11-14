@@ -2,11 +2,10 @@ class Main < ApplicationRecord
   has_many :food_combinations, dependent: :destroy
   has_many :subs, through: :food_combinations
   has_one_attached :image
-  accepts_nested_attributes_for :subs, allow_destroy: true
 
   enum genre: { noodle: 1, rice: 2 }
   enum stores: { seven: 1, lawson: 2, family: 3 }, _prefix: true
-  
+
   include FoodValidate
 
   validate :image_content_type, :image_size, if: :was_attached?

@@ -37,14 +37,14 @@
 
   // メインのプレビュー
   const MainPreview = new Preview({
-    hookId: 'main_image',
+    hookId: 'main_sub_form_image',
     hookImg: 'js-main-image',
     hookNoImg: 'js-main-no-img'
   })
 
   // サブのプレビュー
   const SubPreview = new Preview({
-    hookId: 'main_subs_attributes_0_image',
+    hookId: 'main_sub_form_subs_attributes_image',
     hookImg: 'js-sub-image',
     hookNoImg: 'js-sub-no-img'
   })

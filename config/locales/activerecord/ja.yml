@@ -1,5 +1,5 @@
 ja:
-  activerecord:
+  activemodel:
     models:
       user: 'ユーザー'
     attributes:
@@ -13,7 +13,7 @@ ja:
         password: 'パスワード'
       inquiry:
         message: 'お問合せ内容'
-      main:
+      main_sub_form:
         name: '商品名'
         image: '商品画像'
         genre: 'ジャンル'
@@ -21,7 +21,7 @@ ja:
         sugar: '炭水化物'
         lipid: '脂質'
         salt: '塩分'
-      sub:
+      main_sub_form:
         name: '商品名'
         image: '商品画像'
         calorie: 'カロリー'
