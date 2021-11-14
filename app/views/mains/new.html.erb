@@ -1,6 +1,6 @@
 <% content_for(:title, t('.title')) %>
 <div class="food_create" style="background-color: #F0E5CF;">
-  <%= form_with model: @main, url: mains_path, method: :post, local: true do |main| %>
+  <%= form_with model: @main_sub_form, url: mains_path, method: :post, local: true do |main| %>
   <div class="container">
     <div class="food_create_inner d-md-flex justify-content-center">
       <div class="food_create_main">
