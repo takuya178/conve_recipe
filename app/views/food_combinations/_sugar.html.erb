@@ -1,0 +1,10 @@
+      
+        <% if noodle %>
+          <div class="food_combi_contain">
+            <%#= render 'details', food: food %>
+            <div class="food_graph">
+              <% chart = [ self.chart_sugar ] %>
+              <%= bar_chart chart, colors: ["#185ADB", "#666"], min: 0, max: 100 %>
+            </div>
+          </div>
+        <% end %>

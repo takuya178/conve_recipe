@@ -13,4 +13,3 @@ import 'bootstrap'
 import '../src/application.scss'
 import "chartkick/highcharts"
 import '@fortawesome/fontawesome-free/js/all';
-

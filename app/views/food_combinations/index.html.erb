@@ -10,20 +10,18 @@
 </div>
 
 <% if @sugar && @component_params.size == 1 && @noodle %>
-  <div class="food_combination" id='tab'>
-    <div class="food_select container" id='js-normalselect' style="display: block">
+  <div class="food_combination" id='js-tab'>
+    <div class="food_select container" id='js-normalselect'>
       <%= render 'button' %>
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">炭水化物80g以下の組み合わせ</p>    
       </div>
       <% @foods.each do |food| %>
-        <% if food.main.genre == 'noodle' && food.main.sugar + food.sub.sugar <= 80 %>
+        <% if food.main.genre == 'noodle' && food.plus_component %>
           <div class="food_combi_contain">
             <%= render 'details', food: food %>
             <div class="food_graph">
-              <% chart = [
-                { name: '炭水化物(g)', data: food.get_sugar }
-              ] %>
+              <% chart = [ food.chart_sugar ] %>
               <%= bar_chart chart, colors: ["#185ADB", "#666"], min: 0, max: 100 %>
             </div>
           </div>
@@ -34,7 +32,7 @@
 
 <% elsif @sugar && @component_params.size == 1 && @rice %>
   <div class="food_combination" id='tab'>
-    <div class="food_select container" id='js-normalselect' style="display: block">
+    <div class="food_select container" id='js-normalselect'>
       <%= render 'button' %>
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">炭水化物80g以下の組み合わせ</p>    
