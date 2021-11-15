@@ -14,10 +14,9 @@
                   <%= f.text_field :email, placeholder: "メールアドレス" %>
               </label>
             </div>
-            <div class="food_create_form">
-              <label class="food_create_label">
-                  <%= f.text_area :message, placeholder: "お問合わせ" %>
-              </label>
+            <div class="form-group" style="margin: 0 auto; width: 90%;">
+                <%= f.text_area :message, class: "form-control comment-area shadow-lg rounded", type: "text", placeholder: "お問合せ内容", rows: "5" %>
+                <%= render 'shared/error_messages', object: f.object, text: :message %>
             </div>
             <div class="actions text-center topbtn">
               <%= f.submit '送信', class: "btn btn-square-shadow mt-5" %>

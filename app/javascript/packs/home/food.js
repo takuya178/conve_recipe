@@ -1,15 +1,14 @@
 (() => {
-  const tab = document.getElementById('tab')
+  const tab = document.getElementById('js-tab');
+  const contain = document.getElementById('js-food-contain');
   const normal = document.getElementById('js-normalselect');
   const abnormal = document.getElementById('js-ngselect');
   const normalbtn = document.getElementById('js-normalbtn');
   const ngbtn = document.getElementById('js-ngbtn');
   const contents = document.querySelectorAll('#js-contents');
   const table = document.getElementById('food_table');
-  console.log(table)
   const ngfood = document.getElementById('js-ngfood');
   const scroll = document.getElementById( 'js-scroll-fadein' );
-
 
   ngfood.addEventListener('click', () => {
     location.href = '/overdose_food_combinations' + location.search
@@ -50,4 +49,5 @@
       document.getElementById("loading").classList.remove("active")
     }, 500)
   })
+
 })();
