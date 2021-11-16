@@ -15,7 +15,7 @@ class FoodCombinationsController < ApplicationController
 
     selection = params[:keyword]
     @q = FoodCombination.ransack(params[:q])
-    @foods = @q.result(distinct: true).eager_load(:main, :sub).all
+    @foods = @q.result(distinct: true).eager_load(:main, :sub).all.page(params[:page])
 
   end
 
