@@ -10,6 +10,7 @@ class MainSubForm
 
   attr_accessor :name, :image, :stores, :genre, :calorie, :sugar, :lipid, :salt
 
+  # validates :name, presence: true
   concerning :SubBuilder do
     attr_reader :subs_attributes
 
@@ -58,6 +59,6 @@ class MainSubForm
     end
   
     def sub_build_asscociations
-      main.subs << subs if subs.present?
+      main.subs << subs
     end    
   end

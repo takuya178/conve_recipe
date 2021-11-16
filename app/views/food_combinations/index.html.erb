@@ -1,13 +1,5 @@
 <% content_for(:title, t('.title')) %>
-<div id="loading" class="loading active">
-      <span>L</span>
-      <span>O</span>
-      <span>A</span>
-      <span>D</span>
-      <span>I</span>
-      <span>N</span>
-      <span>G</span>
-</div>
+
 
 <% if @sugar && @component_params.size == 1 && @noodle %>
   <div class="food_combination" id='js-tab'>
@@ -16,17 +8,22 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">炭水化物80g以下の組み合わせ</p>    
       </div>
+      <div class="js_contain">
       <% @foods.each do |food| %>
         <% if food.main.genre == 'noodle' && food.plus_component %>
           <div class="food_combi_contain">
             <%= render 'details', food: food %>
             <div class="food_graph">
-              <% chart = [ food.chart_sugar ] %>
+              <% chart = [
+                { name: '炭水化物(g)', data: food.get_sugar }
+              ] %>
               <%= bar_chart chart, colors: ["#185ADB", "#666"], min: 0, max: 100 %>
             </div>
           </div>
         <% end %>
       <% end %>
+      </div>
+      <%= paginate @foods  %>
     </div>
   </div>
 
@@ -342,3 +339,4 @@
 
 <div id="js-scroll-fadein" class="js-scroll-fadein arrow normal"></div>  
 <%= javascript_pack_tag 'home/food' %>
+
