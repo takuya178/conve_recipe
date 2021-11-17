@@ -21,6 +21,11 @@
             <%= render 'form', f: main, target: Main, place: 'メイン食品名', component: @mains %>
             <div class="food_create_form">
               <label class="food_create_label">
+                <%= main.select :stores, options_for_select(Main.stores_i18n.invert), {prompt: "#{@mains.nil? ? 'コンビニ名を選択' : @mains.stores_i18n}"}, class: "food_create_select", disabled: @mains %>
+              </label>
+            </div>
+            <div class="food_create_form">
+              <label class="food_create_label">
                 <%= main.select :genre, options_for_select(Main.genres_i18n.invert), {prompt: "#{@mains.nil? ? 'ジャンルを選択' : @mains.genre_i18n}"}, class: "food_create_select", disabled: @mains %>
               </label>
             </div>
@@ -51,6 +56,11 @@
             </div>
           </div>
           <%= render 'form', f: sub, target: Sub, place: 'サブ食品名', component: @subs %>
+          <div class="food_create_form">
+            <label class="food_create_label">
+              <%= sub.select :stores, options_for_select(Sub.stores_i18n.invert), {include_blank: 'コンビニ名を選択'}, class: "food_create_select" %>
+            </label>
+          </div>
         </div>
         <% end %>
       </div>
