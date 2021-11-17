@@ -14,9 +14,9 @@ class Admin::SubsController < Admin::BaseController
     @sub = Sub.new(sub_params)
 
     if @sub.save
-      redirect_to new_admin_sub_path, success: 'おつまみを追加しました'
+      redirect_to new_admin_sub_path, success: 'サブ料理を追加しました'
     else
-      flash.now[:danger] = 'おつまみを追加に失敗しました'
+      flash.now[:danger] = 'サブ料理の作成に失敗しました'
       render :new
     end
   end

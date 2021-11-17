@@ -12,7 +12,7 @@ FactoryBot.define do
     trait :stores do
       stores { lawson }
     end
-    trait :family do
+    trait :stores do
       stores { family }
     end
   end

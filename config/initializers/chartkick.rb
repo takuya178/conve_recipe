@@ -4,9 +4,9 @@ Chartkick.options = {
 
   message: {empty: "データがありません"},
   thousands: ",", 
-  legend: false, # 凡例非表示
+  legend: false,
   library: { # ここからHighchartsのオプション
-    title: { # タイトル表示(ここでは、グラフの真ん中に配置して,viewでデータを渡しています。*後述)
+    title: {
       align: 'center',
       verticalAlign: 'middle',
     },
