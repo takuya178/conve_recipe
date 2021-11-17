@@ -14,9 +14,9 @@ class Admin::MainsController < Admin::BaseController
     @main = Main.new(main_params)
 
     if @main.save
-      redirect_to new_admin_main_path, success: 'おつまみを追加しました'
+      redirect_to new_admin_main_path, success: 'メイン料理を追加しました'
     else
-      flash.now[:danger] = 'おつまみを追加に失敗しました'
+      flash.now[:danger] = 'メイン料理の作成に失敗しました'
       render :new
     end
   end

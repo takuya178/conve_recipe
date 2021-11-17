@@ -34,12 +34,12 @@
        }
        if(count == 0) {
          button.disabled = true;
-         button.classList.remove('btn-primary')
+         button.classList.remove('select_btn_back')
          button.classList.add('btn-secondary')
        } else {
          button.disabled = false;
          button.classList.remove('btn-secondary')
-         button.classList.add('btn-primary')
+         button.classList.add('select_btn_back')
        }
        $img[i].classList.toggle('filter');
        console.log(count)

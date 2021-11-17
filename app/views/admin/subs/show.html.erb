@@ -16,7 +16,7 @@
         <%= button_to "編集", edit_admin_sub_path(@sub), method: :get, class: "btn btn-success", style: "padding: 20px; width: 100%"  %>
       </li>
       <li class='list-inline-item'>
-        <%= button_to "削除", admin_subs_path(@sub), method: :delete, data: { confirm: '本当に削除してもよろしいですか？'}, class: "btn btn-danger", style: "padding: 20px; width: 100%"  %>
+        <%= button_to "削除", admin_sub_path(@sub), method: :delete, data: { confirm: '本当に削除してもよろしいですか？'}, class: "btn btn-danger", style: "padding: 20px; width: 100%"  %>
       </li>
     </ul>
   </div>

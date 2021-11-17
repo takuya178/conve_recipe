@@ -19,14 +19,14 @@ FactoryBot.define do
     trait :stores do
       stores { lawson }
     end
-    trait :family do
+    trait :stores do
       stores { family }
     end
 
-    trait :with_nested_subs do
-      after( :create ) do |sub|
-        create :sub, id: main.id
-      end
-    end
+    # trait :with_nested_subs do
+    #   after( :create ) do |sub|
+    #     create :sub, id: main.id
+    #   end
+    # end
   end
 end

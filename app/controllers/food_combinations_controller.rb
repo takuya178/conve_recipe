@@ -1,6 +1,4 @@
 class FoodCombinationsController < ApplicationController
-  skip_before_action :require_login, only: %i[index select overdose]
-
   def index
     @component_params = params[:component]
     genre_params = params[:genre]
@@ -15,8 +13,7 @@ class FoodCombinationsController < ApplicationController
 
     selection = params[:keyword]
     @q = FoodCombination.ransack(params[:q])
-    @foods = @q.result(distinct: true).eager_load(:main, :sub).all.page(params[:page])
-
+    @foods = @q.result(distinct: true).eager_load(:main, :sub).all
   end
 
   def select; end
