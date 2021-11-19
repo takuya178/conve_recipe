@@ -1,5 +1,5 @@
 <% if target.image.attached? %>
-  <%= image_tag target.image.variant(gravity: :center, resize:"340x340^", crop:"340x340+0+0" ) %>
+  <%= image_tag target.image.variant(gravity: :center, resize:"440x440^", crop:"440x440+0+0" ).processed %>
   <% else %>
   <%= image_pack_tag("media/images/noimage.jpg") %>
 <% end %>
