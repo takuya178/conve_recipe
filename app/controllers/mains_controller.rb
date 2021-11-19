@@ -11,11 +11,14 @@ class MainsController < ApplicationController
   def new
     @main_sub_form = MainSubForm.new
     @mains = Main.find_by(name: params[:name])
+    @main = Main.new
+    @sub = Sub.new
   end
 
   def create
     @main_sub_form = MainSubForm.new(main_sub_form_params)
     main_data = Main.find_or_initialize_by(name: main_sub_form_params[:name])
+    resize_image(200,200)
 
     if main_data.new_record?
       if @main_sub_form.save
@@ -44,6 +47,12 @@ class MainsController < ApplicationController
       :genre,
       :stores,
       subs_attributes:[:name, :image, :calorie, :sugar, :lipid, :salt, :stores])
+  end
+
+  def resize_image(width = 1280,height = 1280)
+    [main_sub_form_params[:image], main_sub_form_params[:subs_attributes][:image]].each do |image|
+      image.tempfile = ImageProcessing::MiniMagick.source(image.tempfile).resize_to_fit(width, height).call
+    end
   end
 
 end
