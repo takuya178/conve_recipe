@@ -1,7 +1,9 @@
 class MainsController < ApplicationController
+  include Pagy::Backend
+
   def index
     @q = Main.ransack(params[:q])
-    @mains = @q.result(distinct: true).all.page(params[:page])
+    @pagy, @mains = pagy @q.result(distinct: true).all
   end
 
   def show
@@ -11,14 +13,12 @@ class MainsController < ApplicationController
   def new
     @main_sub_form = MainSubForm.new
     @mains = Main.find_by(name: params[:name])
-    @main = Main.new
-    @sub = Sub.new
   end
 
   def create
     @main_sub_form = MainSubForm.new(main_sub_form_params)
     main_data = Main.find_or_initialize_by(name: main_sub_form_params[:name])
-    resize_image(200,200)
+    # resize_image(400,400)
 
     if main_data.new_record?
       if @main_sub_form.save
@@ -54,5 +54,4 @@ class MainsController < ApplicationController
       image.tempfile = ImageProcessing::MiniMagick.source(image.tempfile).resize_to_fit(width, height).call
     end
   end
-
 end

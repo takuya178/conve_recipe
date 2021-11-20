@@ -192,6 +192,10 @@
   margin: 50px 0;
 }
 
+.pagy-nav {
+  display: none;
+}
+
 
 
 @media (max-width: 480px) {
@@ -215,7 +219,7 @@
     width: 100%;
   }
   .food_create_label {
-    width: 85%;
+    width: 100%;
   }
   .food_create_form {
     margin: 30px auto;
