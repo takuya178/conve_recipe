@@ -1,4 +1,3 @@
-(() => {
   const $tab = document.getElementById('tab');
    const $link = $tab.querySelectorAll('a');
    const $img = $tab.querySelectorAll('img');
@@ -77,5 +76,3 @@
        });
      });
    }
-
-})();

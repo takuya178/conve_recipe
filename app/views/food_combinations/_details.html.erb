@@ -6,8 +6,8 @@
       <% else %>               
         <div class="food_combi_title_red">成分量が多い組み合わせ</div>
       <% end %>
-      <div class="food_combi_menu_inner">
-        <div class="food_combi_main">
+      <div class="row text-center food_combi_menu_inner">
+        <div class="col-md-6 food_combi_sp_bottom">
           <p>メイン</p>
             <%= render 'shared/active_storage', target: food.main %>
           <div class="food_combi_main_name">
@@ -17,8 +17,7 @@
             <p>店舗名：<%= food.main.stores_i18n %></p>
           </div>
         </div>
-        <div class="food_combi_compo">×</div>
-        <div class="food_combi_sub">
+        <div class="col-md-6">
           <p>プラス一品</p>
             <%= render 'shared/active_storage', target: food.sub %>
           <div class="food_combi_sub_name">
@@ -32,7 +31,10 @@
       <div class="food_combi_border_blue"></div>
         <div class="food_combi_text">
           <div class="food_combi_price">
-            組み合わせ総カロリー： <%= food.main.calorie + food.sub.calorie %> cal
+            組み合わせ炭水化物： <%= sprintf("%.1f", food.main.sugar + food.sub.sugar) %> g
+          </div>
+          <div class="food_combi_price">
+            組み合わせカロリー： <%= food.main.calorie + food.sub.calorie %> cal
           </div>
           <div class="food_combi_price">
             <%= link_to "https://twitter.com/share?&url=https://healthy-combi2.app/&text=#{food.main.name}と#{food.sub.name}の組み合わせを試します！組み合わせ成分値=>炭水化物：#{food.main.sugar + food.sub.sugar}、脂質：#{food.main.lipid + food.sub.lipid}、塩分：#{food.main.salt + food.sub.salt}&hashtags=healty_combi&lang=ja", title: 'Twitter', target: :_blank, rel: 'noopener noreferrer', class: 'fl_tw1' do %>

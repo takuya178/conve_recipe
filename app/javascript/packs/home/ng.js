@@ -1,4 +1,3 @@
-(() => {
 const normalbtn = document.getElementById('js-normalbtn');
 const scroll = document.getElementById( 'js-scroll-fadein' );
 
@@ -35,4 +34,14 @@ normalbtn.addEventListener('click', () => {
   scroll.addEventListener('click', () => {
     scrollTop();
   })
-})();
+
+  // 無限スクロール
+  import InfiniteScroll from 'infinite-scroll';
+
+  let infScroll = new InfiniteScroll( '.js_contain', {
+    path: "a[rel=next]",
+    append: ".food_combi_contain",
+    prefill: false,
+    history: false,
+    hideNav: '.pagy-bootstrap-nav'
+  });

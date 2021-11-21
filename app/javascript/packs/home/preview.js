@@ -1,4 +1,3 @@
-(() => {
   class Preview {
     constructor(obj) {
       const $file = document.getElementById(obj.hookId);
@@ -48,4 +47,3 @@
     hookImg: 'js-sub-image',
     hookNoImg: 'js-sub-no-img'
   })
-})();

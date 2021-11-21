@@ -1,4 +1,3 @@
-(() => {
   const tab = document.getElementById('js-tab');
   const contain = document.getElementById('js-food-contain');
   const normal = document.getElementById('js-normalselect');
@@ -52,12 +51,12 @@
 
   
   // 無限スクロール
-// import InfiniteScroll from 'infinite-scroll';
-// let infScroll = new InfiniteScroll( '.js_contain', {
-//   path: "a[rel=next]",
-//   append: ".food_combi_contain",
-//   prefill: false,
-//   history: false,
-//   hideNav: ".pagy-bootstrap-nav"
-// })
-})()
+  import InfiniteScroll from 'infinite-scroll';
+
+  let infScroll = new InfiniteScroll( '.js_contain', {
+    path: "a[rel=next]",
+    append: ".food_combi_contain",
+    prefill: false,
+    history: false,
+    hideNav: '.pagy-bootstrap-nav'
+  });

@@ -17,20 +17,15 @@
         <p class="food_combi_ngtext">炭水化物80g以下の組み合わせ</p>    
       </div>
       <div class="js_contain">
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'noodle' && food.plus_component %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '炭水化物(g)', data: food.get_sugar }
-              ] %>
-              <%= bar_chart chart, colors: ["#185ADB", "#666"], min: 0, max: 100 %>
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'noodle' && food.plus_component %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
       </div>
+      <%== pagy_bootstrap_nav(@pagy) %> 
     </div>
   </div>
 
@@ -41,19 +36,16 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">炭水化物80g以下の組み合わせ</p>    
       </div>
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'rice' && food.main.sugar + food.sub.sugar <= 80 %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '炭水化物(g)', data: food.get_sugar }
-              ] %>
-              <%= bar_chart chart, colors: ["#185ADB", "#666"], min: 0, max: 100 %>
+      <div class="js_contain">
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'rice' && food.main.sugar + food.sub.sugar <= 80 %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%== pagy_bootstrap_nav(@pagy) %> 
     </div>
   </div>
 
@@ -64,19 +56,16 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">脂質25g以下の組み合わせ</p>    
       </div>
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'noodle' && food.main.lipid + food.sub.lipid <= 25 %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '脂質(g)', data: food.get_lipid }
-              ] %>
-              <%= bar_chart chart, colors: ["#FFE227", "#666"], min: 0, max: 100 %>
+      <div class="js_contain">
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'noodle' && food.main.lipid + food.sub.lipid <= 25 %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%== pagy_bootstrap_nav(@pagy) %> 
     </div>
   </div>
 
@@ -87,19 +76,16 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">脂質25g以下の組み合わせ</p>    
       </div>
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'rice' && food.main.lipid + food.sub.lipid <= 25 %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '脂質(g)', data: food.get_lipid }
-              ] %>
-              <%= bar_chart chart, colors: ["#FFE227", "#666"], min: 0, max: 100 %>
+      <div class="js_contain">
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'rice' && food.main.lipid + food.sub.lipid <= 25 %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%== pagy_bootstrap_nav(@pagy) %> 
     </div>
   </div>
 
@@ -110,19 +96,16 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">塩分3g以下の組み合わせ</p>    
       </div>
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'noodle' && food.main.salt + food.sub.salt <= 3 %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '塩分(g)', data: food.get_salt }
-              ] %>
-              <%= bar_chart chart, colors: ["#b00", "#666"], min: 0, max: 100 %>
+      <div class="js_contain">
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'noodle' && food.main.salt + food.sub.salt <= 3 %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%== pagy_bootstrap_nav(@pagy) %> 
     </div>
   </div>
 
@@ -133,19 +116,16 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">塩分3g以下の組み合わせ</p>    
       </div>
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'rice' && food.main.salt + food.sub.salt <= 3 %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '塩分(g)', data: food.get_salt }
-              ] %>
-              <%= bar_chart chart, colors: ["#b00", "#666"], min: 0, max: 100 %>
+      <div class="js_contain">
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'rice' && food.main.salt + food.sub.salt <= 3 %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
 
@@ -156,20 +136,16 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">炭水化物80g以下、脂質25g以下の組み合わせ</p> 
       </div>
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'noodle' && food.main.sugar + food.sub.sugar <= 80 && food.main.lipid + food.sub.lipid <= 25  %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '炭水化物(g)', data: food.get_sugar },
-                { name: '脂質(g)', data: food.get_lipid }
-              ] %>
-              <%= bar_chart chart, colors: ["#185ADB", "#FFE227"], min: 0, max: 100 %>
+      <div class="js_contain">
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'noodle' && food.main.sugar + food.sub.sugar <= 80 && food.main.lipid + food.sub.lipid <= 25  %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
 
@@ -180,20 +156,16 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">炭水化物80g以下、脂質25g以下の組み合わせ</p>
       </div>
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'rice' && food.main.sugar + food.sub.sugar <= 80 && food.main.lipid + food.sub.lipid <= 25  %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '炭水化物(g)', data: food.get_sugar },
-                { name: '脂質(g)', data: food.get_lipid }
-              ] %>
-              <%= bar_chart chart, colors: ["#185ADB", "#FFE227"], min: 0, max: 100 %>
+      <div class="js_contain">
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'rice' && food.main.sugar + food.sub.sugar <= 80 && food.main.lipid + food.sub.lipid <= 25  %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
 
@@ -204,20 +176,16 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">脂質25g以下、塩分3g以下の組み合わせ</p>
       </div>
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'noodle' && food.main.lipid + food.sub.lipid <= 25 && food.main.salt + food.sub.salt <= 3  %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '脂質(g)', data: food.get_lipid },
-                { name: '塩分(g)', data: food.get_salt }
-              ] %>
-              <%= bar_chart chart, colors: ["#FFE227", "#b00"], min: 0, max: 100 %>
+      <div class="js_contain">
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'noodle' && food.main.lipid + food.sub.lipid <= 25 && food.main.salt + food.sub.salt <= 3  %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
 
@@ -228,20 +196,16 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">脂質25g以下、塩分3g以下の組み合わせ</p>
       </div>
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'rice' && food.main.lipid + food.sub.lipid <= 25 && food.main.salt + food.sub.salt <= 3  %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '脂質(g)', data: food.get_lipid },
-                { name: '塩分(g)', data: food.get_salt }
-              ] %>
-              <%= bar_chart chart, colors: ["#FFE227", "#b00"], min: 0, max: 100 %>
+      <div class="js_contain">
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'rice' && food.main.lipid + food.sub.lipid <= 25 && food.main.salt + food.sub.salt <= 3  %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
 
@@ -252,20 +216,16 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">糖質80g以下、塩分3g以下の組み合わせ</p>
       </div>
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'noodle' && food.main.sugar + food.sub.sugar <= 80 && food.main.salt + food.sub.salt <= 3  %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '炭水化物(g)', data: food.get_sugar },
-                { name: '塩分(g)', data: food.get_salt }
-              ] %>
-              <%= bar_chart chart, colors: ["#185ADB", "#b00"], min: 0, max: 100 %>
+      <div class="js_contain">
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'noodle' && food.main.sugar + food.sub.sugar <= 80 && food.main.salt + food.sub.salt <= 3  %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+       <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
 
@@ -276,20 +236,16 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">糖質80g以下、塩分3g以下の組み合わせ</p>
       </div>
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'rice' && food.main.sugar + food.sub.sugar <= 80 && food.main.salt + food.sub.salt <= 3  %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '炭水化物(g)', data: food.get_sugar },
-                { name: '塩分(g)', data: food.get_salt }
-              ] %>
-              <%= bar_chart chart, colors: ["#185ADB", "#b00"], min: 0, max: 100 %>
+      <div class="js_contain">
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'rice' && food.main.sugar + food.sub.sugar <= 80 && food.main.salt + food.sub.salt <= 3  %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
 
@@ -300,21 +256,16 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">糖質80g以下、脂質25g以下、塩分3g以下の組み合わせ</p> 
       </div>
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'noodle' && food.main.sugar + food.sub.sugar < 80 && food.main.lipid + food.sub.lipid < 25 && food.main.salt + food.sub.salt < 3 %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '炭水化物(g)', data: food.get_sugar },
-                { name: '脂質(g)', data: food.get_lipid },
-                { name: '塩分(g)', data: food.get_salt }
-              ] %>
-              <%= bar_chart chart, colors: ["#185ADB", "#FFE227", "#b00"], min: 0, max: 100 %>
+      <div class="js_contain">
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'noodle' && food.main.sugar + food.sub.sugar < 80 && food.main.lipid + food.sub.lipid < 25 && food.main.salt + food.sub.salt < 3 %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
 
@@ -325,21 +276,16 @@
       <div class="food_combi_component_text_inner">
         <p class="food_combi_ngtext">糖質80g以下、脂質25g以下、塩分3g以下の組み合わせ</p>  
       </div>
-      <% @foods.each do |food| %>
-        <% if food.main.genre == 'rice' && food.main.sugar + food.sub.sugar <= 80 && food.main.lipid + food.sub.lipid <= 25 && food.main.salt + food.sub.salt <= 3 %>
-          <div class="food_combi_contain">
-            <%= render 'details', food: food %>
-            <div class="food_graph">
-              <% chart = [
-                { name: '炭水化物(g)', data: food.get_sugar },
-                { name: '脂質(g)', data: food.get_lipid },
-                { name: '塩分(g)', data: food.get_salt }
-              ] %>
-              <%= bar_chart chart, colors: ["#185ADB", "#FFE227", "#b00"], min: 0, max: 100 %>
+      <div class="js_contain">
+        <% @foods.each do |food| %>
+          <% if food.main.genre == 'rice' && food.main.sugar + food.sub.sugar <= 80 && food.main.lipid + food.sub.lipid <= 25 && food.main.salt + food.sub.salt <= 3 %>
+            <div class="food_combi_contain">
+              <%= render 'details', food: food %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
 <% end %>

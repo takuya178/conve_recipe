@@ -5,7 +5,7 @@
       <%= render 'search_form', url: mains_path %> 
       <div class="row infinity_contain">
         <% @mains.each do |main| %>
-        <div class="col-lg-4 infinity_page" data-toggle="modal" data-target="#exampleModal">
+        <div class="col-md-6 infinity_page" data-toggle="modal" data-target="#exampleModal">
           <%= link_to main_path(main), class: "card mx-auto mb-5 food-card", remote: true do %>
             <%= render 'shared/active_storage', target: main %>
             <div class="card-body">
@@ -21,4 +21,5 @@
     </div>
   </div>
 
+<div id="js-scroll-fadein" class="js-scroll-fadein arrow normal"></div>    
 <%= javascript_pack_tag 'home/main' %>
