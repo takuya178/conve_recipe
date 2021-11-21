@@ -14,7 +14,7 @@
 # Instance variables
 # See https://ddnexus.github.io/pagy/api/pagy#instance-variables
 # Pagy::VARS[:page]   = 1                                  # default
-Pagy::DEFAULT[:items]  = 9                                 # default
+# Pagy::DEFAULT[:items]  = 25                                # default
 # Pagy::VARS[:outset] = 0                                  # default
 
 

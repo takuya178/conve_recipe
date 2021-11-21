@@ -12,11 +12,11 @@
 }
 .food_combination {
   background-color: #F0E5CF;
-  font-size: 25px;
+  font-size: 20px;
 }
 .food_combi_flex img {
-  width: 300px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
 }
 .food_combi_contain {
@@ -26,10 +26,11 @@
   justify-content: space-around;
 }
 .food_combi_flex {
-  max-width: 850px;
+  max-width: 80%;
   width: 100%;
 }
 .food_combi_text {
+  font-size: 25px;
   text-align: center;
   padding: 20px;
 }
@@ -43,19 +44,14 @@
 }
 .food_combi_main_name {
   width: 100%;
-  max-width: 300px;
   margin-top: 20px;
 }
 .food_combi_sub_name {
   width: 100%;
-  max-width: 300px;
   margin-top: 20px;
 }
 .food_combi_menu_inner {
-  display: flex;
-  text-align: center;
   padding: 20px;
-  justify-content: space-around;
 }
 .food_combi_title {
   @include food_combi_title_box($text-color)
@@ -78,7 +74,7 @@
   }
   .food_combi_normal_select, .food_combi_ng_select {
     display: block;
-    width: 100%;
+    width: 80%;
     text-align: center;
     margin: 20px auto;
     padding: 35px;
@@ -250,27 +246,32 @@
 // 
 // メディアクエリ
 // 
-@media (max-width: 1025px) {
-  .food_combi_contain {
-    display: block;
+@media (max-width: 834px) {
+  .food_combi_btn {
+    .food_combi_normal_select, .food_combi_ng_select {
+      width: 100%;
+    }
   }
-
+  .food_combi_flex {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 // タブレット対応
 // 
 @media (max-width: 768px) {
+  .food_combi_btn {
+    .food_combi_normal_select, .food_combi_ng_select {
+      width: 100%;
+    }
+  }
   .food_combi_contain {
     display: block;
   }
-  .food_combi_flex img {
-    width: 240px;
-    height: 200px;
-    object-fit: cover;
-  }
   .food_combi_menu_inner {
     display: flex;
-    font-size: 25px;
+    font-size: 20px;
     padding: 30px;
     justify-content: space-around;
   }
@@ -286,13 +287,16 @@
   // 
   // food_select画面
   // 
+  .food_combi_btn {
+    .food_combi_normal_select, .food_combi_ng_select {
+      width: 100%;
+    }
+  }
   .food_combination {
     font-size: 18px;
   }
-  .food_combi_flex img {
-    width: 290px;
-    height: 200px;
-    object-fit: cover;
+  .food_combi_text {
+    font-size: 20px;
   }
   .food_combi_contain {
     display: block;
@@ -332,6 +336,9 @@
     font-weight: bold;
     margin-bottom: 10px;
   }
+  .food_combi_sp_bottom {
+    margin-bottom: 80px;
+  }
   .food_combi_btn {
     margin: 20px 0;
     .food_combi_normal_select, .food_combi_ng_select {
@@ -341,6 +348,7 @@
   .explanation_nutrition {
     font-size: 18px;
   }
+
 
 // 
 // 栄養基準
@@ -368,12 +376,16 @@
 
   /*299px以下で適用する内容*/
   @media (max-width: 320px) {
-    .food_combi_flex img {
-      width: 220px;
-      height: 200px;
-      object-fit: cover;
+    .food_combi_btn {
+      .food_combi_normal_select, .food_combi_ng_select {
+        width: 100%;
+      }
     }
     .food_combi_contain {
       display: block;
+    }
+    .food_combi_flex img {
+      width: 100%;
+      object-fit: cover;
     }
   }

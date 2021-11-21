@@ -1,4 +1,6 @@
 class FoodCombinationsController < ApplicationController
+  include Pagy::Backend
+
   def index
     @component_params = params[:component]
     genre_params = params[:genre]
@@ -12,8 +14,7 @@ class FoodCombinationsController < ApplicationController
     @rice = Tag.find_by(id: genre_ids, genre: 'rice')
 
     selection = params[:keyword]
-    @q = FoodCombination.ransack(params[:q])
-    @foods = @q.result(distinct: true).eager_load(:main, :sub).all
+    @pagy, @foods = pagy(FoodCombination.eager_load(:main, :sub).all, items: 25)
   end
 
   def select; end
@@ -31,8 +32,7 @@ class FoodCombinationsController < ApplicationController
     @noodle = Tag.find_by(id: genre_ids, genre: 'noodle')
     @rice = Tag.find_by(id: genre_ids, genre: 'rice')
 
-    @q = FoodCombination.ransack(params[:q])
-    @foods = @q.result(distinct: true).eager_load(:main, :sub).all
+    @pagy, @foods = pagy(FoodCombination.eager_load(:main, :sub).all, items: 25)
   end
 
 end

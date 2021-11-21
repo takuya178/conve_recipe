@@ -3,7 +3,7 @@ class MainsController < ApplicationController
 
   def index
     @q = Main.ransack(params[:q])
-    @pagy, @mains = pagy @q.result(distinct: true).all
+    @pagy, @mains = pagy(@q.result(distinct: true).all, items: 14)
   end
 
   def show
@@ -18,7 +18,7 @@ class MainsController < ApplicationController
   def create
     @main_sub_form = MainSubForm.new(main_sub_form_params)
     main_data = Main.find_or_initialize_by(name: main_sub_form_params[:name])
-    # resize_image(400,400)
+    resize_image(300,300)
 
     if main_data.new_record?
       if @main_sub_form.save
@@ -49,7 +49,7 @@ class MainsController < ApplicationController
       subs_attributes:[:name, :image, :calorie, :sugar, :lipid, :salt, :stores])
   end
 
-  def resize_image(width = 1280,height = 1280)
+  def resize_image(width = 300,height = 300)
     [main_sub_form_params[:image], main_sub_form_params[:subs_attributes][:image]].each do |image|
       image.tempfile = ImageProcessing::MiniMagick.source(image.tempfile).resize_to_fit(width, height).call
     end

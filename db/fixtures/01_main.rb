@@ -1,7 +1,7 @@
 Main.seed(:id,
-  { id:1, name: '肉の旨味が詰まったミートソースパスタ', calorie: 572, sugar: 78, lipid: 21, salt: 4.1, genre: 'noodle', stores: 'seven'},
+  { id:1, name: '肉の旨味が詰まったミートソースパスタ', calorie: 572, sugar: 78, lipid: 21, salt: 4.1, genre: 'noodle'},
 
-  { id:2, name: 'なつかしナポリタン', calorie: 478, sugar: 79.6, lipid: 13.2, salt: 5.4, genre: 'noodle', stores: 'seven'},
+  { id:2, name: 'なつかしナポリタン', calorie: 478, sugar: 79.6, lipid: 13.2, salt: 5.4, genre: 'noodle'},
 
   { id:3, name: 'ボンゴレビアンコ', calorie: 501, sugar: 75.6, lipid: 13.8, salt: 6.6, genre: 'noodle'},
 
