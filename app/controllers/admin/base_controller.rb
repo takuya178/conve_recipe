@@ -7,6 +7,7 @@ class Admin::BaseController < ApplicationController
 
   def not_authenticated
     flash[:warning] = 'ログインしてください'
+    redirect_to admin_login_path
   end
 
   def check_admin

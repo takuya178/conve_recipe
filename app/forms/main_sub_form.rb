@@ -10,9 +10,6 @@ class MainSubForm
 
   attr_accessor :name, :image, :stores, :genre, :calorie, :sugar, :lipid, :salt
 
-
-
-
   concerning :SubBuilder do
     attr_reader :subs_attributes
 
