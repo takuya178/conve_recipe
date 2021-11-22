@@ -11,6 +11,7 @@ Rails.application.configure do
   config.assets.compile = true
   # Show full error reports.
   config.consider_all_requests_local = false
+  config.autoloader = :classic
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
