@@ -18,11 +18,12 @@ class MainsController < ApplicationController
   def create
     @main_sub_form = MainSubForm.new(main_sub_form_params)
     main_data = Main.find_or_initialize_by(name: main_sub_form_params[:name])
-
+    
     if [main_sub_form_params[:image], main_sub_form_params[:subs_attributes][:image]].present?
       resize_image(300,300)
+      @main_sub_form.main.image.attach(params[:main_sub_form][:image])
+      @main_sub_form.subs_attributes.image.attach(params[:main_sub_form][:subs_attributes][:image])
     end
-    # @main_sub_form.subs_attributes.image.attached?
 
     if main_data.new_record?
       if @main_sub_form.save

@@ -14,10 +14,10 @@
 
       // 添付した画像にクラスやデータを付与
       const createImage = (data) => {
-        // const $image = document.getElementById('js-main-image');
         const newImage = document.createElement('img'); 
         newImage.setAttribute('class', 'food_create_preview_img');
         newImage.setAttribute('src', data);
+        // no-img画像に添付した画像を挿入する
         this.$image.appendChild(newImage);
       };
 
@@ -47,3 +47,24 @@
     hookImg: 'js-sub-image',
     hookNoImg: 'js-sub-no-img'
   })
+
+
+        // // 画像をリサイズする
+        // const reader = new FileReader();
+        // const imgReader = new Image();
+        // const imgWidth = 400;
+        // reader.onloadend = () => {
+        //   imgReader.onload = () => {
+        //     const imgType = imgReader.src.substring(5, imgReader.src.indexOf(';'));
+        //     const imgHeight = imgReader.height * (imgWidth / imgReader.width);
+        //     const canvas = document.createElement('canvas');
+        //     canvas.width = imgWidth;
+        //     canvas.height = imgHeight;
+        //     const ctx = canvas.getContext('2d');
+        //     ctx.drawImage(imgReader,0,0,imgWidth,imgHeight);
+        //     newImage.src = canvas.toDataURL(imgType);
+        //     console.log(newImage.src)
+        //   }
+        //   imgReader.src = reader.result;
+        //   console.log(imgReader.src)
+        // }
