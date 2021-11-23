@@ -49,8 +49,8 @@
                     <%= sub.file_field :image, class: "form-control", style: "display:none" %>
                   </span>
                 </label>
-                <div id="js-sub-image" class="text-center"></div>
                 <div class="food_create_no_img_box text-center" style="display: block;" id= "js-sub-no-img"><%= image_pack_tag("media/images/noimage.jpg", class: 'food_create_no_img') %></div>
+                <canvas id="sub_canvas" width="0" height="0"></canvas>
                 <%= render 'shared/error_messages', object: sub.object, text: :image %>
               </div>
             </div>

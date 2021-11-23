@@ -1,70 +1,64 @@
-  class Preview {
-    constructor(obj) {
-      const $file = document.getElementById(obj.hookId);
-      this.$image = document.getElementById(obj.hookImg);
-      this.$NoImage = document.getElementById(obj.hookNoImg);
+class Preview {
+  constructor(obj) {
+    // const $file = null; // 選択されるファイル
+    this.MAX_WIDTH = 400; 
+    this.MAX_HEIGHT = 400;
+    this.$input = document.getElementById(obj.inputId);
+    this.$canvas = document.getElementById(obj.canvasId);
+    this.$NoImage = document.getElementById(obj.noImg);
 
-      $file.addEventListener('change', (e) => {
-        this.previewImg(e);
-      });
-    }
-    previewImg(e) {
-      // // no-imgをdisplay:noneにする
-        this.$NoImage.style.display = 'none';
-
-      // 添付した画像にクラスやデータを付与
-      const createImage = (data) => {
-        const newImage = document.createElement('img'); 
-        newImage.setAttribute('class', 'food_create_preview_img');
-        newImage.setAttribute('src', data);
-        // no-img画像に添付した画像を挿入する
-        this.$image.appendChild(newImage);
-      };
-
-      // 続けて画像を添付する時、前回の画像を削除する
-      const imageItem = this.$image.querySelector('img')
-      if (imageItem){
-        imageItem.remove();
-      }
-  
-      // 取得した画像データを$ImgFileに代入
-      const $ImgFile = e.target.files[0];
-      const data = window.URL.createObjectURL($ImgFile);
-      createImage(data);
-    }
+    this.$input.addEventListener('change', () => {
+      this.previewImg()
+    })
   }
+  previewImg() {
+    this.$NoImage.style.display = 'none';
+
+    const $file = this.$input.files[0];
+
+    // 画像をリサイズ
+    const image = document.createElement('img')
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      image.onload = () => {
+        if(image.width > image.height){
+          // 横長の画像は横のサイズを指定値にあわせる
+          const ratio = image.height/image.width;
+          width = this.MAX_WIDTH;
+          height = this.MAX_WIDTH * ratio;
+        } else {
+          // 縦長の画像は縦のサイズを指定値にあわせる
+          const ratio = image.width/image.height;
+          width = this.MAX_HEIGHT * ratio;
+          height = this.MAX_HEIGHT;
+        }
+        // canvasにwidthとheightの値を代入
+        this.$canvas;
+        this.$canvas.setAttribute('width', width);
+        this.$canvas.setAttribute('height', height);
+
+        const ctx = this.$canvas.getContext('2d');
+        ctx.clearRect(0,0,width,height);
+        // canvasにサムネイルを描画
+        ctx.drawImage(image,0,0,image.width,image.height,0,0,width,height);
+      }
+      image.src = e.target.result;
+    }
+    reader.readAsDataURL($file);
+  };
+}
 
   // メインのプレビュー
   const MainPreview = new Preview({
-    hookId: 'main_sub_form_image',
-    hookImg: 'js-main-image',
-    hookNoImg: 'js-main-no-img'
+    inputId: 'main_sub_form_image',
+    canvasId: 'main_canvas',
+    noImg: 'js-main-no-img'
   })
 
   // サブのプレビュー
   const SubPreview = new Preview({
-    hookId: 'main_sub_form_subs_attributes_image',
-    hookImg: 'js-sub-image',
-    hookNoImg: 'js-sub-no-img'
+    inputId: 'main_sub_form_subs_attributes_image',
+    canvasId: 'sub_canvas',
+    noImg: 'js-sub-no-img'
   })
-
-
-        // // 画像をリサイズする
-        // const reader = new FileReader();
-        // const imgReader = new Image();
-        // const imgWidth = 400;
-        // reader.onloadend = () => {
-        //   imgReader.onload = () => {
-        //     const imgType = imgReader.src.substring(5, imgReader.src.indexOf(';'));
-        //     const imgHeight = imgReader.height * (imgWidth / imgReader.width);
-        //     const canvas = document.createElement('canvas');
-        //     canvas.width = imgWidth;
-        //     canvas.height = imgHeight;
-        //     const ctx = canvas.getContext('2d');
-        //     ctx.drawImage(imgReader,0,0,imgWidth,imgHeight);
-        //     newImage.src = canvas.toDataURL(imgType);
-        //     console.log(newImage.src)
-        //   }
-        //   imgReader.src = reader.result;
-        //   console.log(imgReader.src)
-        // }
