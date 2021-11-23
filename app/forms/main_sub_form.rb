@@ -10,6 +10,7 @@ class MainSubForm
 
   attr_accessor :name, :image, :stores, :genre, :calorie, :sugar, :lipid, :salt
 
+
   concerning :SubBuilder do
     attr_reader :subs_attributes
 
@@ -59,5 +60,15 @@ class MainSubForm
   
     def sub_build_asscociations
       main.subs << subs
-    end    
+    end
+    
+    def image_attached?
+      subs.image.attach
+      main.image.attach
+    end
+
+    def resize_image(width = 300,height = 300)
+      if [main_params[:image],]
+    end
   end
+end
