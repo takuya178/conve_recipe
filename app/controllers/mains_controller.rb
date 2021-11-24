@@ -18,6 +18,11 @@ class MainsController < ApplicationController
   def create
     @main_sub_form = MainSubForm.new(main_sub_form_params)
     main_data = Main.find_or_initialize_by(name: main_sub_form_params[:name])
+    
+ 
+      resize_image(300,300)
+      @main_sub_form.subs_attributes.image.attach(params[:main_sub_form][:subs_attributes][:image])
+
 
     if main_data.new_record?
       if @main_sub_form.save
@@ -27,7 +32,7 @@ class MainsController < ApplicationController
         render :new
       end
     else
-      main_data.subs << Sub.create(name: main_sub_form_params[:subs_attributes][:name], calorie: main_sub_form_params[:subs_attributes][:calorie], sugar: main_sub_form_params[:subs_attributes][:sugar], lipid: main_sub_form_params[:subs_attributes][:lipid], salt: main_sub_form_params[:subs_attributes][:salt], stores: main_sub_form_params[:subs_attributes][:stores])
+      main_data.subs << Sub.create(image: main_sub_form_params[:subs_attributes][:image], name: main_sub_form_params[:subs_attributes][:name], calorie: main_sub_form_params[:subs_attributes][:calorie], sugar: main_sub_form_params[:subs_attributes][:sugar], lipid: main_sub_form_params[:subs_attributes][:lipid], salt: main_sub_form_params[:subs_attributes][:salt], stores: main_sub_form_params[:subs_attributes][:stores])
 
       redirect_to new_main_path, success: "#{main_data.name}に新しい組み合わせを追加しました"
     end
@@ -49,10 +54,7 @@ class MainsController < ApplicationController
   end
 
   def resize_image(width = 300,height = 300)
-    if [main_sub_form_params[:image], main_sub_form_params[:subs_attributes][:image]].present?
-      [main_sub_form_params[:image], main_sub_form_params[:subs_attributes][:image]].each do |image|
-        image.tempfile = ImageProcessing::MiniMagick.source(image.tempfile).resize_to_fit(width, height).call
-      end
-    end
+    main_sub_form_params[:subs_attributes][:image].tempfile = ImageProcessing::MiniMagick.source(main_sub_form_params[:subs_attributes][:image].tempfile).resize_to_fit(width, height).call
+
   end
 end
