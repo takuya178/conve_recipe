@@ -30,9 +30,50 @@
       </div>
       <div class="food_combi_border_blue"></div>
         <div class="food_combi_text">
+        <% if @sugar && @salt && @lipid %>
           <div class="food_combi_price">
             組み合わせ炭水化物： <%= sprintf("%.1f", food.main.sugar + food.sub.sugar) %> g
           </div>
+          <div class="food_combi_price">
+            組み合わせ脂質： <%= sprintf("%.1f", food.main.lipid + food.sub.lipid) %> g
+          </div>
+          <div class="food_combi_price">
+            組み合わせ塩分： <%= sprintf("%.1f", food.main.salt + food.sub.salt) %> g
+          </div>
+        <% elsif @sugar && @lipid %>
+          <div class="food_combi_price">
+            組み合わせ炭水化物： <%= sprintf("%.1f", food.main.sugar + food.sub.sugar) %> g
+          </div>
+          <div class="food_combi_price">
+            組み合わせ脂質： <%= sprintf("%.1f", food.main.lipid + food.sub.lipid) %> g
+          </div>
+        <% elsif @sugar && @salt %>
+          <div class="food_combi_price">
+            組み合わせ炭水化物： <%= sprintf("%.1f", food.main.sugar + food.sub.sugar) %> g
+          </div>
+          <div class="food_combi_price">
+            組み合わせ塩分： <%= sprintf("%.1f", food.main.salt + food.sub.salt) %> g
+          </div>
+        <% elsif @lipid && @salt %>
+          <div class="food_combi_price">
+            組み合わせ脂質： <%= sprintf("%.1f", food.main.lipid + food.sub.lipid) %> g
+          </div>
+          <div class="food_combi_price">
+            組み合わせ塩分： <%= sprintf("%.1f", food.main.salt + food.sub.salt) %> g
+          </div>
+        <% elsif @lipid %>
+          <div class="food_combi_price">
+            組み合わせ脂質： <%= sprintf("%.1f", food.main.lipid + food.sub.lipid) %> g
+          </div>
+        <% elsif @salt %>
+          <div class="food_combi_price">
+            組み合わせ塩分： <%= sprintf("%.1f", food.main.salt + food.sub.salt) %> g
+          </div>
+        <% elsif @sugar %>
+          <div class="food_combi_price">
+            組み合わせ炭水化物： <%= sprintf("%.1f", food.main.salt + food.sub.salt) %> g
+          </div>
+        <% end %>
           <div class="food_combi_price">
             組み合わせカロリー： <%= food.main.calorie + food.sub.calorie %> cal
           </div>
