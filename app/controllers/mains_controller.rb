@@ -17,13 +17,17 @@ class MainsController < ApplicationController
 
   def create
     @main_sub_form = MainSubForm.new(main_sub_form_params)
+
+    if main_sub_form_params[:image].present?
+      main_resize_image(300,300)
+    end
+
+    if main_sub_form_params[:subs_attributes][:image].present?
+      sub_resize_image(300, 300)
+    end
+
     main_data = Main.find_or_initialize_by(name: main_sub_form_params[:name])
     
- 
-      resize_image(300,300)
-      @main_sub_form.subs_attributes.image.attach(params[:main_sub_form][:subs_attributes][:image])
-
-
     if main_data.new_record?
       if @main_sub_form.save
         redirect_to new_main_path, success: '組み合わせを追加しました'
@@ -53,8 +57,11 @@ class MainsController < ApplicationController
       subs_attributes:[:name, :image, :calorie, :sugar, :lipid, :salt, :stores])
   end
 
-  def resize_image(width = 300,height = 300)
-    main_sub_form_params[:subs_attributes][:image].tempfile = ImageProcessing::MiniMagick.source(main_sub_form_params[:subs_attributes][:image].tempfile).resize_to_fit(width, height).call
+  def main_resize_image(width = 1200,height = 1200)
+    main_sub_form_params[:image].tempfile = ImageProcessing::MiniMagick.source(main_sub_form_params[:image].tempfile).resize_to_fit(width, height).call
+  end
 
+  def sub_resize_image(width = 1200,height = 1200)
+    main_sub_form_params[:subs_attributes][:image].tempfile = ImageProcessing::MiniMagick.source(main_sub_form_params[:subs_attributes][:image].tempfile).resize_to_fit(width, height).call
   end
 end
