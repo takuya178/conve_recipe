@@ -50,7 +50,7 @@
                   </span>
                 </label>
                 <div class="food_create_no_img_box text-center" style="display: block;" id= "js-sub-no-img"><%= image_pack_tag("media/images/noimage.jpg", class: 'food_create_no_img') %></div>
-                <canvas id="sub_canvas" width="0" height="0"></canvas>
+                <div id="js-sub-image" class="text-center"></div>
                 <%= render 'shared/error_messages', object: sub.object, text: :image %>
               </div>
             </div>
@@ -71,6 +71,3 @@
 </div>
 
 <%= javascript_pack_tag 'home/preview' %>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/browser-image-compression@1.0.17/dist/browser-image-compression.js"></script>
-
