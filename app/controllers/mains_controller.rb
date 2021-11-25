@@ -19,11 +19,11 @@ class MainsController < ApplicationController
     @main_sub_form = MainSubForm.new(main_sub_form_params)
 
     if main_sub_form_params[:image].present?
-      main_resize_image(300,300)
+      main_resize_image(250,250)
     end
 
     if main_sub_form_params[:subs_attributes][:image].present?
-      sub_resize_image(300, 300)
+      sub_resize_image(250, 250)
     end
 
     main_data = Main.find_or_initialize_by(name: main_sub_form_params[:name])

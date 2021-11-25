@@ -1,5 +1,5 @@
 <% if target.image.attached? %>
-  <%= image_tag target.image.variant(resize_to_fill: [300, 300] ) %>
+  <%= image_tag target.image.variant(resize_to_fill: [250, 250] ) %>
   <% else %>
   <%= image_pack_tag("media/images/noimage.jpg") %>
 <% end %>

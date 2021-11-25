@@ -2,10 +2,10 @@
 <div class="food_top">
   <div class="container">
     <div class="row align-items-center justify-content-around">
-      <div class="col-lg-5 show_box">
+      <div class="col-sm-5 show_box">
         <%= render 'shared/active_storage', target: @main %>
       </div>
-      <div class="col-lg-7 show_item_box">
+      <div class="col-sm-7 show_item_box">
         <p>食品名：<%= @main.name %></p>
         <p>店舗名：<%= @main.stores_i18n %></p>
         <p>炭水化物：<%= @main.sugar %>g</p>
@@ -21,7 +21,7 @@
     <% unless @main.subs.empty? %>
       <div class="row">
         <% @main.subs.each do |sub| %>
-          <div class="col-lg-6">
+          <div class="col-sm-6">
               <div class="card mx-auto mb-5 food-card modal-body">
                 <%= render 'shared/active_storage', target: sub %>
                 <div class="card-body">
