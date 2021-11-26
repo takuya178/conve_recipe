@@ -46,7 +46,7 @@
                 <label class="d-block">
                   <span class="btn p-2 w-100 food_create_img_btn">
                     <i class="fas fa-camera-retro"></i> 画像を選択する
-                    <%= sub.file_field :image, class: "form-control", style: "display:none" %>
+                    <%= sub.file_field :image, class: "form-control", style: "display:none", direct_upload: true %>
                   </span>
                 </label>
                 <div class="food_create_no_img_box text-center" style="display: block;" id= "js-sub-no-img"><%= image_pack_tag("media/images/noimage.jpg", class: 'food_create_no_img') %></div>

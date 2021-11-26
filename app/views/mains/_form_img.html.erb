@@ -6,7 +6,7 @@
   <label class="d-block">
     <span class="btn p-2 w-100 food_create_img_btn">
       <i class="fas fa-camera-retro"></i> 画像を選択する
-      <%= main.file_field :image, class: "form-control", style: "display:none" %>
+      <%= main.file_field :image, class: "form-control", style: "display:none", direct_upload: true %>
     </span>
   </label>
   <div id="js-main-image" class="text-center"></div>
