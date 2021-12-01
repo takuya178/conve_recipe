@@ -6,6 +6,12 @@ $lipid-color: #FFE227;
 $salt-color: #86340A;
 
 
+html {
+  overflow: auto;
+}
+body {
+  overflow: hidden;
+}
 .inner {
   margin: 30px auto;
 }

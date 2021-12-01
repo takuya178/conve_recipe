@@ -22,7 +22,7 @@ class Sub < ApplicationRecord
   end
 
   def image_size
-    if image.blob.byte_size > 5.megabytes
+    if image.blob.byte_size > 3.megabytes
       image.purge
       errors.add(:image, "は5MB以内にしてください")
     end
