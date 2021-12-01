@@ -10,11 +10,11 @@ class MainSubForm
 
   attr_accessor :name, :image, :stores, :genre, :calorie, :sugar, :lipid, :salt
 
-  validates :name, presence: true
-  validates :calorie, presence: true
-  validates :sugar, presence: true
-  validates :lipid, presence: true
-  validates :salt, presence: true
+  # validates :name, presence: true
+  # validates :calorie, presence: true
+  # validates :sugar, presence: true
+  # validates :lipid, presence: true
+  # validates :salt, presence: true
 
   concerning :SubBuilder do
     attr_reader :subs_attributes
@@ -37,7 +37,7 @@ class MainSubForm
   
   def save
     return false if invalid?
-
+    
     main.assign_attributes(main_params)
     sub_build_asscociations
 

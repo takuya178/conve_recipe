@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_11_031841) do
+ActiveRecord::Schema.define(version: 2021_11_29_041637) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2021_10_11_031841) do
 
   create_table "mains", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
-    t.string "image"
     t.integer "genre", default: 0, null: false
     t.integer "stores", default: 0, null: false
     t.integer "calorie", null: false
@@ -65,7 +64,6 @@ ActiveRecord::Schema.define(version: 2021_10_11_031841) do
 
   create_table "subs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
-    t.string "image"
     t.integer "stores", default: 0, null: false
     t.integer "calorie", null: false
     t.float "sugar", null: false

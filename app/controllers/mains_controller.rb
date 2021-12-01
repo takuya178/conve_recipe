@@ -1,4 +1,6 @@
 class MainsController < ApplicationController
+  before_action :set_s3_direct_post, only: [:new, :create] 
+  
   include Pagy::Backend
 
   def index
@@ -17,17 +19,9 @@ class MainsController < ApplicationController
 
   def create
     @main_sub_form = MainSubForm.new(main_sub_form_params)
-
-    # if main_sub_form_params[:image].present?
-    #   main_resize_image(250, 250)
-    # end
-
-    # if main_sub_form_params[:subs_attributes][:image].present?
-    #   sub_resize_image(250, 250)
-    # end
-
     main_data = Main.find_or_initialize_by(name: main_sub_form_params[:name])
-    
+
+    binding.pry
     if main_data.new_record?
       if @main_sub_form.save
         redirect_to new_main_path, success: '組み合わせを追加しました'
@@ -57,11 +51,12 @@ class MainsController < ApplicationController
       subs_attributes:[:name, :image, :calorie, :sugar, :lipid, :salt, :stores])
   end
 
-  def main_resize_image(width = 1200,height = 1200)
-    main_sub_form_params[:image].tempfile = ImageProcessing::MiniMagick.source(main_sub_form_params[:image].tempfile).resize_to_fit(width, height).call
-  end
-
-  def sub_resize_image(width = 1200,height = 1200)
-    main_sub_form_params[:subs_attributes][:image].tempfile = ImageProcessing::MiniMagick.source(main_sub_form_params[:subs_attributes][:image].tempfile).resize_to_fit(width, height).call
+  def set_s3_direct_post
+    require 'aws-sdk-s3'
+    Aws.config.update({
+      region: Rails.application.credentials.dig(:aws, :region),
+      credentials: Aws::Credentials.new( Rails.application.credentials.dig(:aws, :access_key_id), Rails.application.credentials.dig(:aws, :secret_access_key))
+    })
+    @s3_direct_post = Aws::S3::Resource.new.bucket(Rails.application.credentials.dig(:aws, :bucket)).presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
   end
 end

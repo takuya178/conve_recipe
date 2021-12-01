@@ -36,8 +36,10 @@ gem 'ransack'
 gem "chartkick"
 gem 'enum_help'
 gem 'active_storage_validations'
+gem 'active_storage_base64'
 gem 'pagy'
 gem 'mini_magick'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
