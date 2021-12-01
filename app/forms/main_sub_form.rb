@@ -1,6 +1,5 @@
 class MainSubForm
   include ActiveModel::Model
-  include ActiveModel::Attributes
 
   concerning :Mainbuilder do
     def main
@@ -37,7 +36,7 @@ class MainSubForm
   
   def save
     return false if invalid?
-
+    
     main.assign_attributes(main_params)
     sub_build_asscociations
 
@@ -66,14 +65,4 @@ class MainSubForm
     def sub_build_asscociations
       main.subs << subs
     end
-    
-    def image_attached?
-      subs.image.attach
-      main.image.attach
-    end
-
-    def resize_image(width = 300,height = 300)
-      if [main_params[:image],]
-    end
-  end
 end

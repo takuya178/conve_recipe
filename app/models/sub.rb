@@ -7,8 +7,10 @@ class Sub < ApplicationRecord
 
   include FoodValidate
 
-  validate :image_content_type, :image_size, if: :was_attached?
   validates :name, length: { maximum: 30 }
+
+
+  validate :image_content_type, :image_size, if: :was_attached?
 
   def image_content_type
     image_type = ['image/png', 'image/jpg', 'image/jpeg']

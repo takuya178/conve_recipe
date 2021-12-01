@@ -241,6 +241,18 @@ input[type=file][data-direct-upload-url][disabled] {
   display: none;
 }
 
+.progress {
+  max-width: 600px;
+  margin:    0.2em 0 0.2em 0;
+}
+
+.progress .bar {
+  height:  1.2em;
+  padding-left: 0.2em;
+  color:   white;
+  display: none;
+}
+
 
 
 

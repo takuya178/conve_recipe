@@ -8,6 +8,7 @@ class Main < ApplicationRecord
 
   include FoodValidate
 
+
   validate :image_content_type, :image_size, if: :was_attached?
 
 
