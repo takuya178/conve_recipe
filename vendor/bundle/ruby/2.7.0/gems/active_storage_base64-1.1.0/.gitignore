@@ -1,4 +1,0 @@
-Gemfile.lock
-spec/dummy/log
-spec/dummy/db/**.sqlite3
-/coverage/

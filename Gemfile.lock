@@ -37,8 +37,6 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
-    active_storage_base64 (1.1.0)
-      rails (~> 6.0)
     active_storage_validations (0.9.5)
       rails (>= 5.2.0)
     activejob (6.0.4)
@@ -63,21 +61,21 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
-    aws-eventstream (1.1.1)
-    aws-partitions (1.490.0)
-    aws-sdk-core (3.119.1)
+    aws-eventstream (1.2.0)
+    aws-partitions (1.537.0)
+    aws-sdk-core (3.124.0)
       aws-eventstream (~> 1, >= 1.0.2)
-      aws-partitions (~> 1, >= 1.239.0)
+      aws-partitions (~> 1, >= 1.525.0)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
-    aws-sdk-kms (1.46.0)
-      aws-sdk-core (~> 3, >= 3.119.0)
+    aws-sdk-kms (1.52.0)
+      aws-sdk-core (~> 3, >= 3.122.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.99.0)
-      aws-sdk-core (~> 3, >= 3.119.0)
+    aws-sdk-s3 (1.109.0)
+      aws-sdk-core (~> 3, >= 3.122.0)
       aws-sdk-kms (~> 1)
-      aws-sigv4 (~> 1.1)
-    aws-sigv4 (1.2.4)
+      aws-sigv4 (~> 1.4)
+    aws-sigv4 (1.4.0)
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.16)
     better_errors (2.9.1)
@@ -350,7 +348,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_storage_base64
   active_storage_validations
   aws-sdk-s3
   better_errors
