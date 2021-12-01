@@ -52,7 +52,6 @@
   
   // 無限スクロール
   import InfiniteScroll from 'infinite-scroll';
-
   let infScroll = new InfiniteScroll( '.js_contain', {
     path: "a[rel=next]",
     append: ".food_combi_contain",

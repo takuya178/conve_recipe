@@ -1,8 +1,9 @@
 const normalbtn = document.getElementById('js-normalbtn');
 const scroll = document.getElementById( 'js-scroll-fadein' );
 
+console.log(normalbtn)
 normalbtn.addEventListener('click', () => {
-  ref = document.referrer
+  const ref = document.referrer
   location.href = ref;
 });
 
