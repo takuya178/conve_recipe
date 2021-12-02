@@ -7,11 +7,7 @@
         <% @mains.each do |main| %>
         <div class="col-lg-6 infinity_page main_bottom" data-toggle="modal" data-target="#exampleModal">
           <%= link_to main_path(main), class: "card mx-auto mb-5 food-card main_card_text_box", remote: true do %>
-            <% if main.image.attached? %>
-              <%= image_tag main.image.variant(resize_to_fill: [250, 250] ) %>
-            <% else %>
-              <%= image_pack_tag("media/images/noimage.jpg") %>
-            <% end %>
+            <%= render 'shared/active_storage', target: main %>
             <div class="card-body">
               <p><%= main.name %></p>
               <p>店舗名：<%= main.stores_i18n %></p>
