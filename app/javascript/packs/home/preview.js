@@ -55,6 +55,9 @@ const SubPreview = new Preview({
 addEventListener("direct-upload:initialize", event => {
   const { target, detail } = event
   const { id, file } = detail
+  console.log(target)
+  console.log(detail)
+  console.log(id)
   target.insertAdjacentHTML("beforebegin", `
     <div id="direct-upload-${id}" class="direct-upload direct-upload--pending">
       <div id="direct-upload-progress-${id}" class="direct-upload__progress" style="width: 0%"></div>
@@ -67,6 +70,7 @@ addEventListener("direct-upload:start", event => {
   const { id } = event.detail
   const element = document.getElementById(`direct-upload-${id}`)
   element.classList.remove("direct-upload--pending")
+  console.log(element)
 })
 
 addEventListener("direct-upload:progress", event => {
@@ -89,3 +93,37 @@ addEventListener("direct-upload:end", event => {
   element.classList.add("direct-upload--complete")
 })
 
+
+
+// 入力項目を入れるとボタンを押せるようにする
+const input_main_name = document.getElementById('js-main-name');
+const input_main_calorie = document.getElementById('js-main-calorie');
+const input_main_sugar = document.getElementById('js-main-sugar');
+const input_main_lipid = document.getElementById('js-main-lipid');
+const input_main_salt = document.getElementById('js-main-salt');
+const input_main_store = document.getElementById('js-main-store');
+const input_main_genre = document.getElementById('js-main-genre');
+const input_sub_name = document.getElementById('js-sub-name');
+const input_sub_calorie = document.getElementById('js-sub-calorie');
+const input_sub_sugar = document.getElementById('js-sub-sugar');
+const input_sub_lipid = document.getElementById('js-sub-lipid');
+const input_sub_salt = document.getElementById('js-sub-salt');
+const input_sub_store = document.getElementById('js-sub-store');
+
+const main_form = document.getElementById('js-form')
+const submitBtn = document.getElementById('js-main-btn');
+
+
+submitBtn.disabled = true;
+
+main_form.addEventListener('change', () => {
+  if((input_main_name.value == '') || (input_main_calorie.value == '') || (input_main_sugar.value == '') || (input_main_lipid.value == '') || (input_main_salt.value == '')  || (input_sub_name.value == '') || (input_sub_calorie.value == '') || (input_sub_sugar.value == '') || (input_sub_lipid.value == '') || (input_sub_salt.value == '') || (input_sub_store.value == '')) {
+    submitBtn.disabled = true;
+    submitBtn.classList.add('disabled_btn');
+    submitBtn.classList.remove('prime_btn');
+  } else {
+    submitBtn.disabled = false;
+    submitBtn.classList.add('prime_btn');
+    submitBtn.classList.remove('disabled_btn');
+  }
+})

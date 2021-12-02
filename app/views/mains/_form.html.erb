@@ -1,33 +1,34 @@
 <div class="food_create_form">
+<p class="main_prime_text">以下記入必須</p>
   <label class="food_create_label">
-    <%= f.text_field :name, placeholder: place, value: "#{component.name if !component.nil?}", readonly: component %>
+    <%= f.text_field :name, placeholder: place, value: "#{component.name if !component.nil?}", readonly: component, id: 'js-name' %>
   </label>
   <%= render 'shared/error_messages', object: f.object, text: :name %>
 </div>
 <div class="food_create_form">
   <label class="food_create_label">
-    <%= f.text_field :calorie, placeholder: "カロリー", value: "#{component.calorie if !component.nil?}", readonly: component %>
+    <%= f.text_field :calorie, placeholder: "カロリー", value: "#{component.calorie if !component.nil?}", readonly: component, id: 'js-calorie' %>
   </label>
     <span>cal</span>
     <%= render 'shared/error_messages', object: f.object, text: :calorie %>
 </div>
 <div class="food_create_form">
   <label class="food_create_label">
-    <%= f.text_field :sugar, placeholder: "炭水化物", value: "#{component.sugar if !component.nil?}", readonly: component %>
+    <%= f.text_field :sugar, placeholder: "炭水化物", value: "#{component.sugar if !component.nil?}", readonly: component, id: 'js-sugar' %>
   </label>
     <span>g</span>
     <%= render 'shared/error_messages', object: f.object, text: :sugar %>
 </div>
 <div class="food_create_form">
   <label class="food_create_label">
-    <%= f.text_field :lipid, placeholder: "脂質", value: "#{component.lipid if !component.nil?}", readonly: component %>
+    <%= f.text_field :lipid, placeholder: "脂質", value: "#{component.lipid if !component.nil?}", readonly: component, id: 'js-lipid' %>
   </label>
     <span>g</span>
     <%= render 'shared/error_messages', object: f.object, text: :lipid %>
 </div>
 <div class="food_create_form">
   <label class="food_create_label">
-    <%= f.text_field :salt, placeholder: "塩分", value: "#{component.salt if !component.nil?}", readonly: component %>
+    <%= f.text_field :salt, placeholder: "塩分", value: "#{component.salt if !component.nil?}", readonly: component, id: 'js-salt' %>
   </label>
     <span>g</span>
     <%= render 'shared/error_messages', object: f.object, text: :salt %>
