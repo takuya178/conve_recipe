@@ -1,6 +1,6 @@
 <% content_for(:title, t('.title')) %>
 <div class="food_create" style="background-color: #F0E5CF;">
-  <%= form_with model: @main_sub_form, url: mains_path do |main| %>
+  <%= form_with model: @main_sub_form, url: mains_path, id: 'js-form' do |main| %>
     <div class="container">
     <div class="food_create_inner d-md-flex justify-content-center">
       <div class="food_create_main">
@@ -18,15 +18,44 @@
               <%= render 'form_img', main: main %>
             </div>
             <% end %>
-            <%= render 'form', f: main, target: Main, place: 'メイン食品名', component: @mains %>
             <div class="food_create_form">
+            <p class="main_prime_text">以下記入必須</p>
               <label class="food_create_label">
-                <%= main.select :stores, options_for_select(Main.stores_i18n.invert), {prompt: "#{@mains.nil? ? 'コンビニ名を選択' : @mains.stores_i18n}"}, class: "food_create_select", disabled: @mains %>
+                <%= main.text_field :name, placeholder: 'メイン食品名', value: "#{@mains.name if !@mains.nil?}", readonly: @mains, id: 'js-main-name' %>
               </label>
             </div>
             <div class="food_create_form">
               <label class="food_create_label">
-                <%= main.select :genre, options_for_select(Main.genres_i18n.invert), {prompt: "#{@mains.nil? ? 'ジャンルを選択' : @mains.genre_i18n}"}, class: "food_create_select", disabled: @mains %>
+                <%= main.text_field :calorie, placeholder: "カロリー", value: "#{@mains.calorie if !@mains.nil?}", readonly: @mains, id: 'js-main-calorie' %>
+              </label>
+                <span>cal</span>
+            </div>
+            <div class="food_create_form">
+              <label class="food_create_label">
+                <%= main.text_field :sugar, placeholder: "炭水化物", value: "#{@mains.sugar if !@mains.nil?}", readonly: @mains, id: 'js-main-sugar' %>
+              </label>
+                <span>g</span>
+            </div>
+            <div class="food_create_form">
+              <label class="food_create_label">
+                <%= main.text_field :lipid, placeholder: "脂質", value: "#{@mains.lipid if !@mains.nil?}", readonly: @mains, id: 'js-main-lipid' %>
+              </label>
+                <span>g</span>
+            </div>
+            <div class="food_create_form">
+              <label class="food_create_label">
+                <%= main.text_field :salt, placeholder: "塩分", value: "#{@mains.salt if !@mains.nil?}", readonly: @mains, id: 'js-main-salt' %>
+              </label>
+                <span>g</span>
+            </div>
+            <div class="food_create_form">
+              <label class="food_create_label">
+                <%= main.select :stores, options_for_select(Main.stores_i18n.invert), {prompt: "#{@mains.nil? ? 'コンビニ名を選択' : @mains.stores_i18n}"}, class: "food_create_select", disabled: @mains, id: 'js-main-store' %>
+              </label>
+            </div>
+            <div class="food_create_form">
+              <label class="food_create_label">
+                <%= main.select :genre, options_for_select(Main.genres_i18n.invert), {prompt: "#{@mains.nil? ? 'ジャンルを選択' : @mains.genre_i18n}"}, class: "food_create_select", disabled: @mains, id: 'js-main-genre' %>
               </label>
             </div>
           </div>
@@ -45,7 +74,7 @@
               <div class="input-form col-lg-8">
                 <label class="d-block">
                   <span class="btn p-2 w-100 food_create_img_btn">
-                    <i class="fas fa-camera-retro"></i> 画像を選択する
+                    <i class="fas fa-camera-retro"></i> 画像を選択する（任意）
                     <%= sub.file_field :image, class: "form-control", style: "display:none", direct_upload: true %>
                   </span>
                 </label>
@@ -55,17 +84,48 @@
               </div>
             </div>
           </div>
-          <%= render 'form', f: sub, target: Sub, place: 'サブ食品名', component: @subs %>
+          <div class="food_create_form">
+          <p class="main_prime_text">以下記入必須</p>
+            <label class="food_create_label">
+              <%= sub.text_field :name, placeholder: 'サブ食品名', value: "#{@subs.name if !@subs.nil?}", readonly: @subs, id: 'js-sub-name' %>
+            </label>
+          </div>
           <div class="food_create_form">
             <label class="food_create_label">
-              <%= sub.select :stores, options_for_select(Sub.stores_i18n.invert), {include_blank: 'コンビニ名を選択'}, class: "food_create_select" %>
+              <%= sub.text_field :calorie, placeholder: "カロリー", value: "#{@subs.calorie if !@subs.nil?}", readonly: @subs, id: 'js-sub-calorie' %>
+            </label>
+              <span>cal</span>
+          </div>
+          <div class="food_create_form">
+            <label class="food_create_label">
+              <%= sub.text_field :sugar, placeholder: "炭水化物", value: "#{@subs.sugar if !@subs.nil?}", readonly: @subs, id: 'js-sub-sugar' %>
+            </label>
+              <span>g</span>
+          </div>
+          <div class="food_create_form">
+            <label class="food_create_label">
+              <%= sub.text_field :lipid, placeholder: "脂質", value: "#{@subs.lipid if !@subs.nil?}", readonly: @subs, id: 'js-sub-lipid' %>
+            </label>
+              <span>g</span>
+          </div>
+          <div class="food_create_form">
+            <label class="food_create_label">
+              <%= sub.text_field :salt, placeholder: "塩分", value: "#{@subs.salt if !@subs.nil?}", readonly: @subs, id: 'js-sub-salt' %>
+            </label>
+              <span>g</span>
+          </div>
+          <div class="food_create_form">
+            <label class="food_create_label">
+              <%= sub.select :stores, options_for_select(Sub.stores_i18n.invert), {include_blank: 'コンビニ名を選択'}, class: "food_create_select", id: 'js-sub-store' %>
             </label>
           </div>
         </div>
         <% end %>
       </div>
     </div>
-    <%= render 'shared/btn', f: main, text: '組み合わせを登録' %>
+    <div class="input-group-append text-center">
+      <%= main.submit '組み合わせを追加する', class: 'food_create_btn shadow w-40 text-white prime_btn, disabled_btn', id: 'js-main-btn' %>
+    </div>
   </div>
   <% end %>
 </div>

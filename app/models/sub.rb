@@ -5,11 +5,6 @@ class Sub < ApplicationRecord
 
   enum stores: { seven: 0, lawson: 1, family: 2 }, _prefix: true
 
-  include FoodValidate
-
-  validates :name, length: { maximum: 30 }
-
-
   validate :image_content_type, :image_size, if: :was_attached?
 
   def image_content_type
@@ -22,7 +17,7 @@ class Sub < ApplicationRecord
   end
 
   def image_size
-    if image.blob.byte_size > 3.megabytes
+    if image.blob.byte_size > 5.megabytes
       image.purge
       errors.add(:image, "は5MB以内にしてください")
     end
