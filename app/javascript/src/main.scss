@@ -321,6 +321,11 @@ input[type=file][data-direct-upload-url][disabled] {
     img {
       height: 232px;
     }
+  .main_card_text_show_box {
+    img {
+      height: 204px;
+    }
+  }
   }
 
   // モーダル
@@ -343,7 +348,7 @@ input[type=file][data-direct-upload-url][disabled] {
     margin: 30px 0;
   }
 }
-@media screen and (min-width:768px) and ( max-width:1024px) {
+@media screen and (min-width:768px) and ( max-width:1023px) {
   .food-card {
     width: 70%;
   }
@@ -381,12 +386,22 @@ input[type=file][data-direct-upload-url][disabled] {
       height: 446px;
     }
   }
+  .main_card_text_show_box {
+    img {
+      height: 213px;
+    }
+  }
 }
 
   @media screen and (min-width:990px) and ( max-width:1024px) {
     .main_card_text_box {
       img {
         height: 297px;
+      }
+    }
+    .main_card_text_show_box {
+      img {
+        height: 280px;
       }
     }
   }
