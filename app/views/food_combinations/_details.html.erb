@@ -28,7 +28,11 @@
           </div>
         </div>
       </div>
-      <div class="food_combi_border_blue"></div>
+      <% if current_page?(food_combinations_path) %>
+        <div class="food_combi_border_blue"></div>
+      <% else %>
+        <div class="food_combi_border_red"></div>
+      <% end %>
         <div class="food_combi_text">
         <% if @sugar && @salt && @lipid %>
           <div class="food_combi_price">

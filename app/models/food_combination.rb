@@ -20,7 +20,7 @@ class FoodCombination < ApplicationRecord
 
 
   def plus_component
-    self.main.sugar + self.sub.sugar <= 80
+    self.main.sugar + self.sub.sugar <= 100
   end
 
 end

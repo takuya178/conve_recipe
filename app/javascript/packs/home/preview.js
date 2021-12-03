@@ -113,6 +113,8 @@ const input_sub_store = document.getElementById('js-sub-store');
 const main_form = document.getElementById('js-form')
 const submitBtn = document.getElementById('js-main-btn');
 
+const input_main_image = document.getElementById('main_sub_form_image');
+const input_sub_image = document.getElementById('main_sub_form_subs_attributes_image');
 
 submitBtn.disabled = true;
 
@@ -127,3 +129,12 @@ main_form.addEventListener('change', () => {
     submitBtn.classList.remove('disabled_btn');
   }
 })
+
+submitBtn.addEventListener('click', (e) => {
+  if((input_main_image.value == '') && (input_sub_image.value == '')) {
+    e.target.value = '組み合わせを追加する'
+  } else {
+    e.target.value = '画像をアップロード中...'
+  }
+})
+

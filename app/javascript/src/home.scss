@@ -97,12 +97,9 @@ a {
 // // top-bottom
 // // 
 .btn-login-shadow {
-  @include btn($text-color)
+  @include btn($text-color);
+  font-size: 20px;
 }
-.btn-sub-login-shadow {
-  @include btn(#FFB319)
-}
-
 .login {
   margin-bottom: 20px;
 }
