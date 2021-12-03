@@ -1,7 +1,15 @@
 <div class="food_create_form">
 <p class="main_prime_text">以下記入必須</p>
+
+<div class="cp_iptxt">
+    <%= f.text_field :name, placeholder: place, value: "#{component.name if !component.nil?}", readonly: component, id: 'js-name', class: 'ef' %>
+	<label>お名前</label>
+	<span class="focus_line"></span>
+</div>
+
+
   <label class="food_create_label">
-    <%= f.text_field :name, placeholder: place, value: "#{component.name if !component.nil?}", readonly: component, id: 'js-name' %>
+    <%= f.text_field :name, placeholder: place, value: "#{component.name if !component.nil?}", readonly: component, id: 'js-name', class: 'ef' %>
   </label>
   <%= render 'shared/error_messages', object: f.object, text: :name %>
 </div>

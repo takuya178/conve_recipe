@@ -18,44 +18,39 @@
               <%= render 'form_img', main: main %>
             </div>
             <% end %>
+            <p class='main_submit_text'><span class='main_submit'>*</span>は入力必須項目です</p>
+            <div class="main_create_form">
+                <%= main.text_field :name, value: "#{@mains.name if !@mains.nil?}", readonly: @mains, id: 'js-main-name', class: 'main_create_input' %>
+              <label>メイン食品名</label>
+            </div>
+            <div class="main_create_form">
+                <%= main.text_field :calorie, value: "#{@mains.calorie if !@mains.nil?}", readonly: @mains, id: 'js-main-calorie', class: 'main_create_input' %>
+              <label>カロリー</label>
+              <span>cal</span>
+            </div>
+            <div class="main_create_form">
+                <%= main.text_field :sugar, value: "#{@mains.sugar if !@mains.nil?}", readonly: @mains, id: 'js-main-sugar', class: 'main_create_input' %>
+              <label>炭水化物</label>
+              <span>g</span>
+            </div>
+            <div class="main_create_form">
+                <%= main.text_field :lipid, value: "#{@mains.lipid if !@mains.nil?}", readonly: @mains, id: 'js-main-lipid', class: 'main_create_input' %>
+              <label>脂質</label>
+              <span>g</span>
+            </div>
+            <div class="main_create_form">
+                <%= main.text_field :salt, value: "#{@mains.salt if !@mains.nil?}", readonly: @mains, id: 'js-main-salt', class: 'main_create_input' %>
+              <label>塩分</label>
+              <span>g</span>
+            </div>
             <div class="food_create_form">
-            <p class="main_prime_text">以下記入必須</p>
               <label class="food_create_label">
-                <%= main.text_field :name, placeholder: 'メイン食品名', value: "#{@mains.name if !@mains.nil?}", readonly: @mains, id: 'js-main-name' %>
+                <%= main.select :stores, options_for_select(Main.stores_i18n.invert), {prompt: "#{@mains.nil? ? 'コンビニ名を選択' : @mains.stores_i18n}"}, class: "main_create_select", disabled: @mains, id: 'js-main-store' %>
               </label>
             </div>
             <div class="food_create_form">
               <label class="food_create_label">
-                <%= main.text_field :calorie, placeholder: "カロリー", value: "#{@mains.calorie if !@mains.nil?}", readonly: @mains, id: 'js-main-calorie' %>
-              </label>
-                <span>cal</span>
-            </div>
-            <div class="food_create_form">
-              <label class="food_create_label">
-                <%= main.text_field :sugar, placeholder: "炭水化物", value: "#{@mains.sugar if !@mains.nil?}", readonly: @mains, id: 'js-main-sugar' %>
-              </label>
-                <span>g</span>
-            </div>
-            <div class="food_create_form">
-              <label class="food_create_label">
-                <%= main.text_field :lipid, placeholder: "脂質", value: "#{@mains.lipid if !@mains.nil?}", readonly: @mains, id: 'js-main-lipid' %>
-              </label>
-                <span>g</span>
-            </div>
-            <div class="food_create_form">
-              <label class="food_create_label">
-                <%= main.text_field :salt, placeholder: "塩分", value: "#{@mains.salt if !@mains.nil?}", readonly: @mains, id: 'js-main-salt' %>
-              </label>
-                <span>g</span>
-            </div>
-            <div class="food_create_form">
-              <label class="food_create_label">
-                <%= main.select :stores, options_for_select(Main.stores_i18n.invert), {prompt: "#{@mains.nil? ? 'コンビニ名を選択' : @mains.stores_i18n}"}, class: "food_create_select", disabled: @mains, id: 'js-main-store' %>
-              </label>
-            </div>
-            <div class="food_create_form">
-              <label class="food_create_label">
-                <%= main.select :genre, options_for_select(Main.genres_i18n.invert), {prompt: "#{@mains.nil? ? 'ジャンルを選択' : @mains.genre_i18n}"}, class: "food_create_select", disabled: @mains, id: 'js-main-genre' %>
+                <%= main.select :genre, options_for_select(Main.genres_i18n.invert), {prompt: "#{@mains.nil? ? 'ジャンルを選択' : @mains.genre_i18n}"}, class: "main_create_select", disabled: @mains, id: 'js-main-genre' %>
               </label>
             </div>
           </div>
@@ -74,7 +69,7 @@
               <div class="input-form col-lg-8">
                 <label class="d-block">
                   <span class="btn p-2 w-100 food_create_img_btn">
-                    <i class="fas fa-camera-retro"></i> 画像を選択する（任意）
+                    <i class="fas fa-camera-retro"></i> 画像を選択する(任意)
                     <%= sub.file_field :image, class: "form-control", style: "display:none", direct_upload: true %>
                   </span>
                 </label>
@@ -84,39 +79,34 @@
               </div>
             </div>
           </div>
-          <div class="food_create_form">
-          <p class="main_prime_text">以下記入必須</p>
-            <label class="food_create_label">
-              <%= sub.text_field :name, placeholder: 'サブ食品名', value: "#{@subs.name if !@subs.nil?}", readonly: @subs, id: 'js-sub-name' %>
-            </label>
-          </div>
-          <div class="food_create_form">
-            <label class="food_create_label">
-              <%= sub.text_field :calorie, placeholder: "カロリー", value: "#{@subs.calorie if !@subs.nil?}", readonly: @subs, id: 'js-sub-calorie' %>
-            </label>
+            <p class='main_submit_text'><span class='main_submit'>*</span>は入力必須項目です</p>
+            <div class="main_create_form">
+              <%= sub.text_field :name, value: "#{@subs.name if !@subs.nil?}", readonly: @subs, id: 'js-sub-name', class: 'main_create_input' %>
+              <label>サブ食品名</label>
+            </div>
+            <div class="main_create_form">
+              <%= sub.text_field :calorie, value: "#{@subs.calorie if !@subs.nil?}", readonly: @subs, id: 'js-sub-calorie', class: 'main_create_input' %>
+              <label>カロリー</label>
               <span>cal</span>
-          </div>
-          <div class="food_create_form">
-            <label class="food_create_label">
-              <%= sub.text_field :sugar, placeholder: "炭水化物", value: "#{@subs.sugar if !@subs.nil?}", readonly: @subs, id: 'js-sub-sugar' %>
-            </label>
+            </div>
+            <div class="main_create_form">
+              <%= sub.text_field :sugar, value: "#{@subs.sugar if !@subs.nil?}", readonly: @subs, id: 'js-sub-sugar', class: 'main_create_input' %>
+              <label>炭水化物</label>
               <span>g</span>
-          </div>
-          <div class="food_create_form">
-            <label class="food_create_label">
-              <%= sub.text_field :lipid, placeholder: "脂質", value: "#{@subs.lipid if !@subs.nil?}", readonly: @subs, id: 'js-sub-lipid' %>
-            </label>
+            </div>
+            <div class="main_create_form">
+              <%= sub.text_field :lipid, value: "#{@subs.lipid if !@subs.nil?}", readonly: @subs, id: 'js-sub-lipid', class: 'main_create_input' %>
+              <label>脂質</label>
               <span>g</span>
-          </div>
-          <div class="food_create_form">
-            <label class="food_create_label">
-              <%= sub.text_field :salt, placeholder: "塩分", value: "#{@subs.salt if !@subs.nil?}", readonly: @subs, id: 'js-sub-salt' %>
-            </label>
+            </div>
+            <div class="main_create_form">
+              <%= sub.text_field :salt, value: "#{@subs.salt if !@subs.nil?}", readonly: @subs, id: 'js-sub-salt', class: 'main_create_input' %>
+              <label>塩分</label>
               <span>g</span>
-          </div>
+            </div>
           <div class="food_create_form">
             <label class="food_create_label">
-              <%= sub.select :stores, options_for_select(Sub.stores_i18n.invert), {include_blank: 'コンビニ名を選択'}, class: "food_create_select", id: 'js-sub-store' %>
+              <%= sub.select :stores, options_for_select(Sub.stores_i18n.invert), {include_blank: 'コンビニ名を選択'}, class: "main_create_select", id: 'js-sub-store' %>
             </label>
           </div>
         </div>
@@ -131,10 +121,3 @@
 </div>
 
 <%= javascript_pack_tag 'home/preview' %>
-
-
-
-
-
-
-
