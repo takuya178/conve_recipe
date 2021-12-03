@@ -1,6 +1,7 @@
 // 
 // food画面
 // 
+
 @mixin food_combi_title_box($color) {
   font-size: 1.2em;
   background: $color;
@@ -257,6 +258,17 @@
     width: 100%;
   }
 }
+
+// 768~991 font-size: 20px
+@media screen and (min-width:481px) and ( max-width:991px) {
+  .explanation_nutrition {
+    font-size: 20px;
+  }
+  .food_combi_text {
+    font-size: 20px;
+  }
+}
+
 
 // タブレット対応
 // 
