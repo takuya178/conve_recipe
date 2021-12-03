@@ -93,12 +93,20 @@
   margin-bottom: 30px;
 }
 .food_create_select {
-  background-color: transparent;
+  background-color: #F0E5CF;
   width: 100%;
   padding: 10px 10px 10px 0;
   border-radius: 0;
   border: none;
   border-bottom: 2px solid #1b2538;
+}
+.main_create_select {
+  background-color: transparent;
+  width: 100%;
+  padding: 10px 10px 10px 0;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #1b2538;
 }
 .food_create_select_img {
   margin-top: 50px;
@@ -211,8 +219,91 @@
 .pagy-nav {
   display: none;
 }
-canvas {
-  width: 100%;
+
+.main_create_form {
+  white-space: nowrap;
+	position: relative;
+	width: 90%;
+	margin: 50px auto;
+}
+.main_create_form input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	letter-spacing: 1px;
+	padding-left: 8em;
+}
+.main_create_form input[type='text']:focus {
+	outline: none;
+}
+.main_create_input {
+	padding: 4px 0;
+	border: 0;
+	border-bottom: 1px solid #1b2538;
+	background-color: transparent;
+}
+.main_create_input ~ .focus_line {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	transition: 0.4s;
+	background-color: #3EA1D1;
+}
+.main_create_input ~ .focus_line {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	transition: 0.4s;
+	background-color: #3EA1D1;
+}
+.main_create_input:focus ~ .focus_line,
+.main_create_form.ef ~ .focus_line {
+	left: 0;
+	width: 100%;
+	transition: 0.4s;
+}
+.main_create_input ~ label {
+	position: absolute;
+	top: 4px;
+	left: 0;
+	transition: 0.3s;
+	letter-spacing: 0.5px;
+	color: #aaaaaa;
+}
+.main_create_input:focus ~ label, .main_create_form.main_create_input ~ label {
+	font-size: 12px;
+	top: -16px;
+	transition: 0.3s;
+	color: #3EA1D1;
+}
+
+.food_create_label:first-child:after {
+  content: " *";
+  position: absolute;
+  color: red;
+  vertical-align: middle;
+  left: -15px;
+  top: 12px;
+}
+.main_create_form::after {
+  content: " *";
+  position: absolute;
+  color: red;
+  vertical-align: middle;
+  left: -15px;
+  top: 10px;
+}
+
+.main_submit_text {
+  text-align: center;
+  margin-top: 50px;
+  .main_submit {
+    color: red;
+  }
 }
 
 
@@ -301,9 +392,6 @@ input[type=file][data-direct-upload-url][disabled] {
     max-width: 100%;
     width: 100%;
   }
-  .food_create_label {
-    width: 100%;
-  }
   .food_create_form {
     margin: 30px auto;
   }
@@ -346,6 +434,11 @@ input[type=file][data-direct-upload-url][disabled] {
   }
   .input-group-append {
     margin: 30px 0;
+  }
+  .main_card_text_show_box {
+    img {
+      height: 204px;
+    }
   }
 }
 @media screen and (min-width:768px) and ( max-width:1023px) {

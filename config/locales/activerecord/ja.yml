@@ -1,33 +1,4 @@
 ja:
-  activemodel:
-    models:
-      user: 'ユーザー'
-    attributes:
-      user:
-        name: '名前'
-        email: 'メールアドレス'
-        password: 'パスワード'
-        password_confirmation: 'パスワード確認'
-      user_session:
-        email: 'メールアドレス'
-        password: 'パスワード'
-      inquiry:
-        message: 'お問合せ内容'
-      main_sub_form:
-        name: '商品名'
-        image: '商品画像'
-        genre: 'ジャンル'
-        calorie: 'カロリー'
-        sugar: '炭水化物'
-        lipid: '脂質'
-        salt: '塩分'
-      main_sub_form:
-        name: '商品名'
-        image: '商品画像'
-        calorie: 'カロリー'
-        sugar: '炭水化物'
-        lipid: '脂質'
-        salt: '塩分'
   activerecord:
     models:
       user: 'ユーザー'
@@ -41,6 +12,8 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
       inquiry:
+        name: 'お名前'
+        email: 'メールアドレス'
         message: 'お問合せ内容'
       main:
         name: '商品名'
