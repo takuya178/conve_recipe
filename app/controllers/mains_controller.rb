@@ -3,7 +3,7 @@ class MainsController < ApplicationController
 
   def index
     @q = Main.ransack(params[:q])
-    @pagy, @mains = pagy(@q.result(distinct: true).all, items: 14)
+    @pagy, @mains = pagy(@q.result(distinct: true).with_eager_loaded_image, items: 14)
   end
 
   def show
@@ -18,7 +18,6 @@ class MainsController < ApplicationController
   def create
     @main_sub_form = MainSubForm.new(main_sub_form_params)
     main_data = Main.find_or_initialize_by(name: main_sub_form_params[:name])
-    binding.pry
 
     if main_data.new_record?
       if @main_sub_form.save

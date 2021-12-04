@@ -7,6 +7,8 @@ class Sub < ApplicationRecord
 
   validate :image_content_type, :image_size, if: :was_attached?
 
+  scope :with_eager_loaded_image, -> { eager_load(image_attachment: :blob) }
+
   def image_content_type
     image_type = ['image/png', 'image/jpg', 'image/jpeg']
     errors.add(:image, "の拡張子は.png .jpg .jpegのみです") unless image.content_type.in?(image_type)
