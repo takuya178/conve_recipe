@@ -4,12 +4,13 @@
 </div>
 <div class="input-form col-lg-8">
   <label class="d-block">
-    <span class="btn p-2 w-100 food_create_img_btn">
+    <span class="btn p-2 w-100 food_create_img_btn main_create_span">
       <i class="fas fa-camera-retro"></i> 画像を選択する(任意)
       <%= main.file_field :image, class: "form-control", style: "display:none", direct_upload: true %>
     </span>
   </label>
   <div id="js-main-image" class="text-center"></div>
   <div class="food_create_no_img_box text-center" style="display: block;" id= "js-main-no-img"><%= image_pack_tag("media/images/noimage.jpg", class: 'food_create_no_img') %></div>
-  <%= render 'shared/error_messages', object: main.object, text: :image %>
 </div>
+
+<div id='js-main-error-message'></div>

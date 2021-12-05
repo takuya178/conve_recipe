@@ -6,13 +6,12 @@ class Main < ApplicationRecord
   enum genre: { noodle: 0, rice: 1 }
   enum stores: { seven: 0, lawson: 1, family: 2 }, _prefix: true
 
-  validate :image_content_type, :image_size, if: :was_attached?
-
   scope :with_eager_loaded_image, -> { eager_load(image_attachment: :blob) }
+
+  validate :image_content_type, :image_size, if: :was_attached?
 
   def image_content_type
     image_type = ['image/png', 'image/jpg', 'image/jpeg']
-    errors.add(:image, "の拡張子は.png .jpg .jpegのみです") unless image.content_type.in?(image_type)
   end
 
   def was_attached?
@@ -22,7 +21,6 @@ class Main < ApplicationRecord
   def image_size
       if image.blob.byte_size > 5.megabytes
         image.purge
-        errors.add(:image, "は5MB以内にしてください")
       end
   end
 end

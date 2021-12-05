@@ -1,7 +1,7 @@
 <% content_for(:title, t('.title')) %>
 <div class="food_create" style="background-color: #F0E5CF;">
   <%= form_with model: @main_sub_form, url: mains_path, id: 'js-form' do |main| %>
-    <div class="container">
+    <div class="container main_create_container">
     <div class="food_create_inner d-md-flex justify-content-center">
       <div class="food_create_main">
           <h2 class="food_create_title">メイン</h2>
@@ -43,14 +43,14 @@
               <label>塩分</label>
               <span>g</span>
             </div>
-            <div class="food_create_form">
+            <div class="main_create_form">
               <label class="food_create_label">
-                <%= main.select :stores, options_for_select(Main.stores_i18n.invert), {prompt: "#{@mains.nil? ? 'コンビニ名を選択' : @mains.stores_i18n}"}, class: "main_create_select", disabled: @mains, id: 'js-main-store' %>
+                <%= main.select :stores, options_for_select(Main.stores_i18n.invert), {prompt: "#{@mains.nil? ? 'コンビニ名を選択' : @mains.stores_i18n}"}, class: "main_create_input w-100", disabled: @mains, id: 'js-main-store' %>
               </label>
             </div>
-            <div class="food_create_form">
+            <div class="main_create_form">
               <label class="food_create_label">
-                <%= main.select :genre, options_for_select(Main.genres_i18n.invert), {prompt: "#{@mains.nil? ? 'ジャンルを選択' : @mains.genre_i18n}"}, class: "main_create_select", disabled: @mains, id: 'js-main-genre' %>
+                <%= main.select :genre, options_for_select(Main.genres_i18n.invert), {prompt: "#{@mains.nil? ? 'ジャンルを選択' : @mains.genre_i18n}"}, class: "main_create_input w-100", disabled: @mains, id: 'js-main-genre' %>
               </label>
             </div>
           </div>
@@ -68,17 +68,20 @@
               </div>
               <div class="input-form col-lg-8">
                 <label class="d-block">
-                  <span class="btn p-2 w-100 food_create_img_btn">
+                  <span class="btn p-2 w-100 food_create_img_btn sub_create_span">
                     <i class="fas fa-camera-retro"></i> 画像を選択する(任意)
                     <%= sub.file_field :image, class: "form-control", style: "display:none", direct_upload: true %>
                   </span>
                 </label>
                 <div class="food_create_no_img_box text-center" style="display: block;" id= "js-sub-no-img"><%= image_pack_tag("media/images/noimage.jpg", class: 'food_create_no_img') %></div>
                 <div id="js-sub-image" class="text-center"></div>
-                <%= render 'shared/error_messages', object: sub.object, text: :image %>
               </div>
+              <div id='js-sub-error-message'></div>
             </div>
           </div>
+
+
+
             <p class='main_submit_text'><span class='main_submit'>*</span>は入力必須項目です</p>
             <div class="main_create_form">
               <%= sub.text_field :name, value: "#{@subs.name if !@subs.nil?}", readonly: @subs, id: 'js-sub-name', class: 'main_create_input' %>
@@ -104,9 +107,9 @@
               <label>塩分</label>
               <span>g</span>
             </div>
-          <div class="food_create_form">
+          <div class="main_create_form">
             <label class="food_create_label">
-              <%= sub.select :stores, options_for_select(Sub.stores_i18n.invert), {include_blank: 'コンビニ名を選択'}, class: "main_create_select", id: 'js-sub-store' %>
+              <%= sub.select :stores, options_for_select(Sub.stores_i18n.invert), {include_blank: 'コンビニ名を選択'}, class: "main_create_input w-100", id: 'js-sub-store' %>
             </label>
           </div>
         </div>
@@ -115,6 +118,12 @@
     </div>
     <div class="input-group-append text-center">
       <%= main.submit '組み合わせを追加する', class: 'food_create_btn shadow w-40 text-white prime_btn, disabled_btn', id: 'js-main-btn' %>
+    </div>
+    <div id="js-main-load" style="display:none">
+      <div class="main_load">
+        <p>画像をアップロード中</p>
+        <div class="loader">Loading...</div>
+      </div>
     </div>
   </div>
   <% end %>

@@ -9,12 +9,6 @@ class MainSubForm
 
   attr_accessor :name, :image, :stores, :genre, :calorie, :sugar, :lipid, :salt
 
-  validates :name, presence: true
-  validates :calorie, presence: true
-  validates :sugar, presence: true
-  validates :lipid, presence: true
-  validates :salt, presence: true
-
   concerning :SubBuilder do
     attr_reader :subs_attributes
 

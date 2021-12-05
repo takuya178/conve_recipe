@@ -1,16 +1,26 @@
 class Preview {
   constructor(obj) {
     const $file = document.getElementById(obj.hookId);
+    const MaxFileSize = 5;
     this.$image = document.getElementById(obj.hookImg);
     this.$NoImage = document.getElementById(obj.hookNoImg);
+    this.$error = document.getElementById(obj.hookError);
 
     $file.addEventListener('change', (e) => {
       this.previewImg(e);
+      console.log($file.files[0].size / 1000000)
+
+      // 画像のエラーメッセージ表示
+      if ($file.files[0].size / 1000000 >= MaxFileSize) {
+        this.$error.innerHTML = '画像サイズを5MB以下にしてください'
+      } else if ($file.files[0].type != 'image/jpeg' && $file.files[0].type != 'image/jpg' && $file.files[0].type != 'image/png') {
+        this.$error.innerHTML = '画像の拡張子は.png .jpg .jpegのみです'
+      }
     });
   }
   previewImg(e) {
     // // no-imgをdisplay:noneにする
-      this.$NoImage.style.display = 'none';
+    this.$NoImage.style.display = 'none';
 
     // 添付した画像にクラスやデータを付与
     const createImage = (data) => {
@@ -38,14 +48,16 @@ class Preview {
 const MainPreview = new Preview({
   hookId: 'main_sub_form_image',
   hookImg: 'js-main-image',
-  hookNoImg: 'js-main-no-img'
+  hookNoImg: 'js-main-no-img',
+  hookError: 'js-main-error-message'
 })
 
 // サブのプレビュー
 const SubPreview = new Preview({
   hookId: 'main_sub_form_subs_attributes_image',
   hookImg: 'js-sub-image',
-  hookNoImg: 'js-sub-no-img'
+  hookNoImg: 'js-sub-no-img',
+  hookError: 'js-sub-error-message'
 })
 
 
@@ -55,9 +67,6 @@ const SubPreview = new Preview({
 addEventListener("direct-upload:initialize", event => {
   const { target, detail } = event
   const { id, file } = detail
-  console.log(target)
-  console.log(detail)
-  console.log(id)
   target.insertAdjacentHTML("beforebegin", `
     <div id="direct-upload-${id}" class="direct-upload direct-upload--pending">
       <div id="direct-upload-progress-${id}" class="direct-upload__progress" style="width: 0%"></div>
@@ -116,6 +125,8 @@ const submitBtn = document.getElementById('js-main-btn');
 const input_main_image = document.getElementById('main_sub_form_image');
 const input_sub_image = document.getElementById('main_sub_form_subs_attributes_image');
 
+const main_load = document.getElementById('js-main-load');
+
 submitBtn.disabled = true;
 
 main_form.addEventListener('change', () => {
@@ -132,9 +143,9 @@ main_form.addEventListener('change', () => {
 
 submitBtn.addEventListener('click', (e) => {
   if((input_main_image.value == '') && (input_sub_image.value == '')) {
-    e.target.value = '組み合わせを追加する'
+    main_load.style.display = 'none';
   } else {
-    e.target.value = '画像をアップロード中...'
+    main_load.style.display = 'block';
   }
 })
 

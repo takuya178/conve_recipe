@@ -1,4 +1,4 @@
-class MainsController < ApplicationController  
+class MainsController < ApplicationController    
   include Pagy::Backend
 
   def index
@@ -18,6 +18,7 @@ class MainsController < ApplicationController
   def create
     @main_sub_form = MainSubForm.new(main_sub_form_params)
     main_data = Main.find_or_initialize_by(name: main_sub_form_params[:name])
+    binding.pry
 
     if main_data.new_record?
       if @main_sub_form.save

@@ -16,7 +16,7 @@
               </label>
               <%= render 'shared/error_messages', object: f.object, text: :email %>
             </div>
-            <div class="form-group" style="margin: 0 auto; width: 90%;">
+            <div class="form-group" style="margin: 0 auto;">
                 <%= f.text_area :message, class: "form-control comment-area rounded", type: "text", placeholder: "お問合せ内容", rows: "5" %>
                 <%= render 'shared/error_messages', object: f.object, text: :message %>
             </div>
