@@ -19,19 +19,45 @@
         </div>
         <div class="explanation_text col col-lg-5 col-md-5">
           <h3 class="mb-5 text-h6 text-md-h5 fw-bolder fs-3">控えたい成分と食べたいジャンルを選択</h3>
-          <h6 class="lh-lg fs-6">炭水化物、脂質、塩分の3種類から控えたい成分を選択してください。次に麺類、ご飯類から食べたいジャンルを選択してください。</h6>
+          <h6 class="lh-lg fs-6">炭水化物、脂質、塩分の3種類から摂取を控えたい成分を選択していただき、麺類、ご飯類の中から食べたいジャンルを選択してください。</h6>
         </div>
       </div>
     </div>
     <div class="explanation_box" style="background-color: #F0E5CF">
-      <div class="explanation_box_inner d-md-flex justify-content-center flex-row-reverse align-items-center container">
+      <div class="explanation_box_inner d-md-flex justify-content-center align-items-center container">
         <div class="explanation_img  col col-lg-4 col-md-6">
-          <%= image_pack_tag("media/images/explanation.jpg", class: "w-100", size: '300') %>
-        </div>
-        <div class="explanation_text col col-lg-5 col-md-5">
           <h3 class="mb-5 text-h6 text-md-h5 fw-bolder fs-3">組み合わせの表示</h3>
           <h6 class="lh-lg fs-6">
-          選択していただいた条件から、組み合わせ一覧が表示されます。組み合わせと一緒に、控えたい成分の含有量をグラフで表示されているので是非参考にしてください。</h6>
+          選択していただいた条件から組み合わせ一覧が表示され、控えたい成分とカロリーの値が表示されます。是非参考にしてみてください。</h6>
+          <h6 class="lh-lg fs-6">また、成分量が多い組み合わせ一覧も表示されます。</h6>
+        </div>
+        <div class="explanation_text col col-lg-5 col-md-5 explanation_table">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">成分</th>
+                <th scope="col">組み合わせ</th>
+                <th scope="col">成分量が多い組み合わせ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">炭水化物</th>
+                <td>100以下</td>
+                <td>101以上</td>
+              </tr>
+              <tr>
+                <th scope="row">脂質</th>
+                <td>25g以下</td>
+                <td>26g以上</td>
+              </tr>
+              <tr>
+                <th scope="row">塩分</th>
+                <td>3g以下</td>
+                <td>4g以上</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
