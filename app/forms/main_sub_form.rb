@@ -17,12 +17,9 @@ class MainSubForm
     end
 
     def subs
-      # 左辺が存在しない場合、右辺が代入
       @subs_attributes ||= Sub.new
     end
 
-    # セッター 外部から変更するためのメソッド
-    # attrubutesでSubの属性を代入する
     def subs_attributes=(attributes)
       @subs_attributes = Sub.new(attributes)
     end
