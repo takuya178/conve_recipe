@@ -1,4 +1,5 @@
-  const $tab = document.getElementById('tab');
+(()=>{
+ const $tab = document.getElementById('tab');
    const $link = $tab.querySelectorAll('a');
    const $img = $tab.querySelectorAll('img');
    const $text = $tab.querySelectorAll('h2');
@@ -76,3 +77,5 @@
        });
      });
    }
+
+})();
