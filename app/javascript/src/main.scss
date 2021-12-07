@@ -281,7 +281,14 @@
 	color: #3EA1D1;
 }
 
-
+.food_create_label:first-child:after {
+  content: " *";
+  position: absolute;
+  color: red;
+  vertical-align: middle;
+  left: -15px;
+  top: 12px;
+}
 .main_create_form::after {
   content: " *";
   position: absolute;
@@ -301,6 +308,9 @@
 
 
 // ダイレクトアップロード
+.food_create_row {
+  position: relative;
+}
   .direct-upload {
     display: inline-block;
     position: relative;
@@ -310,6 +320,10 @@
     border-radius: 3px;
     line-height: 13px;
     font-size: 15px;
+    width: 100%;
+    bottom: -2vh;
+    position: absolute;
+    right: 0.1vh;
   }
   .direct-upload--pending {
     opacity: 0.6;
@@ -337,6 +351,8 @@
   input[type=file][data-direct-upload-url][disabled] {
     display: none;
   }
+
+
 
 
 .progress {
