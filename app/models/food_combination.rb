@@ -2,25 +2,27 @@ class FoodCombination < ApplicationRecord
   belongs_to :main
   belongs_to :sub
 
-  def get_sugar
-    { '組み合わせ成分値': sprintf("%.1f", main.sugar + sub.sugar) }
-  end
-
-  def get_lipid
-    { '組み合わせ成分値': sprintf("%.1f", main.lipid + sub.lipid) }
-  end
-
-  def get_salt
-    { "組み合わせ成分値": sprintf("%.1f", main.salt + sub.salt) }
-  end
-
-  def chart_sugar
-    { name: '炭水化物(g)', data: { '組み合わせ成分値': sprintf("%.1f", main.sugar + sub.sugar) } }
-  end
-
-
-  def plus_component
+  def plus_sugar
     self.main.sugar + self.sub.sugar <= 100
   end
 
+  def plus_lipid
+    self.main.lipid + self.sub.lipid <= 25
+  end
+
+  def plus_salt
+    self.main.salt + self.sub.salt <= 3
+  end
+
+  def overdose_sugar
+    self.main.sugar + self.sub.sugar >= 101
+  end
+
+  def overdose_lipid
+    self.main.lipid + self.sub.lipid >= 26
+  end
+
+  def overdose_salt
+    self.main.salt + self.sub.salt >= 3.1
+  end
 end
