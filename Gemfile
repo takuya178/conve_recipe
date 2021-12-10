@@ -33,7 +33,6 @@ gem 'faker'
 gem "aws-sdk-s3", require: false
 gem 'seed-fu'
 gem 'ransack'
-gem "chartkick"
 gem 'enum_help'
 gem 'active_storage_validations'
 gem 'pagy'

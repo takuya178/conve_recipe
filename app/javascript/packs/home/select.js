@@ -42,7 +42,6 @@
          button.classList.add('select_btn_back')
        }
        $img[i].classList.toggle('filter');
-       console.log(count)
      });
    }
  

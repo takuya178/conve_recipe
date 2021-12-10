@@ -8,7 +8,6 @@ class Preview {
 
     $file.addEventListener('change', (e) => {
       this.previewImg(e);
-      console.log($file.files[0].size / 1000000)
 
       // 画像のエラーメッセージ表示
       if ($file.files[0].size / 1000000 >= MaxFileSize) {
@@ -79,7 +78,6 @@ addEventListener("direct-upload:start", event => {
   const { id } = event.detail
   const element = document.getElementById(`direct-upload-${id}`)
   element.classList.remove("direct-upload--pending")
-  console.log(element)
 })
 
 addEventListener("direct-upload:progress", event => {
