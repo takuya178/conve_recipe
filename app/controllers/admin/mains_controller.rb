@@ -3,7 +3,7 @@ class Admin::MainsController < Admin::BaseController
 
   def index
     @q = Main.ransack(params[:q])
-    @mains = @q.result.with_eager_loaded_image
+    @mains = @q.result.eager_loaded_main_image
   end
 
   def new

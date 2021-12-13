@@ -39,36 +39,6 @@ RSpec.describe "Admins", type: :system do
       end
 
       describe '新規作成' do
-        it 'メイン料理の作成時入力していないならエラー' do
-          visit new_admin_main_path
-          fill_in 'main[name]', with: ''
-          fill_in 'main[calorie]', with: ''
-          fill_in 'main[sugar]', with: ''
-          fill_in 'main[lipid]', with: ''
-          fill_in 'main[salt]', with: ''
-          click_button '送信'
-          expect(page).to have_content 'メイン料理の作成に失敗しました'
-          expect(page).to have_content '商品名を入力してください'
-          expect(page).to have_content 'カロリーを入力してください'
-          expect(page).to have_content '炭水化物を入力してください'
-          expect(page).to have_content '脂質を入力してください'
-          expect(page).to have_content '塩分を入力してください'
-        end
-        it 'サブ料理の作成時入力していないならエラー' do
-          visit new_admin_sub_path
-          fill_in 'sub[name]', with: ''
-          fill_in 'sub[calorie]', with: ''
-          fill_in 'sub[sugar]', with: ''
-          fill_in 'sub[lipid]', with: ''
-          fill_in 'sub[salt]', with: ''
-          click_button '送信'
-          expect(page).to have_content 'サブ料理の作成に失敗しました'
-          expect(page).to have_content '商品名を入力してください'
-          expect(page).to have_content 'カロリーを入力してください'
-          expect(page).to have_content '炭水化物を入力してください'
-          expect(page).to have_content '脂質を入力してください'
-          expect(page).to have_content '塩分を入力してください'
-        end
         it 'メイン料理の作成に成功' do
           visit new_admin_main_path
           attach_file "main[image]", "app/javascript/images/noimage.jpg"
@@ -97,39 +67,6 @@ RSpec.describe "Admins", type: :system do
       end
       
       describe '編集ページ' do
-        context '編集に失敗する' do
-          it 'メイン料理の更新に失敗' do
-            visit edit_admin_main_path(main.id)
-            fill_in 'main[name]', with: ''
-            fill_in 'main[calorie]', with: ''
-            fill_in 'main[sugar]', with: ''
-            fill_in 'main[lipid]', with: ''
-            fill_in 'main[salt]', with: ''
-            click_button '送信'
-            expect(page).to have_content '更新に失敗しました'
-            expect(page).to have_content '商品名を入力してください'
-            expect(page).to have_content 'カロリーを入力してください'
-            expect(page).to have_content '炭水化物を入力してください'
-            expect(page).to have_content '脂質を入力してください'
-            expect(page).to have_content '塩分を入力してください'
-          end
-          it 'サブ料理の更新に失敗' do
-            visit edit_admin_sub_path(sub.id)
-            fill_in 'sub[name]', with: ''
-            fill_in 'sub[calorie]', with: ''
-            fill_in 'sub[sugar]', with: ''
-            fill_in 'sub[lipid]', with: ''
-            fill_in 'sub[salt]', with: ''
-            click_button '送信'
-            expect(page).to have_content '更新に失敗しました'
-            expect(page).to have_content '商品名を入力してください'
-            expect(page).to have_content 'カロリーを入力してください'
-            expect(page).to have_content '炭水化物を入力してください'
-            expect(page).to have_content '脂質を入力してください'
-            expect(page).to have_content '塩分を入力してください'
-          end
-        end
-
         context '編集に成功する' do
           it 'メイン料理の更新に成功' do
             visit edit_admin_main_path(main.id)

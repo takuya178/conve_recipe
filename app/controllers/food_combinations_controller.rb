@@ -24,7 +24,7 @@ class FoodCombinationsController < ApplicationController
     @noodle = Tag.find_by(id: genre_ids, genre: 'noodle')
     @rice = Tag.find_by(id: genre_ids, genre: 'rice')
 
-    @pagy, @foods = pagy(FoodCombination.preload(:main, :sub).preload(main: { image_attachment: :blob }, sub: { image_attachment: :blob }), items: 25)
+    @pagy, @foods = pagy(FoodCombination.preload(:main, :sub).preload_food_image, items: 25)
   end
 
 end

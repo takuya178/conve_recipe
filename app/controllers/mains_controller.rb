@@ -3,7 +3,7 @@ class MainsController < ApplicationController
 
   def index
     @q = Main.ransack(params[:q])
-    @pagy, @mains = pagy(@q.result(distinct: true).with_eager_loaded_image, items: 14)
+    @pagy, @mains = pagy(@q.result(distinct: true).eager_loaded_main_image, items: 14)
   end
 
   def show
