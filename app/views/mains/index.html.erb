@@ -6,7 +6,7 @@
       <div class="row infinity_contain">
         <% @mains.each do |main| %>
         <div class="col-lg-6 infinity_page main_bottom" data-toggle="modal" data-target="#exampleModal">
-          <%= link_to main_path(main), class: "card mx-auto mb-5 food-card main_card_text_box", remote: true do %>
+          <%= link_to main_path(main), class: "card mx-auto mb-5 food-card main_card_text_box", id: "main_index", remote: true do %>
             <%= render 'shared/active_storage', target: main %>
             <div class="card-body">
               <p><%= main.name %></p>

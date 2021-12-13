@@ -2,6 +2,8 @@ class FoodCombination < ApplicationRecord
   belongs_to :main
   belongs_to :sub
 
+  scope :preload_food_image, -> { preload(main: { image_attachment: :blob }, sub: { image_attachment: :blob }) }
+
   def plus_sugar
     self.main.sugar + self.sub.sugar <= 100
   end

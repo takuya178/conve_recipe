@@ -13,9 +13,7 @@ RSpec.describe '共通系', type: :system do
           expect(page).to have_content('組み合わせ一覧')
           expect(page).to have_content('組み合わせ作成')
           expect(page).to have_content('お問合せ')
-          expect(page).to have_content('ログアウト')
         end
       end
     end
   end
-end

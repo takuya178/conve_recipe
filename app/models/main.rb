@@ -6,7 +6,7 @@ class Main < ApplicationRecord
   enum genre: { noodle: 0, rice: 1 }
   enum stores: { seven: 0, lawson: 1, family: 2 }, _prefix: true
 
-  scope :with_eager_loaded_image, -> { eager_load(image_attachment: :blob) }
+  scope :eager_loaded_main_image, -> { eager_load(image_attachment: :blob) }
 
   validate :image_content_type, :image_size, if: :was_attached?
 
