@@ -5,26 +5,26 @@ class FoodCombination < ApplicationRecord
   scope :preload_food_image, -> { preload(main: { image_attachment: :blob }, sub: { image_attachment: :blob }) }
 
   def plus_sugar
-    self.main.sugar + self.sub.sugar <= 100
+    main.sugar + sub.sugar <= 100
   end
 
   def plus_lipid
-    self.main.lipid + self.sub.lipid <= 25
+    main.lipid + sub.lipid <= 25
   end
 
   def plus_salt
-    self.main.salt + self.sub.salt <= 3
+    main.salt + sub.salt <= 3
   end
 
   def overdose_sugar
-    self.main.sugar + self.sub.sugar >= 101
+    main.sugar + sub.sugar >= 101
   end
 
   def overdose_lipid
-    self.main.lipid + self.sub.lipid >= 26
+    main.lipid + sub.lipid >= 26
   end
 
   def overdose_salt
-    self.main.salt + self.sub.salt >= 3.1
+    main.salt + sub.salt >= 3.1
   end
 end

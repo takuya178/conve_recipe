@@ -1,4 +1,4 @@
-class MainsController < ApplicationController    
+class MainsController < ApplicationController
   include Pagy::Backend
 
   def index
@@ -36,15 +36,6 @@ class MainsController < ApplicationController
   private
 
   def main_sub_form_params
-    params.require(:main_sub_form).permit(
-      :name,
-      :image,
-      :calorie,
-      :sugar,
-      :lipid,
-      :salt,
-      :genre,
-      :stores,
-      subs_attributes:[:name, :image, :calorie, :sugar, :lipid, :salt, :stores])
+    params.require(:main_sub_form).permit(:name, :image, :calorie, :sugar, :lipid, :salt, :genre, :stores, subs_attributes: %i[name image calorie sugar lipid salt stores])
   end
 end

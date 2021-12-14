@@ -17,17 +17,17 @@ class MainSubForm
     end
 
     def subs
-      @subs_attributes ||= Sub.new
+      @subs ||= Sub.new
     end
 
     def subs_attributes=(attributes)
-      @subs_attributes = Sub.new(attributes)
+      @subs = Sub.new(attributes)
     end
   end
-  
+
   def save
     return false if invalid?
-    
+
     main.assign_attributes(main_params)
     sub_build_asscociations
 
@@ -38,22 +38,22 @@ class MainSubForm
     end
   end
 
-    private
+  private
 
-    def main_params
-      {
-        name: name,
-        image: image,
-        stores: stores,
-        genre: genre,
-        calorie: calorie,
-        sugar: sugar,
-        lipid: lipid,
-        salt: salt,
-      }
-    end
-  
-    def sub_build_asscociations
-      main.subs << subs
-    end
+  def main_params
+    {
+      name: name,
+      image: image,
+      stores: stores,
+      genre: genre,
+      calorie: calorie,
+      sugar: sugar,
+      lipid: lipid,
+      salt: salt
+    }
+  end
+
+  def sub_build_asscociations
+    main.subs << subs
+  end
 end
