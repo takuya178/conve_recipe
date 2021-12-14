@@ -11,5 +11,4 @@ FactoryBot.define do
     name { Faker::Name.name }
     role { :admin }
   end
-
 end
