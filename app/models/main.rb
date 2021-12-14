@@ -15,12 +15,12 @@ class Main < ApplicationRecord
   end
 
   def was_attached?
-    self.image.attached?
+    image.attached?
   end
 
   def image_size
-      if image.blob.byte_size > 5.megabytes
-        image.purge
-      end
+    return unless image.blob.byte_size > 5.megabytes
+
+    image.purge
   end
 end

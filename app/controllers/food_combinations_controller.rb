@@ -26,5 +26,4 @@ class FoodCombinationsController < ApplicationController
 
     @pagy, @foods = pagy(FoodCombination.preload(:main, :sub).preload_food_image, items: 25)
   end
-
 end
