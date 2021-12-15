@@ -12,10 +12,6 @@ class MainSubForm
   concerning :SubBuilder do
     attr_reader :subs_attributes
 
-    def subs_params
-      params[:subs_attributes]
-    end
-
     def subs
       @subs ||= Sub.new
     end
