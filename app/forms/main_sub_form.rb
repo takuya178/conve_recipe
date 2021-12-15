@@ -21,6 +21,10 @@ class MainSubForm
     end
   end
 
+  def sub_build_asscociations
+    main.subs << subs
+  end
+
   def save
     return false if invalid?
 
@@ -47,9 +51,5 @@ class MainSubForm
       lipid: lipid,
       salt: salt
     }
-  end
-
-  def sub_build_asscociations
-    main.subs << subs
   end
 end
