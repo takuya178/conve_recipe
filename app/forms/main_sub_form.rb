@@ -12,10 +12,6 @@ class MainSubForm
   concerning :SubBuilder do
     attr_reader :subs_attributes
 
-    def subs_params
-      params[:subs_attributes]
-    end
-
     def subs
       @subs ||= Sub.new
     end
@@ -23,6 +19,10 @@ class MainSubForm
     def subs_attributes=(attributes)
       @subs = Sub.new(attributes)
     end
+  end
+
+  def sub_build_asscociations
+    main.subs << subs
   end
 
   def save
@@ -51,9 +51,5 @@ class MainSubForm
       lipid: lipid,
       salt: salt
     }
-  end
-
-  def sub_build_asscociations
-    main.subs << subs
   end
 end
