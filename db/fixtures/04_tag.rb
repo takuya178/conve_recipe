@@ -8,8 +8,4 @@ Tag.seed(:id,
   { id: 4, genre: 'noodle' },
 
   { id: 5, genre: 'rice' },
-
-  { id: 6, genre: 'bread' },
-
-  { id: 7, genre: 'snack' },
 )
