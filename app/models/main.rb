@@ -11,7 +11,7 @@ class Main < ApplicationRecord
   validate :image_content_type, :image_size, if: :was_attached?
 
   def image_content_type
-    image_type = ['image/png', 'image/jpg', 'image/jpeg']
+    ['image/png', 'image/jpg', 'image/jpeg']
   end
 
   def was_attached?
