@@ -12,7 +12,7 @@ class MainsController < ApplicationController
 
   def new
     @main_sub_form = MainSubForm.new
-    @mains = Main.find_by(name: params[:name])
+    @main_data = Main.find_by(name: params[:name])
   end
 
   def create
