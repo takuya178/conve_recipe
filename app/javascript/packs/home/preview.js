@@ -25,6 +25,7 @@ class Preview {
     const createImage = (data) => {
       const newImage = document.createElement('img'); 
       newImage.setAttribute('class', 'food_create_preview_img');
+      // scrのデータをオブジェクトURLに
       newImage.setAttribute('src', data);
       // no-img画像に添付した画像を挿入する
       this.$image.appendChild(newImage);
@@ -40,8 +41,12 @@ class Preview {
     const $ImgFile = e.target.files[0];
     const data = window.URL.createObjectURL($ImgFile);
     createImage(data);
+    this.$image.onload = () => {
+      URL.revokeObjectURL(data);
+    };
   }
 }
+
 
 // メインのプレビュー
 const MainPreview = new Preview({
