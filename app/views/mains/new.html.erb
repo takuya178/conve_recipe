@@ -6,13 +6,13 @@
       <div class="food_create_main">
           <h2 class="food_create_title">メイン</h2>
           <div class="food_create_form_box p-4">
-          <% if @mains.nil? %>
+          <% if @main_data.nil? %>
             <div class="food_create_row row">
               <%= render 'form_img', main: main %>
             </div>
           <% else %>
           <div class="food_create_select_img text-center">
-            <%= render 'shared/active_storage', target: @mains %>
+            <%= render 'shared/active_storage', target: @main_data %>
           </div>
             <div class="food_create_row row" style='display: none'>
               <%= render 'form_img', main: main %>
@@ -20,37 +20,37 @@
             <% end %>
             <p class='main_submit_text'><span class='main_submit'>*</span>は入力必須項目です</p>
             <div class="main_create_form">
-                <%= main.text_field :name, value: "#{@mains.name if !@mains.nil?}", readonly: @mains, id: 'js-main-name', class: 'main_create_input' %>
+                <%= main.text_field :name, value: "#{@main_data.name if !@main_data.nil?}", readonly: @main_data, id: 'js-main-name', class: 'main_create_input' %>
               <label>メイン食品名</label>
             </div>
             <div class="main_create_form">
-                <%= main.text_field :calorie, value: "#{@mains.calorie if !@mains.nil?}", readonly: @mains, id: 'js-main-calorie', class: 'main_create_input' %>
+                <%= main.text_field :calorie, value: "#{@main_data.calorie if !@main_data.nil?}", readonly: @main_data, id: 'js-main-calorie', class: 'main_create_input' %>
               <label>カロリー</label>
               <span>cal</span>
             </div>
             <div class="main_create_form">
-                <%= main.text_field :sugar, value: "#{@mains.sugar if !@mains.nil?}", readonly: @mains, id: 'js-main-sugar', class: 'main_create_input' %>
+                <%= main.text_field :sugar, value: "#{@main_data.sugar if !@main_data.nil?}", readonly: @main_data, id: 'js-main-sugar', class: 'main_create_input' %>
               <label>炭水化物</label>
               <span>g</span>
             </div>
             <div class="main_create_form">
-                <%= main.text_field :lipid, value: "#{@mains.lipid if !@mains.nil?}", readonly: @mains, id: 'js-main-lipid', class: 'main_create_input' %>
+                <%= main.text_field :lipid, value: "#{@main_data.lipid if !@main_data.nil?}", readonly: @main_data, id: 'js-main-lipid', class: 'main_create_input' %>
               <label>脂質</label>
               <span>g</span>
             </div>
             <div class="main_create_form">
-                <%= main.text_field :salt, value: "#{@mains.salt if !@mains.nil?}", readonly: @mains, id: 'js-main-salt', class: 'main_create_input' %>
+                <%= main.text_field :salt, value: "#{@main_data.salt if !@main_data.nil?}", readonly: @main_data, id: 'js-main-salt', class: 'main_create_input' %>
               <label>塩分</label>
               <span>g</span>
             </div>
             <div class="main_create_form">
               <label class="food_create_label">
-                <%= main.select :stores, options_for_select(Main.stores_i18n.invert), {prompt: "#{@mains.nil? ? 'コンビニ名を選択' : @mains.stores_i18n}"}, class: "main_create_input w-100", disabled: @mains, id: 'js-main-store' %>
+                <%= main.select :stores, options_for_select(Main.stores_i18n.invert), {prompt: "#{@main_data.nil? ? 'コンビニ名を選択' : @main_data.stores_i18n}"}, class: "main_create_input w-100", disabled: @main_data, id: 'js-main-store' %>
               </label>
             </div>
             <div class="main_create_form">
               <label class="food_create_label">
-                <%= main.select :genre, options_for_select(Main.genres_i18n.invert), {prompt: "#{@mains.nil? ? 'ジャンルを選択' : @mains.genre_i18n}"}, class: "main_create_input w-100", disabled: @mains, id: 'js-main-genre' %>
+                <%= main.select :genre, options_for_select(Main.genres_i18n.invert), {prompt: "#{@main_data.nil? ? 'ジャンルを選択' : @main_data.genre_i18n}"}, class: "main_create_input w-100", disabled: @main_data, id: 'js-main-genre' %>
               </label>
             </div>
           </div>
