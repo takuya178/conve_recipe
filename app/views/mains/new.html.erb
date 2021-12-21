@@ -79,31 +79,28 @@
               <div id='js-sub-error-message'></div>
             </div>
           </div>
-
-
-
             <p class='main_submit_text'><span class='main_submit'>*</span>は入力必須項目です</p>
             <div class="main_create_form">
-              <%= sub.text_field :name, value: "#{@subs.name if !@subs.nil?}", readonly: @subs, id: 'js-sub-name', class: 'main_create_input' %>
+              <%= sub.text_field :name, id: 'js-sub-name', class: 'main_create_input' %>
               <label>サブ食品名</label>
             </div>
             <div class="main_create_form">
-              <%= sub.text_field :calorie, value: "#{@subs.calorie if !@subs.nil?}", readonly: @subs, id: 'js-sub-calorie', class: 'main_create_input' %>
+              <%= sub.text_field :calorie, id: 'js-sub-calorie', class: 'main_create_input' %>
               <label>カロリー</label>
               <span>cal</span>
             </div>
             <div class="main_create_form">
-              <%= sub.text_field :sugar, value: "#{@subs.sugar if !@subs.nil?}", readonly: @subs, id: 'js-sub-sugar', class: 'main_create_input' %>
+              <%= sub.text_field :sugar, id: 'js-sub-sugar', class: 'main_create_input' %>
               <label>炭水化物</label>
               <span>g</span>
             </div>
             <div class="main_create_form">
-              <%= sub.text_field :lipid, value: "#{@subs.lipid if !@subs.nil?}", readonly: @subs, id: 'js-sub-lipid', class: 'main_create_input' %>
+              <%= sub.text_field :lipid, id: 'js-sub-lipid', class: 'main_create_input' %>
               <label>脂質</label>
               <span>g</span>
             </div>
             <div class="main_create_form">
-              <%= sub.text_field :salt, value: "#{@subs.salt if !@subs.nil?}", readonly: @subs, id: 'js-sub-salt', class: 'main_create_input' %>
+              <%= sub.text_field :salt, id: 'js-sub-salt', class: 'main_create_input' %>
               <label>塩分</label>
               <span>g</span>
             </div>
