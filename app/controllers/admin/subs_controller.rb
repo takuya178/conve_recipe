@@ -3,7 +3,7 @@ class Admin::SubsController < Admin::BaseController
 
   def index
     @q = Sub.ransack(params[:q])
-    @subs = @q.result.eager_loaded_sub_image
+    @subs = @q.result.preload_sub_image
   end
 
   def new
