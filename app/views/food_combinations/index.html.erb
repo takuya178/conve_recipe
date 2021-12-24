@@ -9,7 +9,7 @@
       <span>G</span>
 </div>
 
-<% if @sugar && @component_params.size == 1 && @noodle %>
+<% if @sugar && @noodle %>
   <div class="food_combination" id='js-tab'>
     <div class="food_select container" id='js-normalselect'>
       <%= render 'button' %>
@@ -29,7 +29,7 @@
     </div>
   </div>
 
-<% elsif @sugar && @component_params.size == 1 && @rice %>
+<% elsif @sugar && @rice %>
   <div class="food_combination" id='tab'>
     <div class="food_select container" id='js-normalselect'>
       <%= render 'button' %>
@@ -49,7 +49,7 @@
     </div>
   </div>
 
-<% elsif @lipid && @component_params.size == 1 && @noodle %>
+<% elsif @lipid && @noodle %>
   <div class="food_combination" id='tab'>
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
@@ -69,7 +69,7 @@
     </div>
   </div>
 
-<% elsif @lipid && @component_params.size == 1 && @rice %>
+<% elsif @lipid && @rice %>
   <div class="food_combination" id='tab'>
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
@@ -89,7 +89,7 @@
     </div>
   </div>
 
-<% elsif @salt && @component_params.size == 1 && @noodle %>
+<% elsif @salt && @noodle %>
   <div class="food_combination" id='tab'>
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
@@ -109,7 +109,7 @@
     </div>
   </div>
 
-<% elsif @salt && @component_params.size == 1 && @rice %>
+<% elsif @salt && @rice %>
   <div class="food_combination" id='tab'>
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
@@ -129,7 +129,7 @@
     </div>
   </div>
 
-<% elsif @sugar && @lipid && @component_params.size == 2 && @noodle %>
+<% elsif @sugar && @noodle %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
@@ -149,7 +149,7 @@
     </div>
   </div>
 
-<% elsif @sugar && @lipid && @component_params.size == 2 && @rice %>
+<% elsif @sugar && @rice %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
@@ -158,7 +158,7 @@
       </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'rice' && food.plus_sugar && food.plus_salt %>
+          <% if food.main.genre == 'rice' && food.plus_sugar && food.plus_lipid %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
@@ -169,7 +169,7 @@
     </div>
   </div>
 
-<% elsif @lipid && @salt && @component_params.size == 2 && @noodle %>
+<% elsif @lipid && @salt && @noodle %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
@@ -189,7 +189,7 @@
     </div>
   </div>
 
-<% elsif @lipid && @salt && @component_params.size == 2 && @rice %>
+<% elsif @lipid && @salt && @rice %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
@@ -209,7 +209,7 @@
     </div>
   </div>
 
-<% elsif @sugar && @salt && @component_params.size == 2 && @noodle %>
+<% elsif @sugar && @salt && @noodle %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
@@ -229,7 +229,7 @@
     </div>
   </div>
 
-<% elsif @sugar && @salt && @component_params.size == 2 && @rice %>
+<% elsif @sugar && @salt && @rice %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
@@ -238,7 +238,7 @@
       </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'rice' && food.plus_salt && food.plus_salt %>
+          <% if food.main.genre == 'rice' && food.plus_sugar && food.plus_salt %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
