@@ -1,5 +1,5 @@
 <% content_for(:title, t('.title')) %>
-<% if @sugar && @component_params.size == 1 && @noodle %> 
+<% if @sugar && @noodle %> 
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %>
@@ -19,7 +19,7 @@
     </div>
   </div>
 
-<% elsif @sugar && @component_params.size == 1 && @rice %>
+<% elsif @sugar && @rice %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
@@ -39,7 +39,7 @@
     </div>
   </div>
 
-<% elsif @lipid && @component_params.size == 1 && @noodle %>
+<% elsif @lipid && @noodle %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %>
@@ -59,7 +59,7 @@
     </div>
   </div>
 
-<% elsif @lipid && @component_params.size == 1 && @rice %>
+<% elsif @lipid && @rice %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %>  
@@ -79,7 +79,7 @@
     </div>
   </div>
 
-<% elsif @salt && @component_params.size == 1 && @noodle %>
+<% elsif @salt && @noodle %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %>
@@ -99,7 +99,7 @@
     </div>
   </div>
 
-<% elsif @salt && @component_params.size == 1 && @rice %>
+<% elsif @salt && @rice %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
@@ -119,7 +119,7 @@
     </div>
   </div>
 
-<% elsif @sugar && @lipid && @component_params.size == 2 && @noodle %>
+<% elsif @sugar && @lipid && @noodle %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
@@ -139,7 +139,7 @@
     </div>
   </div>
 
-<% elsif @sugar && @lipid && @component_params.size == 2 && @rice %>
+<% elsif @sugar && @lipid && @rice %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
@@ -158,7 +158,7 @@
     </div>
   </div>
 
-<% elsif @lipid && @salt && @component_params.size == 2 && @noodle  %>
+<% elsif @lipid && @salt && @noodle  %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
@@ -178,7 +178,7 @@
     </div>
   </div>
 
-<% elsif @lipid && @salt && @component_params.size == 2 && @rice  %>
+<% elsif @lipid && @salt && @rice  %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
@@ -198,7 +198,7 @@
     </div>
   </div>
 
-<% elsif @sugar && @salt && @component_params.size == 2 && @noodle  %>
+<% elsif @sugar && @salt && @noodle  %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
@@ -218,7 +218,7 @@
     </div>
   </div>
 
-<% elsif @sugar && @salt && @component_params.size == 2 && @rice  %>
+<% elsif @sugar && @salt && @rice  %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
