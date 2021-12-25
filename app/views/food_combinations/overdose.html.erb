@@ -1,11 +1,8 @@
 <% content_for(:title, t('.title')) %>
-<% if @sugar && @noodle %> 
+<% if @sugar && @noodle && @component_params.size == 1 %> 
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物101g以上の組み合わせ</p>    
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'noodle' && food.overdose_sugar %>
@@ -19,13 +16,10 @@
     </div>
   </div>
 
-<% elsif @sugar && @rice %>
+<% elsif @sugar && @rice && @component_params.size == 1 %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物101g以上の組み合わせ</p>    
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'rice' && food.overdose_sugar %>
@@ -39,13 +33,10 @@
     </div>
   </div>
 
-<% elsif @lipid && @noodle %>
+<% elsif @lipid && @noodle && @component_params.size == 1 %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">脂質26g以上の組み合わせ</p>    
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'noodle' && food.overdose_lipid %>
@@ -59,13 +50,10 @@
     </div>
   </div>
 
-<% elsif @lipid && @rice %>
+<% elsif @lipid && @rice && @component_params.size == 1 %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %>  
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">脂質26g以上の組み合わせ</p>    
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'rice' && food.overdose_lipid %>
@@ -79,13 +67,10 @@
     </div>
   </div>
 
-<% elsif @salt && @noodle %>
+<% elsif @salt && @noodle && @component_params.size == 1 %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">塩分3.1g以上の組み合わせ</p>    
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'noodle' && food.overdose_salt %>
@@ -99,13 +84,10 @@
     </div>
   </div>
 
-<% elsif @salt && @rice %>
+<% elsif @salt && @rice && @component_params.size == 1 %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">塩分3.1g以上の組み合わせ</p>    
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'rice' && food.overdose_salt %>
@@ -119,16 +101,13 @@
     </div>
   </div>
 
-<% elsif @sugar && @lipid && @noodle %>
+<% elsif @sugar && @lipid && @noodle && @component_params.size == 2 %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物101g以上、脂質26g以上の組み合わせ</p>
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'noodle' && (food.overdose_sugar || food.overdose_lipid)  %>
+          <% if food.main.genre == 'noodle' && (food.overdose_sugar || food.overdose_lipid) %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
@@ -139,12 +118,10 @@
     </div>
   </div>
 
-<% elsif @sugar && @lipid && @rice %>
+<% elsif @sugar && @lipid && @rice && @component_params.size == 2 %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物101g以上、脂質26g以上の組み合わせ</p>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'rice' && (food.overdose_sugar || food.overdose_lipid)  %>
@@ -158,16 +135,13 @@
     </div>
   </div>
 
-<% elsif @lipid && @salt && @noodle  %>
+<% elsif @lipid && @salt && @noodle && @component_params.size == 2 %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">脂質26g以上、塩分3.1g以上の組み合わせ</p>  
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'noodle' && (food.overdose_lipid || food.overdose_salt)  %>
+          <% if food.main.genre == 'noodle' && (food.overdose_lipid || food.overdose_salt) %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
@@ -178,13 +152,10 @@
     </div>
   </div>
 
-<% elsif @lipid && @salt && @rice  %>
+<% elsif @lipid && @salt && @rice && @component_params.size == 2 %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">脂質26g以上、塩分3.1g以上の組み合わせ</p>
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'rice' && (food.overdose_lipid || food.overdose_salt)  %>
@@ -198,16 +169,13 @@
     </div>
   </div>
 
-<% elsif @sugar && @salt && @noodle  %>
+<% elsif @sugar && @salt && @noodle && @component_params.size == 2 %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物101g以上、塩分3.1g以上の組み合わせ</p>
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'noodle' && (food.overdose_sugar || food.overdose_salt)  %>
+          <% if food.main.genre == 'noodle' && (food.overdose_sugar || food.overdose_salt) %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
@@ -218,16 +186,13 @@
     </div>
   </div>
 
-<% elsif @sugar && @salt && @rice  %>
+<% elsif @sugar && @salt && @rice && @component_params.size == 2 %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">糖質101g以上、塩分3.1g以上の組み合わせ</p>
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'rice' && (food.overdose_sugar || food.overdose_salt)  %>
+          <% if food.main.genre == 'rice' && (food.overdose_sugar || food.overdose_salt) %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
@@ -238,13 +203,10 @@
     </div>
   </div>
 
-<% elsif @sugar && @lipid && @salt && @noodle  %>
+<% elsif @sugar && @lipid && @salt && @noodle && @component_params.size == 3 %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物101g以上、脂質26g以上、塩分3.1g以上の組み合わせ</p> 
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'noodle' && (food.overdose_sugar || food.overdose_lipid || food.overdose_salt) %>
@@ -258,13 +220,10 @@
     </div>
   </div>
 
-<% elsif @sugar && @lipid && @salt && @rice  %>
+<% elsif @sugar && @lipid && @salt && @rice && @component_params.size == 3 %>
   <div class="food_combination" id='tab'>
     <div class="food_select container">
       <%= render 'button' %> 
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物101g以上、脂質26g以上、塩分3.1g以上の組み合わせ</p>   
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'rice' && (food.overdose_sugar || food.overdose_lipid || food.overdose_salt) %>
