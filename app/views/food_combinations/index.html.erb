@@ -9,13 +9,10 @@
       <span>G</span>
 </div>
 
-<% if @sugar && @noodle %>
+<% if @sugar && @component_params.size == 1 && @noodle %>
   <div class="food_combination" id='js-tab'>
     <div class="food_select container" id='js-normalselect'>
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物100g以下の組み合わせ</p>
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'noodle' && food.plus_sugar %>
@@ -29,13 +26,10 @@
     </div>
   </div>
 
-<% elsif @sugar && @rice %>
+<% elsif @sugar && @component_params.size == 1 && @rice %>
   <div class="food_combination" id='tab'>
     <div class="food_select container" id='js-normalselect'>
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物100g以下の組み合わせ</p>    
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'rice' && food.plus_sugar%>
@@ -49,13 +43,10 @@
     </div>
   </div>
 
-<% elsif @lipid && @noodle %>
+<% elsif @lipid && @component_params.size == 1 && @noodle %>
   <div class="food_combination" id='tab'>
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">脂質25g以下の組み合わせ</p>    
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'noodle' && food.plus_lipid %>
@@ -69,13 +60,10 @@
     </div>
   </div>
 
-<% elsif @lipid && @rice %>
+<% elsif @lipid && @component_params.size == 1 && @rice %>
   <div class="food_combination" id='tab'>
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">脂質25g以下の組み合わせ</p>    
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'rice' && food.plus_lipid %>
@@ -89,13 +77,10 @@
     </div>
   </div>
 
-<% elsif @salt && @noodle %>
+<% elsif @salt && @component_params.size == 1 && @noodle %>
   <div class="food_combination" id='tab'>
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">塩分3g以下の組み合わせ</p>    
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'noodle' && food.plus_salt %>
@@ -109,13 +94,10 @@
     </div>
   </div>
 
-<% elsif @salt && @rice %>
+<% elsif @salt && @component_params.size == 1 && @rice %>
   <div class="food_combination" id='tab'>
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">塩分3g以下の組み合わせ</p>    
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
           <% if food.main.genre == 'rice' && food.plus_salt %>
@@ -129,16 +111,13 @@
     </div>
   </div>
 
-<% elsif @sugar && @noodle %>
+<% elsif @sugar && @lipid && @noodle && @component_params.size == 2 %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物100g以下、脂質25g以下の組み合わせ</p> 
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'noodle' && food.plus_sugar && food.plus_lipid  %>
+          <% if food.main.genre == 'noodle' && (food.plus_sugar && food.plus_lipid) %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
@@ -149,7 +128,7 @@
     </div>
   </div>
 
-<% elsif @sugar && @rice %>
+<% elsif @sugar && @rice && @component_params.size == 2 %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
@@ -158,7 +137,7 @@
       </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'rice' && food.plus_sugar && food.plus_lipid %>
+          <% if food.main.genre == 'rice' && (food.plus_sugar && food.plus_lipid) %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
@@ -169,16 +148,13 @@
     </div>
   </div>
 
-<% elsif @lipid && @salt && @noodle %>
+<% elsif @lipid && @salt && @noodle && @component_params.size == 2 %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">脂質25g以下、塩分3g以下の組み合わせ</p>
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'noodle' && food.plus_lipid && food.plus_salt %>
+          <% if food.main.genre == 'noodle' && (food.plus_lipid && food.plus_salt) %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
@@ -189,16 +165,13 @@
     </div>
   </div>
 
-<% elsif @lipid && @salt && @rice %>
+<% elsif @lipid && @salt && @rice && @component_params.size == 2 %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">脂質25g以下、塩分3g以下の組み合わせ</p>
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'rice' && food.plus_lipid && food.plus_salt %>
+          <% if food.main.genre == 'rice' && (food.plus_lipid && food.plus_salt) %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
@@ -209,16 +182,13 @@
     </div>
   </div>
 
-<% elsif @sugar && @salt && @noodle %>
+<% elsif @sugar && @salt && @noodle && @component_params.size == 2 %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物100g以下、塩分3g以下の組み合わせ</p>
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'noodle' && food.plus_sugar && food.plus_salt %>
+          <% if food.main.genre == 'noodle' && (food.plus_sugar && food.plus_salt) %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
@@ -229,16 +199,13 @@
     </div>
   </div>
 
-<% elsif @sugar && @salt && @rice %>
+<% elsif @sugar && @salt && @rice && @component_params.size == 2 %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物100g以下、塩分3g以下の組み合わせ</p>
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'rice' && food.plus_sugar && food.plus_salt %>
+          <% if food.main.genre == 'rice' && (food.plus_sugar && food.plus_salt) %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
@@ -249,16 +216,13 @@
     </div>
   </div>
 
-<% elsif @sugar && @lipid && @salt && @noodle %>
+<% elsif @sugar && @lipid && @salt && @noodle && @component_params.size == 3 %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物100g以下、脂質25g以下、塩分3g以下の組み合わせ</p> 
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'noodle' && food.plus_sugar && food.plus_lipid && food.plus_salt %>
+          <% if food.main.genre == 'noodle' && (food.plus_sugar && food.plus_lipid && food.plus_salt) %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
@@ -269,16 +233,13 @@
     </div>
   </div>
 
-<% elsif @sugar && @lipid && @salt && @rice %>
+<% elsif @sugar && @lipid && @salt && @rice && @component_params.size == 3 %>
   <div class="food_combination">
     <div class="food_select container" id='js-normalselect' style="display: block">
       <%= render 'button' %>
-      <div class="food_combi_component_text_inner">
-        <p class="food_combi_ngtext">炭水化物100g以下、脂質25g以下、塩分3g以下の組み合わせ</p>  
-      </div>
       <div class="js_contain">
         <% @foods.each do |food| %>
-          <% if food.main.genre == 'rice' && food.plus_sugar && food.plus_lipid && food.plus_salt %>
+          <% if food.main.genre == 'rice' && (food.plus_sugar && food.plus_lipid && food.plus_salt) %>
             <div class="food_combi_contain">
               <%= render 'details', food: food %>
             </div>
@@ -292,4 +253,3 @@
 
 <div id="js-scroll-fadein" class="js-scroll-fadein arrow normal"></div>  
 <%= javascript_pack_tag 'home/food' %>
-
