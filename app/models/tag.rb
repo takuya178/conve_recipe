@@ -1,4 +1,4 @@
 class Tag < ApplicationRecord
-  scope :where_component, ->(id, component) { where(id: id, component: component) }
-  scope :where_genre, ->(id, genre) { where(id: id, genre: genre) }
+  scope :find_component, ->(id, component) { find_by(id: id, component: component) }
+  scope :find_genre, ->(id, genre) { find_by(id: id, genre: genre) }
 end
