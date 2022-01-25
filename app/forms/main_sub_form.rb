@@ -10,12 +10,12 @@ class MainSubForm
   attr_accessor :name, :image, :stores, :genre, :calorie, :sugar, :lipid, :salt
 
   concerning :SubBuilder do
-    def subs
-      @subs ||= Sub.new
+    def sub
+      @sub ||= Sub.new
     end
 
-    def subs_attributes=(attributes)
-      @subs = Sub.new(attributes)
+    def sub_attributes=(attributes)
+      @sub = Sub.new(attributes)
     end
   end
 
