@@ -20,7 +20,7 @@ class MainSubForm
   end
 
   def sub_build_asscociations
-    main.sub << sub
+    main.subs << sub
   end
 
   def save
